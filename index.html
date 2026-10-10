@@ -795,10 +795,9 @@
 
       <nav aria-label="Pravne informacije" data-i18n-aria="footer.legalAria">
         <p data-i18n="footer.info" class="font-display font-semibold">Informacije</p>
-        <!-- Zameni "#" pravim linkovima -->
         <ul class="mt-4 space-y-2 text-sm text-ink/60">
-          <li><a href="#" data-i18n="footer.privacy" class="transition hover:text-brand-600">Politika privatnosti</a></li>
-          <li><a href="#" data-i18n="footer.terms" class="transition hover:text-brand-600">Uslovi korišćenja</a></li>
+          <li><a href="privacy.html" data-legal-link data-i18n="footer.privacy" class="transition hover:text-brand-600">Politika privatnosti</a></li>
+          <li><a href="terms.html" data-legal-link data-i18n="footer.terms" class="transition hover:text-brand-600">Uslovi korišćenja</a></li>
           <li><a href="mailto:kontakt@petlink.app" data-i18n="footer.contact" class="transition hover:text-brand-600">Kontakt</a></li>
         </ul>
       </nav>
@@ -1414,6 +1413,9 @@
         document.querySelectorAll('[data-i18n-alt]').forEach((el) => el.setAttribute('alt', t(el.dataset.i18nAlt)));
 
         langCurrent.textContent = info.label;
+        document.querySelectorAll('a[data-legal-link]').forEach((a) => {
+          a.href = a.getAttribute('href').split('?')[0] + '?lang=' + currentLang;
+        });
         langMenu.querySelectorAll('.lang-option').forEach((btn) => {
           const active = btn.dataset.lang === currentLang;
           btn.setAttribute('aria-current', active ? 'true' : 'false');

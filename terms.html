@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uslovi korišćenja — PetLink</title>
+  <meta name="description" content="Pravila korišćenja aplikacije PetLink: nalog, Pet Alert, usvajanje, Love Match, AI asistent i odgovornost." />
+  <meta name="theme-color" content="#F97316" />
+  <link rel="canonical" href="https://markolosic.github.io/petlink-web/terms.html" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2" />
+  <link rel="shortcut icon" href="favicon.ico?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#FFF7ED', 100: '#FFEDD5', 200: '#FED7AA', 300: '#FDBA74',
+              400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C',
+            },
+            accent: {
+              50: '#EEF8F9', 100: '#D3EEF0', 400: '#6BB8BF', 500: '#4DA1A9', 600: '#3B8389', 700: '#2F676C',
+            },
+            cream: '#FFFBF5',
+            ink: '#1F1A17',
+          },
+          boxShadow: {
+            soft: '0 10px 40px -12px rgba(124, 58, 16, 0.18)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/legal.css" />
+</head>
+
+<!--
+  ================================================================
+  USLOVI KORIŠĆENJA
+  ----------------------------------------------------------------
+  • Tekst za svaki jezik je u posebnom <article data-lang="...">.
+    Kad menjaš sadržaj, izmeni ga u SVA ČETIRI članka.
+  • <h2 data-anchor="..."> mora imati isti anchor u svim jezicima.
+  • Ne zaboravi da ažuriraš datum "Poslednje ažuriranje".
+  ================================================================
+-->
+<body class="bg-cream font-sans text-ink overflow-x-hidden">
+
+  <header class="sticky top-0 z-50 border-b border-ink/5 bg-cream/85 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <a href="index.html" data-keep-lang class="flex items-center gap-2" aria-label="PetLink">
+        <img src="assets/logo.png" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-ink object-cover shadow-soft" />
+        <span class="font-display text-lg font-bold tracking-tight">Pet<span class="text-brand-500">Link</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="index.html" data-keep-lang class="hidden items-center gap-1.5 rounded-2xl px-3 py-2 text-sm font-medium text-ink/70 transition hover:text-brand-600 sm:inline-flex">
+          <i data-lucide="arrow-left" class="h-4 w-4" aria-hidden="true"></i> <span data-ui="back">Nazad na početnu</span>
+        </a>
+        <div class="relative" id="lang-switcher">
+          <button id="lang-toggle" type="button" class="flex h-11 items-center gap-1.5 rounded-2xl bg-white px-3 text-sm font-semibold shadow-soft transition hover:text-brand-600" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Izaberi jezik">
+            <i data-lucide="globe" class="h-4 w-4" aria-hidden="true"></i>
+            <span id="lang-current">SR</span>
+            <i data-lucide="chevron-down" class="h-4 w-4 text-ink/40" aria-hidden="true"></i>
+          </button>
+          <ul id="lang-menu" class="absolute right-0 mt-2 hidden w-44 space-y-1 rounded-2xl bg-white p-2 text-sm shadow-soft">
+            <li><button type="button" data-lang="sr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">SR</span> Srpski</button></li>
+            <li><button type="button" data-lang="hr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">HR</span> Hrvatski</button></li>
+            <li><button type="button" data-lang="bs" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">BS</span> Bosanski</button></li>
+            <li><button type="button" data-lang="en" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">EN</span> English</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[15rem_1fr] lg:py-14">
+
+    <aside class="hidden lg:block">
+      <nav class="sticky top-24 text-sm text-ink/70" aria-labelledby="toc-title">
+        <p id="toc-title" data-ui="toc" class="mb-3 px-2 font-display font-semibold text-ink">Sadržaj</p>
+        <ol id="toc-list" class="space-y-0.5"></ol>
+      </nav>
+    </aside>
+
+    <main id="main" class="min-w-0">
+
+      <!-- ============================================================
+           SRPSKI
+           ============================================================ -->
+      <article data-lang="sr" lang="sr-Latn" data-title="Uslovi korišćenja — PetLink" class="legal">
+        <p class="eyebrow">PetLink</p>
+        <h1>Uslovi korišćenja</h1>
+        <p class="updated">Poslednje ažuriranje: 10. oktobar 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> PetLink je besplatan alat koji ti pomaže da brineš o ljubimcu i povežeš se sa drugim vlasnicima. Budi pošten i ljubazan, objavljuj samo istinite informacije, ne prodaj životinje preko oglasa za usvajanje i zapamti — AI asistent i podsetnici ne zamenjuju veterinara.</p>
+        </div>
+
+        <h2 data-anchor="acceptance">1. Prihvatanje uslova</h2>
+        <p>Ovi uslovi uređuju korišćenje mobilne aplikacije PetLink i ovog sajta (zajedno: „Usluga”), koje pruža Marko Lošić (u daljem tekstu: „PetLink”, „mi”). Registracijom ili korišćenjem Usluge prihvataš ove uslove i našu <a href="privacy.html" data-keep-lang>Politiku privatnosti</a>. Ako se ne slažeš, nemoj koristiti Uslugu.</p>
+
+        <h2 data-anchor="eligibility">2. Uslovi za korišćenje i nalog</h2>
+        <ul>
+          <li>Moraš imati najmanje 16 godina.</li>
+          <li>Podaci koje uneseš pri registraciji moraju biti tačni. Jedan nalog koristi jedna osoba.</li>
+          <li>Odgovoran si za čuvanje lozinke i za sve aktivnosti na svom nalogu. Ako posumnjaš na neovlašćen pristup, odmah nam se javi.</li>
+          <li>Nalog možeš obrisati u svakom trenutku u aplikaciji (Profil → Privatnost i Bezbednost).</li>
+        </ul>
+
+        <h2 data-anchor="service">3. Šta Usluga obuhvata</h2>
+        <p>PetLink nudi: digitalni e-Karton (vakcine, paraziti, medicinska dokumentacija), podsetnike, Pet Alert za nestale ljubimce sa mapom, prijavama viđenja i plakatom, NFC privezak, oglase za usvajanje, Love Match za pronalazak partnera za parenje, četove i AI asistenta. Funkcije možemo menjati, dodavati ili ukidati kako se aplikacija razvija.</p>
+        <p>Usluga je trenutno besplatna. AI asistent ima dnevno ograničenje broja pitanja (trenutno 5 u 24 sata). Ako ikada uvedemo plaćene funkcije, unapred ćemo jasno navesti cenu i uslove.</p>
+
+        <h2 data-anchor="user-content">4. Tvoj sadržaj</h2>
+        <p>Sadržaj koji objaviš (fotografije, opisi, oglasi, poruke, prijave viđenja, dokumenti) ostaje tvoj. Objavom nam daješ neisključivu, besplatnu licencu, ograničenu na teritoriju na kojoj je Usluga dostupna, da taj sadržaj čuvamo, obrađujemo i prikazujemo u meri potrebnoj za rad Usluge (npr. da prikažemo tvoj oglas ili Pet Alert drugim korisnicima). Licenca prestaje kada sadržaj obrišeš, osim za poruke koje su već dostavljene drugim korisnicima.</p>
+        <p>Garantuješ da imaš pravo da objaviš taj sadržaj i da on ne krši prava drugih (npr. autorska prava na fotografiji ili privatnost drugih osoba).</p>
+
+        <h2 data-anchor="acceptable-use">5. Pravila ponašanja</h2>
+        <p>Zabranjeno je:</p>
+        <ul>
+          <li>objavljivati lažne, obmanjujuće ili tuđe podatke, uključujući lažne prijave nestanka ili viđenja;</li>
+          <li>uznemiravati, vređati, pretiti ili diskriminisati druge korisnike, ili slati neželjene poruke (spam);</li>
+          <li>objavljivati nasilan, uvredljiv ili seksualno eksplicitan sadržaj, kao i sadržaj koji prikazuje zlostavljanje životinja;</li>
+          <li>prodavati, kupovati ili trgovati životinjama preko Usluge, ili nuditi zaštićene i divlje vrste;</li>
+          <li>koristiti tuđe podatke iz Usluge (npr. broj telefona sa Pet Alert-a) u bilo koje druge svrhe osim pomoći oko konkretnog ljubimca;</li>
+          <li>zaobilaziti ograničenja, pokušavati neovlašćen pristup tuđim podacima ili sistemima, ometati rad Usluge, ili automatski prikupljati podatke (scraping, botovi);</li>
+          <li>koristiti Uslugu suprotno važećim propisima, uključujući propise o dobrobiti i zaštiti životinja.</li>
+        </ul>
+
+        <h2 data-anchor="pet-alert">6. Pet Alert, mapa i viđenja</h2>
+        <ul>
+          <li>Pet Alert prijavljuj samo za svog ljubimca koji je zaista nestao i deaktiviraj ga čim bude pronađen.</li>
+          <li>Prijavom nestanka pristaješ da tvoje ime, broj telefona, lokacija nestanka i podaci o ljubimcu budu vidljivi drugim korisnicima i na plakatu.</li>
+          <li>Ne garantujemo da će obaveštenje stići do svih korisnika u blizini, niti da će ljubimac biti pronađen. Pet Alert je dopuna, a ne zamena za prijavu nadležnim službama, azilima i veterinarskim ambulantama.</li>
+          <li>Pri traženju ljubimca ili proveri viđenja čuvaj svoju bezbednost, ne ulazi na tuđ posed bez dozvole i ne prilazi agresivnim životinjama. Budi oprezan sa osobama koje traže novac za „vraćanje” ljubimca.</li>
+        </ul>
+
+        <h2 data-anchor="adoption">7. Usvajanje</h2>
+        <ul>
+          <li>Oglasi su namenjeni udomljavanju, ne prodaji. Dozvoljena je eventualna naknada stvarnih troškova (npr. vakcinacija, čipovanje) ako je jasno navedena u oglasu i u skladu sa zakonom.</li>
+          <li>Opis zdravstvenog stanja i ponašanja ljubimca mora biti istinit.</li>
+          <li>PetLink nije strana u dogovoru o usvajanju i ne proverava korisnike, ljubimce ni oglase unapred. Pre preuzimanja ili predaje ljubimca upoznajte se, proverite dokumentaciju i sastanite se na bezbednom mestu.</li>
+          <li>Neprikladne oglase prijavi preko opcije „Prijavi” u oglasu.</li>
+        </ul>
+
+        <h2 data-anchor="love-match">8. Love Match (parenje)</h2>
+        <ul>
+          <li>Vlasnik je isključivo odgovoran za odluku o parenju, zdravlje i dobrobit životinja, kao i za poštovanje propisa i pravila kinoloških/felinoloških saveza.</li>
+          <li>Oznake „pedigre” i „zdravstveno proveren” unosi vlasnik — PetLink ih ne proverava. Pre parenja zatraži originalnu dokumentaciju i mišljenje veterinara.</li>
+          <li>Love Match se ne sme koristiti za komercijalno razmnožavanje ili prodaju mladunaca bez zakonom propisanih dozvola.</li>
+        </ul>
+
+        <h2 data-anchor="ai-assistant">9. AI asistent nije veterinar</h2>
+        <p>Odgovore AI asistenta generiše veštačka inteligencija (DeepSeek ili Google Gemini). Oni su opšte informativne prirode, mogu biti netačni ili nepotpuni i <strong>ne predstavljaju veterinarsku dijagnozu, savet ni terapiju</strong>. Za svaku zdravstvenu odluku konsultuj veterinara. <strong>U hitnim slučajevima (trovanje, povreda, otežano disanje, napadi…) odmah se obrati najbližoj veterinarskoj ambulanti.</strong></p>
+
+        <h2 data-anchor="health-records">10. e-Karton i podsetnici</h2>
+        <p>e-Karton je lična evidencija koju vodiš ti — nije zvanična veterinarska dokumentacija i ne zamenjuje pasoš ljubimca ni nalaze veterinara. Podsetnici zavise od podešavanja telefona, dozvola i mreže, pa ne garantujemo da će svaki stići na vreme. Za tačnost unetih datuma i podataka odgovoran si ti.</p>
+
+        <h2 data-anchor="nfc">11. NFC privezak</h2>
+        <p>Aplikacija upisuje link ka profilu ljubimca na kompatibilan NFC privezak. Ne odgovaramo za priveske trećih proizvođača, njihovo oštećenje ili gubitak, niti za uređaje koji ne podržavaju NFC. Podatke sa priveska može očitati svako ko ga skenira.</p>
+
+        <h2 data-anchor="moderation">12. Prijave, blokiranje i ukidanje naloga</h2>
+        <p>Korisnike možeš blokirati, a oglase prijaviti direktno u aplikaciji; druge prijave šalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>. Zadržavamo pravo da bez prethodne najave uklonimo sadržaj ili ograničimo, suspendujemo ili ugasimo nalog koji krši ove uslove ili zakon, ili ugrožava druge korisnike ili životinje. Kada je to moguće, obavestićemo te o razlogu.</p>
+
+        <h2 data-anchor="third-party">13. Usluge trećih strana</h2>
+        <p>Usluga koristi servise trećih strana (npr. Google Maps, prijava preko Google-a i Apple-a, push obaveštenja, AI modeli). Njihovo korišćenje podleže i njihovim uslovima, a za njihovu dostupnost i rad ne odgovaramo.</p>
+
+        <h2 data-anchor="ip">14. Intelektualna svojina</h2>
+        <p>Naziv i logo PetLink, dizajn aplikacije i sajta i softver pripadaju nama. Ne smeš ih kopirati, menjati, distribuirati ili koristiti za izradu konkurentskog proizvoda bez pisane dozvole. Tvoj sadržaj ostaje tvoj (tačka 4).</p>
+
+        <h2 data-anchor="disclaimer">15. Odricanje od garancija</h2>
+        <p>Usluga se pruža „takva kakva jeste” i „kako je dostupna”. Trudimo se da radi pouzdano, ali ne garantujemo da će biti neprekidna, bez grešaka ili da će podaci i sadržaj drugih korisnika biti tačni. Ne odgovaramo za ponašanje drugih korisnika niti za dogovore koje sklapaš sa njima.</p>
+
+        <h2 data-anchor="liability">16. Ograničenje odgovornosti</h2>
+        <p>U najvećoj meri dozvoljenoj zakonom, PetLink ne odgovara za posrednu ili posledičnu štetu, gubitak podataka, kao ni za štetu nastalu zbog oslanjanja na AI odgovore, podsetnike ili sadržaj drugih korisnika, niti zbog nestanka, povrede ili bolesti životinje. Ništa u ovim uslovima ne isključuje odgovornost za štetu prouzrokovanu namerno ili krajnjom nepažnjom, niti prava koja ti kao potrošaču pripadaju po zakonu.</p>
+
+        <h2 data-anchor="changes">17. Izmene uslova</h2>
+        <p>Uslove možemo povremeno menjati. O značajnim izmenama obavestićemo te u aplikaciji ili emailom pre nego što stupe na snagu. Ako nastaviš da koristiš Uslugu posle toga, smatra se da prihvataš izmenjene uslove; ako se ne slažeš, možeš obrisati nalog.</p>
+
+        <h2 data-anchor="law">18. Merodavno pravo i sporovi</h2>
+        <p>Na ove uslove primenjuje se pravo Republike Srbije. Sporove ćemo najpre pokušati da rešimo dogovorom — piši nam. Ako to ne uspe, nadležan je sud u Republici Srbiji, pri čemu korisnik-potrošač zadržava pravo na zaštitu koju mu pružaju propisi države u kojoj ima prebivalište.</p>
+
+        <h2 data-anchor="contact">19. Kontakt</h2>
+        <p>Pitanja o ovim uslovima: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           HRVATSKI
+           ============================================================ -->
+      <article data-lang="hr" lang="hr" data-title="Uvjeti korištenja — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Uvjeti korištenja</h1>
+        <p class="updated">Posljednje ažuriranje: 10. listopada 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> PetLink je besplatan alat koji ti pomaže brinuti o ljubimcu i povezati se s drugim vlasnicima. Budi pošten i pristojan, objavljuj samo istinite informacije, ne prodaji životinje putem oglasa za udomljavanje i zapamti — AI asistent i podsjetnici ne zamjenjuju veterinara.</p>
+        </div>
+
+        <h2 data-anchor="acceptance">1. Prihvaćanje uvjeta</h2>
+        <p>Ovi uvjeti uređuju korištenje mobilne aplikacije PetLink i ove web stranice (zajedno: „Usluga”), koje pruža Marko Lošić (u daljnjem tekstu: „PetLink”, „mi”). Registracijom ili korištenjem Usluge prihvaćaš ove uvjete i našu <a href="privacy.html" data-keep-lang>Politiku privatnosti</a>. Ako se ne slažeš, nemoj koristiti Uslugu.</p>
+
+        <h2 data-anchor="eligibility">2. Uvjeti za korištenje i račun</h2>
+        <ul>
+          <li>Moraš imati najmanje 16 godina.</li>
+          <li>Podaci koje uneseš pri registraciji moraju biti točni. Jedan račun koristi jedna osoba.</li>
+          <li>Odgovoran si za čuvanje lozinke i za sve aktivnosti na svom računu. Ako posumnjaš na neovlašteni pristup, odmah nam se javi.</li>
+          <li>Račun možeš izbrisati u bilo kojem trenutku u aplikaciji (Profil → Privatnost i Sigurnost).</li>
+        </ul>
+
+        <h2 data-anchor="service">3. Što Usluga obuhvaća</h2>
+        <p>PetLink nudi: digitalni e-Karton (cjepiva, paraziti, medicinska dokumentacija), podsjetnike, Pet Alert za nestale ljubimce s kartom, prijavama viđenja i plakatom, NFC privjesak, oglase za udomljavanje, Love Match za pronalazak partnera za parenje, četove i AI asistenta. Funkcije možemo mijenjati, dodavati ili ukidati kako se aplikacija razvija.</p>
+        <p>Usluga je trenutačno besplatna. AI asistent ima dnevno ograničenje broja pitanja (trenutačno 5 u 24 sata). Ako ikada uvedemo plaćene funkcije, unaprijed ćemo jasno navesti cijenu i uvjete.</p>
+
+        <h2 data-anchor="user-content">4. Tvoj sadržaj</h2>
+        <p>Sadržaj koji objaviš (fotografije, opisi, oglasi, poruke, prijave viđenja, dokumenti) ostaje tvoj. Objavom nam daješ neisključivu, besplatnu licenciju, ograničenu na područje na kojem je Usluga dostupna, da taj sadržaj pohranjujemo, obrađujemo i prikazujemo u mjeri potrebnoj za rad Usluge (npr. da prikažemo tvoj oglas ili Pet Alert drugim korisnicima). Licencija prestaje kada sadržaj izbrišeš, osim za poruke koje su već dostavljene drugim korisnicima.</p>
+        <p>Jamčiš da imaš pravo objaviti taj sadržaj i da on ne krši prava drugih (npr. autorska prava na fotografiji ili privatnost drugih osoba).</p>
+
+        <h2 data-anchor="acceptable-use">5. Pravila ponašanja</h2>
+        <p>Zabranjeno je:</p>
+        <ul>
+          <li>objavljivati lažne, obmanjujuće ili tuđe podatke, uključujući lažne prijave nestanka ili viđenja;</li>
+          <li>uznemiravati, vrijeđati, prijetiti ili diskriminirati druge korisnike, ili slati neželjene poruke (spam);</li>
+          <li>objavljivati nasilan, uvredljiv ili seksualno eksplicitan sadržaj, kao i sadržaj koji prikazuje zlostavljanje životinja;</li>
+          <li>prodavati, kupovati ili trgovati životinjama putem Usluge, ili nuditi zaštićene i divlje vrste;</li>
+          <li>koristiti tuđe podatke iz Usluge (npr. broj telefona s Pet Alerta) u bilo koje druge svrhe osim pomoći oko konkretnog ljubimca;</li>
+          <li>zaobilaziti ograničenja, pokušavati neovlašteni pristup tuđim podacima ili sustavima, ometati rad Usluge ili automatski prikupljati podatke (scraping, botovi);</li>
+          <li>koristiti Uslugu protivno važećim propisima, uključujući propise o dobrobiti i zaštiti životinja.</li>
+        </ul>
+
+        <h2 data-anchor="pet-alert">6. Pet Alert, karta i viđenja</h2>
+        <ul>
+          <li>Pet Alert prijavljuj samo za svog ljubimca koji je zaista nestao i deaktiviraj ga čim bude pronađen.</li>
+          <li>Prijavom nestanka pristaješ da tvoje ime, broj telefona, lokacija nestanka i podaci o ljubimcu budu vidljivi drugim korisnicima i na plakatu.</li>
+          <li>Ne jamčimo da će obavijest stići do svih korisnika u blizini niti da će ljubimac biti pronađen. Pet Alert je dopuna, a ne zamjena za prijavu nadležnim službama, skloništima i veterinarskim ambulantama.</li>
+          <li>Pri traženju ljubimca ili provjeri viđenja čuvaj svoju sigurnost, ne ulazi na tuđi posjed bez dopuštenja i ne prilazi agresivnim životinjama. Budi oprezan s osobama koje traže novac za „vraćanje” ljubimca.</li>
+        </ul>
+
+        <h2 data-anchor="adoption">7. Udomljavanje</h2>
+        <ul>
+          <li>Oglasi su namijenjeni udomljavanju, ne prodaji. Dopuštena je eventualna naknada stvarnih troškova (npr. cijepljenje, čipiranje) ako je jasno navedena u oglasu i u skladu sa zakonom.</li>
+          <li>Opis zdravstvenog stanja i ponašanja ljubimca mora biti istinit.</li>
+          <li>PetLink nije strana u dogovoru o udomljavanju i ne provjerava korisnike, ljubimce ni oglase unaprijed. Prije preuzimanja ili predaje ljubimca upoznajte se, provjerite dokumentaciju i nađite se na sigurnom mjestu.</li>
+          <li>Neprikladne oglase prijavi putem opcije „Prijavi” u oglasu.</li>
+        </ul>
+
+        <h2 data-anchor="love-match">8. Love Match (parenje)</h2>
+        <ul>
+          <li>Vlasnik je isključivo odgovoran za odluku o parenju, zdravlje i dobrobit životinja te za poštivanje propisa i pravila kinoloških/felinoloških saveza.</li>
+          <li>Oznake „rodovnik” i „zdravstveno provjeren” unosi vlasnik — PetLink ih ne provjerava. Prije parenja zatraži izvornu dokumentaciju i mišljenje veterinara.</li>
+          <li>Love Match se ne smije koristiti za komercijalni uzgoj ili prodaju mladunaca bez zakonom propisanih dozvola.</li>
+        </ul>
+
+        <h2 data-anchor="ai-assistant">9. AI asistent nije veterinar</h2>
+        <p>Odgovore AI asistenta generira umjetna inteligencija (DeepSeek ili Google Gemini). Oni su općenite informativne naravi, mogu biti netočni ili nepotpuni i <strong>ne predstavljaju veterinarsku dijagnozu, savjet ni terapiju</strong>. Za svaku zdravstvenu odluku posavjetuj se s veterinarom. <strong>U hitnim slučajevima (trovanje, ozljeda, otežano disanje, napadaji…) odmah se obrati najbližoj veterinarskoj ambulanti.</strong></p>
+
+        <h2 data-anchor="health-records">10. e-Karton i podsjetnici</h2>
+        <p>e-Karton je osobna evidencija koju vodiš ti — nije službena veterinarska dokumentacija i ne zamjenjuje putovnicu ljubimca ni nalaze veterinara. Podsjetnici ovise o postavkama telefona, dopuštenjima i mreži, pa ne jamčimo da će svaki stići na vrijeme. Za točnost unesenih datuma i podataka odgovoran si ti.</p>
+
+        <h2 data-anchor="nfc">11. NFC privjesak</h2>
+        <p>Aplikacija upisuje poveznicu na profil ljubimca na kompatibilan NFC privjesak. Ne odgovaramo za privjeske trećih proizvođača, njihovo oštećenje ili gubitak, niti za uređaje koji ne podržavaju NFC. Podatke s privjeska može očitati svatko tko ga skenira.</p>
+
+        <h2 data-anchor="moderation">12. Prijave, blokiranje i ukidanje računa</h2>
+        <p>Korisnike možeš blokirati, a oglase prijaviti izravno u aplikaciji; druge prijave šalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>. Zadržavamo pravo bez prethodne najave ukloniti sadržaj ili ograničiti, suspendirati ili ugasiti račun koji krši ove uvjete ili zakon, ili ugrožava druge korisnike ili životinje. Kada je to moguće, obavijestit ćemo te o razlogu.</p>
+
+        <h2 data-anchor="third-party">13. Usluge trećih strana</h2>
+        <p>Usluga koristi servise trećih strana (npr. Google Maps, prijava putem Googlea i Applea, push obavijesti, AI modeli). Njihovo korištenje podliježe i njihovim uvjetima, a za njihovu dostupnost i rad ne odgovaramo.</p>
+
+        <h2 data-anchor="ip">14. Intelektualno vlasništvo</h2>
+        <p>Naziv i logo PetLink, dizajn aplikacije i stranice te softver pripadaju nama. Ne smiješ ih kopirati, mijenjati, distribuirati ili koristiti za izradu konkurentskog proizvoda bez pisanog dopuštenja. Tvoj sadržaj ostaje tvoj (točka 4).</p>
+
+        <h2 data-anchor="disclaimer">15. Odricanje od jamstava</h2>
+        <p>Usluga se pruža „takva kakva jest” i „kako je dostupna”. Trudimo se da radi pouzdano, ali ne jamčimo da će biti neprekidna, bez pogrešaka ili da će podaci i sadržaj drugih korisnika biti točni. Ne odgovaramo za ponašanje drugih korisnika niti za dogovore koje sklapaš s njima.</p>
+
+        <h2 data-anchor="liability">16. Ograničenje odgovornosti</h2>
+        <p>U najvećoj mjeri dopuštenoj zakonom, PetLink ne odgovara za neizravnu ili posljedičnu štetu, gubitak podataka, kao ni za štetu nastalu zbog oslanjanja na AI odgovore, podsjetnike ili sadržaj drugih korisnika, niti zbog nestanka, ozljede ili bolesti životinje. Ništa u ovim uvjetima ne isključuje odgovornost za štetu prouzročenu namjerno ili krajnjom nepažnjom, niti prava koja ti kao potrošaču pripadaju po zakonu.</p>
+
+        <h2 data-anchor="changes">17. Izmjene uvjeta</h2>
+        <p>Uvjete možemo povremeno mijenjati. O značajnim izmjenama obavijestit ćemo te u aplikaciji ili emailom prije nego što stupe na snagu. Ako nastaviš koristiti Uslugu nakon toga, smatra se da prihvaćaš izmijenjene uvjete; ako se ne slažeš, možeš izbrisati račun.</p>
+
+        <h2 data-anchor="law">18. Mjerodavno pravo i sporovi</h2>
+        <p>Na ove uvjete primjenjuje se pravo Republike Srbije. Sporove ćemo najprije pokušati riješiti dogovorom — piši nam. Ako to ne uspije, nadležan je sud u Republici Srbiji, pri čemu korisnik-potrošač zadržava pravo na zaštitu koju mu pružaju propisi države u kojoj ima prebivalište, uključujući obvezne odredbe prava EU-a.</p>
+
+        <h2 data-anchor="contact">19. Kontakt</h2>
+        <p>Pitanja o ovim uvjetima: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           BOSANSKI
+           ============================================================ -->
+      <article data-lang="bs" lang="bs" data-title="Uslovi korištenja — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Uslovi korištenja</h1>
+        <p class="updated">Posljednje ažuriranje: 10. oktobar 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> PetLink je besplatan alat koji ti pomaže da brineš o ljubimcu i povežeš se s drugim vlasnicima. Budi pošten i ljubazan, objavljuj samo istinite informacije, ne prodaji životinje putem oglasa za udomljavanje i zapamti — AI asistent i podsjetnici ne zamjenjuju veterinara.</p>
+        </div>
+
+        <h2 data-anchor="acceptance">1. Prihvatanje uslova</h2>
+        <p>Ovi uslovi uređuju korištenje mobilne aplikacije PetLink i ove web stranice (zajedno: „Usluga”), koje pruža Marko Lošić (u daljem tekstu: „PetLink”, „mi”). Registracijom ili korištenjem Usluge prihvataš ove uslove i našu <a href="privacy.html" data-keep-lang>Politiku privatnosti</a>. Ako se ne slažeš, nemoj koristiti Uslugu.</p>
+
+        <h2 data-anchor="eligibility">2. Uslovi za korištenje i račun</h2>
+        <ul>
+          <li>Moraš imati najmanje 16 godina.</li>
+          <li>Podaci koje uneseš pri registraciji moraju biti tačni. Jedan račun koristi jedna osoba.</li>
+          <li>Odgovoran si za čuvanje lozinke i za sve aktivnosti na svom računu. Ako posumnjaš na neovlašten pristup, odmah nam se javi.</li>
+          <li>Račun možeš obrisati u bilo kojem trenutku u aplikaciji (Profil → Privatnost i Sigurnost).</li>
+        </ul>
+
+        <h2 data-anchor="service">3. Šta Usluga obuhvata</h2>
+        <p>PetLink nudi: digitalni e-Karton (vakcine, paraziti, medicinska dokumentacija), podsjetnike, Pet Alert za nestale ljubimce s mapom, prijavama viđenja i plakatom, NFC privjesak, oglase za udomljavanje, Love Match za pronalazak partnera za parenje, četove i AI asistenta. Funkcije možemo mijenjati, dodavati ili ukidati kako se aplikacija razvija.</p>
+        <p>Usluga je trenutno besplatna. AI asistent ima dnevno ograničenje broja pitanja (trenutno 5 u 24 sata). Ako ikada uvedemo plaćene funkcije, unaprijed ćemo jasno navesti cijenu i uslove.</p>
+
+        <h2 data-anchor="user-content">4. Tvoj sadržaj</h2>
+        <p>Sadržaj koji objaviš (fotografije, opisi, oglasi, poruke, prijave viđenja, dokumenti) ostaje tvoj. Objavom nam daješ neisključivu, besplatnu licencu, ograničenu na područje na kojem je Usluga dostupna, da taj sadržaj čuvamo, obrađujemo i prikazujemo u mjeri potrebnoj za rad Usluge (npr. da prikažemo tvoj oglas ili Pet Alert drugim korisnicima). Licenca prestaje kada sadržaj obrišeš, osim za poruke koje su već dostavljene drugim korisnicima.</p>
+        <p>Garantuješ da imaš pravo objaviti taj sadržaj i da on ne krši prava drugih (npr. autorska prava na fotografiji ili privatnost drugih osoba).</p>
+
+        <h2 data-anchor="acceptable-use">5. Pravila ponašanja</h2>
+        <p>Zabranjeno je:</p>
+        <ul>
+          <li>objavljivati lažne, obmanjujuće ili tuđe podatke, uključujući lažne prijave nestanka ili viđenja;</li>
+          <li>uznemiravati, vrijeđati, prijetiti ili diskriminisati druge korisnike, ili slati neželjene poruke (spam);</li>
+          <li>objavljivati nasilan, uvredljiv ili seksualno eksplicitan sadržaj, kao i sadržaj koji prikazuje zlostavljanje životinja;</li>
+          <li>prodavati, kupovati ili trgovati životinjama putem Usluge, ili nuditi zaštićene i divlje vrste;</li>
+          <li>koristiti tuđe podatke iz Usluge (npr. broj telefona s Pet Alerta) u bilo koje druge svrhe osim pomoći oko konkretnog ljubimca;</li>
+          <li>zaobilaziti ograničenja, pokušavati neovlašten pristup tuđim podacima ili sistemima, ometati rad Usluge ili automatski prikupljati podatke (scraping, botovi);</li>
+          <li>koristiti Uslugu suprotno važećim propisima, uključujući propise o dobrobiti i zaštiti životinja.</li>
+        </ul>
+
+        <h2 data-anchor="pet-alert">6. Pet Alert, mapa i viđenja</h2>
+        <ul>
+          <li>Pet Alert prijavljuj samo za svog ljubimca koji je zaista nestao i deaktiviraj ga čim bude pronađen.</li>
+          <li>Prijavom nestanka pristaješ da tvoje ime, broj telefona, lokacija nestanka i podaci o ljubimcu budu vidljivi drugim korisnicima i na plakatu.</li>
+          <li>Ne garantujemo da će obavještenje stići do svih korisnika u blizini niti da će ljubimac biti pronađen. Pet Alert je dopuna, a ne zamjena za prijavu nadležnim službama, azilima i veterinarskim ambulantama.</li>
+          <li>Pri traženju ljubimca ili provjeri viđenja čuvaj svoju sigurnost, ne ulazi na tuđi posjed bez dozvole i ne prilazi agresivnim životinjama. Budi oprezan s osobama koje traže novac za „vraćanje” ljubimca.</li>
+        </ul>
+
+        <h2 data-anchor="adoption">7. Udomljavanje</h2>
+        <ul>
+          <li>Oglasi su namijenjeni udomljavanju, ne prodaji. Dozvoljena je eventualna naknada stvarnih troškova (npr. vakcinacija, čipovanje) ako je jasno navedena u oglasu i u skladu sa zakonom.</li>
+          <li>Opis zdravstvenog stanja i ponašanja ljubimca mora biti istinit.</li>
+          <li>PetLink nije strana u dogovoru o udomljavanju i ne provjerava korisnike, ljubimce ni oglase unaprijed. Prije preuzimanja ili predaje ljubimca upoznajte se, provjerite dokumentaciju i nađite se na sigurnom mjestu.</li>
+          <li>Neprikladne oglase prijavi putem opcije „Prijavi” u oglasu.</li>
+        </ul>
+
+        <h2 data-anchor="love-match">8. Love Match (parenje)</h2>
+        <ul>
+          <li>Vlasnik je isključivo odgovoran za odluku o parenju, zdravlje i dobrobit životinja, kao i za poštivanje propisa i pravila kinoloških/felinoloških saveza.</li>
+          <li>Oznake „pedigre” i „zdravstveno provjeren” unosi vlasnik — PetLink ih ne provjerava. Prije parenja zatraži originalnu dokumentaciju i mišljenje veterinara.</li>
+          <li>Love Match se ne smije koristiti za komercijalni uzgoj ili prodaju mladunaca bez zakonom propisanih dozvola.</li>
+        </ul>
+
+        <h2 data-anchor="ai-assistant">9. AI asistent nije veterinar</h2>
+        <p>Odgovore AI asistenta generiše vještačka inteligencija (DeepSeek ili Google Gemini). Oni su opšte informativne prirode, mogu biti netačni ili nepotpuni i <strong>ne predstavljaju veterinarsku dijagnozu, savjet ni terapiju</strong>. Za svaku zdravstvenu odluku konsultuj veterinara. <strong>U hitnim slučajevima (trovanje, povreda, otežano disanje, napadi…) odmah se obrati najbližoj veterinarskoj ambulanti.</strong></p>
+
+        <h2 data-anchor="health-records">10. e-Karton i podsjetnici</h2>
+        <p>e-Karton je lična evidencija koju vodiš ti — nije zvanična veterinarska dokumentacija i ne zamjenjuje pasoš ljubimca ni nalaze veterinara. Podsjetnici zavise od postavki telefona, dozvola i mreže, pa ne garantujemo da će svaki stići na vrijeme. Za tačnost unesenih datuma i podataka odgovoran si ti.</p>
+
+        <h2 data-anchor="nfc">11. NFC privjesak</h2>
+        <p>Aplikacija upisuje link ka profilu ljubimca na kompatibilan NFC privjesak. Ne odgovaramo za privjeske trećih proizvođača, njihovo oštećenje ili gubitak, niti za uređaje koji ne podržavaju NFC. Podatke s privjeska može očitati svako ko ga skenira.</p>
+
+        <h2 data-anchor="moderation">12. Prijave, blokiranje i ukidanje računa</h2>
+        <p>Korisnike možeš blokirati, a oglase prijaviti direktno u aplikaciji; druge prijave šalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>. Zadržavamo pravo da bez prethodne najave uklonimo sadržaj ili ograničimo, suspendujemo ili ugasimo račun koji krši ove uslove ili zakon, ili ugrožava druge korisnike ili životinje. Kada je to moguće, obavijestit ćemo te o razlogu.</p>
+
+        <h2 data-anchor="third-party">13. Usluge trećih strana</h2>
+        <p>Usluga koristi servise trećih strana (npr. Google Maps, prijava putem Google-a i Apple-a, push obavještenja, AI modeli). Njihovo korištenje podliježe i njihovim uslovima, a za njihovu dostupnost i rad ne odgovaramo.</p>
+
+        <h2 data-anchor="ip">14. Intelektualno vlasništvo</h2>
+        <p>Naziv i logo PetLink, dizajn aplikacije i stranice te softver pripadaju nama. Ne smiješ ih kopirati, mijenjati, distribuirati ili koristiti za izradu konkurentskog proizvoda bez pisane dozvole. Tvoj sadržaj ostaje tvoj (tačka 4).</p>
+
+        <h2 data-anchor="disclaimer">15. Odricanje od garancija</h2>
+        <p>Usluga se pruža „takva kakva jeste” i „kako je dostupna”. Trudimo se da radi pouzdano, ali ne garantujemo da će biti neprekidna, bez grešaka ili da će podaci i sadržaj drugih korisnika biti tačni. Ne odgovaramo za ponašanje drugih korisnika niti za dogovore koje sklapaš s njima.</p>
+
+        <h2 data-anchor="liability">16. Ograničenje odgovornosti</h2>
+        <p>U najvećoj mjeri dozvoljenoj zakonom, PetLink ne odgovara za posrednu ili posljedičnu štetu, gubitak podataka, kao ni za štetu nastalu zbog oslanjanja na AI odgovore, podsjetnike ili sadržaj drugih korisnika, niti zbog nestanka, povrede ili bolesti životinje. Ništa u ovim uslovima ne isključuje odgovornost za štetu prouzrokovanu namjerno ili krajnjom nepažnjom, niti prava koja ti kao potrošaču pripadaju po zakonu.</p>
+
+        <h2 data-anchor="changes">17. Izmjene uslova</h2>
+        <p>Uslove možemo povremeno mijenjati. O značajnim izmjenama obavijestit ćemo te u aplikaciji ili emailom prije nego što stupe na snagu. Ako nastaviš koristiti Uslugu nakon toga, smatra se da prihvataš izmijenjene uslove; ako se ne slažeš, možeš obrisati račun.</p>
+
+        <h2 data-anchor="law">18. Mjerodavno pravo i sporovi</h2>
+        <p>Na ove uslove primjenjuje se pravo Republike Srbije. Sporove ćemo najprije pokušati riješiti dogovorom — piši nam. Ako to ne uspije, nadležan je sud u Republici Srbiji, pri čemu korisnik-potrošač zadržava pravo na zaštitu koju mu pružaju propisi države u kojoj ima prebivalište.</p>
+
+        <h2 data-anchor="contact">19. Kontakt</h2>
+        <p>Pitanja o ovim uslovima: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           ENGLISH
+           ============================================================ -->
+      <article data-lang="en" lang="en" data-title="Terms of Use — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Terms of Use</h1>
+        <p class="updated">Last updated: October 10, 2026</p>
+
+        <div class="summary">
+          <p><strong>In short:</strong> PetLink is a free tool that helps you care for your pet and connect with other owners. Be honest and kind, only post true information, don't sell animals through adoption listings, and remember — the AI assistant and reminders don't replace a vet.</p>
+        </div>
+
+        <h2 data-anchor="acceptance">1. Accepting these terms</h2>
+        <p>These terms govern your use of the PetLink mobile app and this website (together, the “Service”), provided by Marko Lošić (“PetLink”, “we”, “us”). By registering for or using the Service, you accept these terms and our <a href="privacy.html" data-keep-lang>Privacy Policy</a>. If you don't agree, please don't use the Service.</p>
+
+        <h2 data-anchor="eligibility">2. Eligibility and your account</h2>
+        <ul>
+          <li>You must be at least 16 years old.</li>
+          <li>The details you provide when registering must be accurate. Each account is for one person.</li>
+          <li>You are responsible for keeping your password safe and for all activity on your account. If you suspect unauthorised access, contact us right away.</li>
+          <li>You can delete your account at any time in the app (Profile → Privacy &amp; Security).</li>
+        </ul>
+
+        <h2 data-anchor="service">3. What the Service includes</h2>
+        <p>PetLink offers a digital e-Record (vaccines, parasites, medical documents), reminders, Pet Alert for lost pets with a map, sighting reports and a poster, NFC tags, adoption listings, Love Match for finding a mating partner, chats, and an AI assistant. We may change, add or remove features as the app evolves.</p>
+        <p>The Service is currently free. The AI assistant has a daily question limit (currently 5 per 24 hours). If we ever introduce paid features, we will clearly state the price and terms in advance.</p>
+
+        <h2 data-anchor="user-content">4. Your content</h2>
+        <p>Content you post (photos, descriptions, listings, messages, sighting reports, documents) remains yours. By posting it, you grant us a non-exclusive, royalty-free licence, limited to the territories where the Service is available, to store, process and display that content as needed to operate the Service (e.g. to show your listing or Pet Alert to other users). The licence ends when you delete the content, except for messages already delivered to other users.</p>
+        <p>You confirm that you have the right to post that content and that it doesn't infringe anyone else's rights (e.g. copyright in a photo or other people's privacy).</p>
+
+        <h2 data-anchor="acceptable-use">5. Acceptable use</h2>
+        <p>You must not:</p>
+        <ul>
+          <li>post false, misleading or someone else's information, including fake lost-pet or sighting reports;</li>
+          <li>harass, insult, threaten or discriminate against other users, or send spam;</li>
+          <li>post violent, offensive or sexually explicit content, or content showing animal abuse;</li>
+          <li>sell, buy or trade animals through the Service, or offer protected or wild species;</li>
+          <li>use other users' information from the Service (e.g. a phone number from a Pet Alert) for any purpose other than helping with that specific pet;</li>
+          <li>circumvent limits, attempt unauthorised access to other people's data or systems, disrupt the Service, or collect data automatically (scraping, bots);</li>
+          <li>use the Service in breach of applicable law, including animal welfare and protection laws.</li>
+        </ul>
+
+        <h2 data-anchor="pet-alert">6. Pet Alert, map and sightings</h2>
+        <ul>
+          <li>Only create a Pet Alert for your own pet that is genuinely missing, and deactivate it as soon as the pet is found.</li>
+          <li>By reporting a lost pet, you agree that your name, phone number, the place it went missing and the pet's details will be visible to other users and on the poster.</li>
+          <li>We don't guarantee that the alert will reach every user nearby or that your pet will be found. Pet Alert supplements — it doesn't replace — reporting to the authorities, shelters and vet clinics.</li>
+          <li>When searching for a pet or checking a sighting, put your own safety first, don't enter private property without permission, and don't approach aggressive animals. Be wary of anyone asking for money to “return” a pet.</li>
+        </ul>
+
+        <h2 data-anchor="adoption">7. Adoption</h2>
+        <ul>
+          <li>Listings are for rehoming, not for sale. Reimbursement of actual costs (e.g. vaccination, microchipping) is allowed if it is clearly stated in the listing and complies with the law.</li>
+          <li>The description of the pet's health and behaviour must be truthful.</li>
+          <li>PetLink is not a party to any adoption arrangement and does not pre-screen users, pets or listings. Before handing over or taking a pet, get to know each other, check the paperwork and meet in a safe place.</li>
+          <li>Report inappropriate listings using the “Report” option on the listing.</li>
+        </ul>
+
+        <h2 data-anchor="love-match">8. Love Match (mating)</h2>
+        <ul>
+          <li>Owners are solely responsible for the decision to breed, for the health and welfare of the animals, and for complying with the law and the rules of kennel/cat clubs.</li>
+          <li>The “pedigree” and “health cleared” flags are entered by the owner — PetLink does not verify them. Before mating, ask to see the original documents and get a vet's opinion.</li>
+          <li>Love Match must not be used for commercial breeding or selling puppies/kittens without the licences required by law.</li>
+        </ul>
+
+        <h2 data-anchor="ai-assistant">9. The AI assistant is not a vet</h2>
+        <p>AI assistant answers are generated by artificial intelligence (DeepSeek or Google Gemini). They are general information only, may be inaccurate or incomplete, and <strong>are not a veterinary diagnosis, advice or treatment</strong>. Consult a vet for any health decision. <strong>In an emergency (poisoning, injury, difficulty breathing, seizures…) contact the nearest vet clinic immediately.</strong></p>
+
+        <h2 data-anchor="health-records">10. e-Record and reminders</h2>
+        <p>The e-Record is a personal log that you keep — it is not an official veterinary record and does not replace your pet's passport or vet reports. Reminders depend on your phone's settings, permissions and network, so we can't guarantee every one will arrive on time. You are responsible for the accuracy of the dates and details you enter.</p>
+
+        <h2 data-anchor="nfc">11. NFC tags</h2>
+        <p>The app writes a link to your pet's profile to a compatible NFC tag. We are not responsible for third-party tags, their damage or loss, or for devices that don't support NFC. Anyone who scans the tag can read its data.</p>
+
+        <h2 data-anchor="moderation">12. Reports, blocking and account termination</h2>
+        <p>You can block users and report listings directly in the app; send other reports to <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>. We may, without prior notice, remove content or restrict, suspend or close an account that breaches these terms or the law, or endangers other users or animals. Where possible, we'll tell you why.</p>
+
+        <h2 data-anchor="third-party">13. Third-party services</h2>
+        <p>The Service relies on third-party services (e.g. Google Maps, Google and Apple sign-in, push notifications, AI models). Their use is also subject to their own terms, and we are not responsible for their availability or operation.</p>
+
+        <h2 data-anchor="ip">14. Intellectual property</h2>
+        <p>The PetLink name and logo, the design of the app and website, and the software belong to us. You may not copy, modify, distribute or use them to build a competing product without written permission. Your content remains yours (section 4).</p>
+
+        <h2 data-anchor="disclaimer">15. Disclaimer</h2>
+        <p>The Service is provided “as is” and “as available”. We work to keep it reliable, but we don't guarantee it will be uninterrupted or error-free, or that other users' information and content will be accurate. We are not responsible for other users' conduct or for any arrangements you make with them.</p>
+
+        <h2 data-anchor="liability">16. Limitation of liability</h2>
+        <p>To the fullest extent permitted by law, PetLink is not liable for indirect or consequential loss, loss of data, or loss arising from reliance on AI answers, reminders or other users' content, or from the loss, injury or illness of an animal. Nothing in these terms excludes liability for damage caused intentionally or by gross negligence, or any rights you have as a consumer under the law.</p>
+
+        <h2 data-anchor="changes">17. Changes to these terms</h2>
+        <p>We may update these terms from time to time. We'll notify you of significant changes in the app or by email before they take effect. If you keep using the Service afterwards, you accept the updated terms; if you don't agree, you can delete your account.</p>
+
+        <h2 data-anchor="law">18. Governing law and disputes</h2>
+        <p>These terms are governed by the laws of the Republic of Serbia. We'll first try to resolve any dispute amicably — just write to us. If that fails, the courts of the Republic of Serbia have jurisdiction, but consumers keep the protection granted by the mandatory laws of their country of residence.</p>
+
+        <h2 data-anchor="contact">19. Contact</h2>
+        <p>Questions about these terms: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+    </main>
+  </div>
+
+  <footer class="border-t border-ink/5 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-ink/60 sm:flex-row sm:px-6">
+      <p>© <span id="year">2026</span> PetLink. <span data-ui="rights">Sva prava zadržana.</span></p>
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <li><a href="privacy.html" data-keep-lang data-ui="privacy" class="transition hover:text-brand-600">Politika privatnosti</a></li>
+        <li><a href="terms.html" data-keep-lang data-ui="terms" aria-current="page" class="font-semibold text-brand-700">Uslovi korišćenja</a></li>
+        <li><a href="mailto:kontakt@petlink.app" data-ui="contact" class="transition hover:text-brand-600">Kontakt</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/legal.js"></script>
+</body>
+</html>

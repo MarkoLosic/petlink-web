@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politika privatnosti — PetLink</title>
+  <meta name="description" content="Kako PetLink prikuplja, koristi i štiti podatke o tebi i tvom ljubimcu." />
+  <meta name="theme-color" content="#F97316" />
+  <link rel="canonical" href="https://markolosic.github.io/petlink-web/privacy.html" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2" />
+  <link rel="shortcut icon" href="favicon.ico?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#FFF7ED', 100: '#FFEDD5', 200: '#FED7AA', 300: '#FDBA74',
+              400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C',
+            },
+            accent: {
+              50: '#EEF8F9', 100: '#D3EEF0', 400: '#6BB8BF', 500: '#4DA1A9', 600: '#3B8389', 700: '#2F676C',
+            },
+            cream: '#FFFBF5',
+            ink: '#1F1A17',
+          },
+          boxShadow: {
+            soft: '0 10px 40px -12px rgba(124, 58, 16, 0.18)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/legal.css" />
+</head>
+
+<!--
+  ================================================================
+  POLITIKA PRIVATNOSTI
+  ----------------------------------------------------------------
+  • Tekst za svaki jezik je u posebnom <article data-lang="...">.
+    Kad menjaš sadržaj, izmeni ga u SVA ČETIRI članka.
+  • <h2 data-anchor="..."> mora imati isti anchor u svim jezicima
+    (npr. privacy.html#delete-account se koristi za Google Play).
+  • Ne zaboravi da ažuriraš datum "Poslednje ažuriranje".
+  ================================================================
+-->
+<body class="bg-cream font-sans text-ink overflow-x-hidden">
+
+  <header class="sticky top-0 z-50 border-b border-ink/5 bg-cream/85 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <a href="index.html" data-keep-lang class="flex items-center gap-2" aria-label="PetLink">
+        <img src="assets/logo.png" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-ink object-cover shadow-soft" />
+        <span class="font-display text-lg font-bold tracking-tight">Pet<span class="text-brand-500">Link</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="index.html" data-keep-lang class="hidden items-center gap-1.5 rounded-2xl px-3 py-2 text-sm font-medium text-ink/70 transition hover:text-brand-600 sm:inline-flex">
+          <i data-lucide="arrow-left" class="h-4 w-4" aria-hidden="true"></i> <span data-ui="back">Nazad na početnu</span>
+        </a>
+        <div class="relative" id="lang-switcher">
+          <button id="lang-toggle" type="button" class="flex h-11 items-center gap-1.5 rounded-2xl bg-white px-3 text-sm font-semibold shadow-soft transition hover:text-brand-600" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Izaberi jezik">
+            <i data-lucide="globe" class="h-4 w-4" aria-hidden="true"></i>
+            <span id="lang-current">SR</span>
+            <i data-lucide="chevron-down" class="h-4 w-4 text-ink/40" aria-hidden="true"></i>
+          </button>
+          <ul id="lang-menu" class="absolute right-0 mt-2 hidden w-44 space-y-1 rounded-2xl bg-white p-2 text-sm shadow-soft">
+            <li><button type="button" data-lang="sr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">SR</span> Srpski</button></li>
+            <li><button type="button" data-lang="hr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">HR</span> Hrvatski</button></li>
+            <li><button type="button" data-lang="bs" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">BS</span> Bosanski</button></li>
+            <li><button type="button" data-lang="en" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">EN</span> English</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[15rem_1fr] lg:py-14">
+
+    <aside class="hidden lg:block">
+      <nav class="sticky top-24 text-sm text-ink/70" aria-labelledby="toc-title">
+        <p id="toc-title" data-ui="toc" class="mb-3 px-2 font-display font-semibold text-ink">Sadržaj</p>
+        <ol id="toc-list" class="space-y-0.5"></ol>
+      </nav>
+    </aside>
+
+    <main id="main" class="min-w-0">
+
+      <!-- ============================================================
+           SRPSKI
+           ============================================================ -->
+      <article data-lang="sr" lang="sr-Latn" data-title="Politika privatnosti — PetLink" class="legal">
+        <p class="eyebrow">PetLink</p>
+        <h1>Politika privatnosti</h1>
+        <p class="updated">Poslednje ažuriranje: 10. oktobar 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> podatke prikupljamo samo da bi aplikacija radila — za e-Karton, podsetnike, Pet Alert, mapu, usvajanje, Love Match i AI asistenta. Ne prodajemo tvoje podatke i ne prikazujemo reklame. Nalog i sve podatke možeš trajno obrisati iz same aplikacije.</p>
+        </div>
+
+        <h2 data-anchor="who-we-are">1. Ko smo mi</h2>
+        <p>PetLink je mobilna aplikacija za vlasnike kućnih ljubimaca (u daljem tekstu: „PetLink”, „mi”). Rukovalac (kontrolor) tvojih podataka o ličnosti je Marko Lošić, razvojni programer aplikacije PetLink. Za sva pitanja o privatnosti piši nam na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+        <p>Ova politika važi za mobilnu aplikaciju PetLink (Android i iOS) i za ovaj sajt. Primenjujemo Zakon o zaštiti podataka o ličnosti Republike Srbije, a za korisnike iz Evropske unije (npr. Hrvatske) i Opštu uredbu o zaštiti podataka (GDPR).</p>
+
+        <h2 data-anchor="data-we-collect">2. Koje podatke prikupljamo</h2>
+        <h3>2.1 Nalog i profil</h3>
+        <ul>
+          <li><strong>Email adresa i lozinka</strong> — lozinku nikad ne vidimo u čitljivom obliku; čuva je naš pružalac autentifikacije u heširanom obliku.</li>
+          <li><strong>Prijava preko Google-a ili Apple-a</strong> — dobijamo ime i email adresu koje taj servis podeli sa nama (kod Apple-a to može biti skrivena „relay” adresa).</li>
+          <li><strong>Profil</strong> — ime i prezime, broj telefona i profilna slika, ako ih uneseš.</li>
+        </ul>
+        <h3>2.2 Ljubimci i e-Karton</h3>
+        <ul>
+          <li>Ime, vrsta, rasa, pol, datum rođenja, broj mikročipa i fotografije ljubimca.</li>
+          <li>Zdravstveni podaci: vakcinacije (vrsta, datum, sledeći termin, ime veterinara, beleške), zaštita od parazita (preparat, datum, trajanje), medicinski dokumenti i nalazi koje otpremiš (PDF ili slike).</li>
+          <li>Podsetnici i obaveze (lekovi, šišanje, veterinar…) i istorija obavljenih aktivnosti.</li>
+        </ul>
+        <h3>2.3 Lokacija</h3>
+        <ul>
+          <li><strong>Lokacija uređaja</strong> — samo uz tvoju dozvolu, dok koristiš aplikaciju, da bismo prikazali mapu, nestale ljubimce i ljubimce u blizini.</li>
+          <li><strong>Lokacija ljubimca za Love Match</strong> — približna lokacija se čuva uz profil ljubimca da bi se izračunala udaljenost do drugih ljubimaca.</li>
+          <li><strong>Lokacija nestanka i viđenja</strong> — mesto na kom je ljubimac poslednji put viđen (Pet Alert) i mesta na kojima su ga drugi korisnici prijavili.</li>
+        </ul>
+        <h3>2.4 Pet Alert (nestali ljubimci)</h3>
+        <p>Kada prijaviš nestanak, čuvamo ime, rasu i fotografije ljubimca, tvoje ime, broj telefona, lokaciju i vreme nestanka. Kada prijaviš viđenje tuđeg ljubimca, čuvamo lokaciju viđenja i tvoju belešku.</p>
+        <h3>2.5 Komunikacija</h3>
+        <ul>
+          <li>Poruke u Love Match i usvajanje četovima, kao i poruke u grupnom četu uz Pet Alert.</li>
+          <li>Lista korisnika koje si blokirao i prijave neprikladnih oglasa.</li>
+        </ul>
+        <h3>2.6 Oglasi za usvajanje</h3>
+        <p>Ime, vrsta, opis, fotografije i mesto (grad) ljubimca koga daješ na usvajanje, kao i status oglasa.</p>
+        <h3>2.7 AI asistent</h3>
+        <p>Kada postaviš pitanje AI asistentu, šaljemo tvoje pitanje, prethodne poruke iz tog razgovora i osnovni profil izabranog ljubimca (ime, vrsta, rasa, pol, starost, oznake o zdravlju i pedigreu). Razgovor ne čuvamo na našim serverima — nestaje kada zatvoriš ekran. Na serveru beležimo samo broj postavljenih pitanja radi dnevnog ograničenja.</p>
+        <h3>2.8 Tehnički podaci i podaci o korišćenju</h3>
+        <ul>
+          <li><strong>Token za push obaveštenja</strong> — da bismo ti slali podsetnike i Pet Alert obaveštenja.</li>
+          <li><strong>Osnovna analitika</strong> — nazivi akcija u aplikaciji (npr. „dodat ljubimac”, „prijava preko Google-a”), platforma (Android/iOS) i vreme. Ne koristimo reklamne identifikatore ni alate za praćenje trećih strana.</li>
+          <li><strong>Lokalno na uređaju</strong> — izabrani jezik i pomoćni brojači (npr. za AI limit i obaveštenja) čuvaju se samo na tvom telefonu.</li>
+        </ul>
+        <h3>2.9 NFC ogrlica</h3>
+        <p>Na NFC privezak upisujemo samo link ka profilu ljubimca (<code>petlink.app/p/…</code>) — bez tvojih ličnih podataka. Imaj na umu da taj link može očitati svako ko prisloni telefon na privezak; upravo to je svrha priveska, da nalazač može da pomogne.</p>
+
+        <h2 data-anchor="purposes">3. Zašto koristimo podatke i pravni osnov</h2>
+        <ul>
+          <li><strong>Pružanje usluge</strong> (izvršenje ugovora — Uslova korišćenja): nalog, e-Karton, podsetnici, Pet Alert, mapa, usvajanje, Love Match, četovi, AI asistent, NFC.</li>
+          <li><strong>Pristanak</strong>: lokacija, kamera, galerija, kalendar i push obaveštenja — svaku dozvolu daješ posebno i možeš je povući u podešavanjima telefona.</li>
+          <li><strong>Legitimni interes</strong>: bezbednost i sprečavanje zloupotreba (blokiranje, prijave oglasa, dnevni limit AI-ja), osnovna analitika radi poboljšanja aplikacije.</li>
+          <li><strong>Zakonska obaveza</strong>: kada to zahteva nadležni organ u skladu sa zakonom.</li>
+        </ul>
+        <p>Zdravstveni podaci o ljubimcu nisu posebna kategorija podataka o ličnosti, ali ih ipak tretiramo kao poverljive i dostupni su samo tebi.</p>
+
+        <h2 data-anchor="visibility">4. Šta vide drugi korisnici</h2>
+        <p>Većina podataka (profil, e-Karton, dokumenti, podsetnici) vidljiva je <strong>samo tebi</strong>. Neke funkcije su po prirodi javne:</p>
+        <ul>
+          <li><strong>Pet Alert</strong>: svi prijavljeni korisnici vide ime, rasu i fotografije ljubimca, tvoje ime i broj telefona i lokaciju nestanka — kako bi mogli da te pozovu. Isti podaci se nalaze na plakatu koji generišeš i deliš. Viđenja i poruke u Pet Alert četu vide svi korisnici. Kada ljubimac bude pronađen, deaktiviraj upozorenje.</li>
+          <li><strong>Usvajanje</strong>: oglasi su javni (vidljivi i bez prijave), a tvoje ime je vidljivo korisniku koji ti piše.</li>
+          <li><strong>Love Match</strong>: kada aktiviraš profil za parenje, drugi korisnici vide ime, rasu, pol, fotografiju ljubimca, pedigre/zdravstvene oznake i približnu udaljenost (ne tačnu adresu).</li>
+          <li><strong>Četovi</strong>: poruke vidi korisnik sa kojim se dopisuješ.</li>
+        </ul>
+
+        <h2 data-anchor="third-parties">5. Sa kim delimo podatke</h2>
+        <p>Ne prodajemo podatke i ne delimo ih u marketinške svrhe. Koristimo sledeće pružaoce usluga (obrađivače), samo u meri potrebnoj za rad aplikacije:</p>
+        <ul>
+          <li><strong>Supabase</strong> — baza podataka, autentifikacija, skladištenje fajlova i serverske funkcije; serveri u Evropskoj uniji (Irska).</li>
+          <li><strong>Google (Maps)</strong> — prikaz mape u aplikaciji.</li>
+          <li><strong>Google i Apple (prijava)</strong> — ako izabereš prijavu preko njihovog naloga.</li>
+          <li><strong>Expo, Google Firebase Cloud Messaging i Apple Push Notification Service</strong> — dostava push obaveštenja i ažuriranja aplikacije.</li>
+          <li><strong>DeepSeek i Google (Gemini)</strong> — obrada pitanja upućenih AI asistentu (videti tačku 2.7). Ne šalji im lične podatke koji nisu potrebni za pitanje.</li>
+          <li><strong>Nadležni organi</strong> — samo kada nas na to obavezuje zakon.</li>
+        </ul>
+
+        <h2 data-anchor="transfers">6. Prenos podataka u inostranstvo</h2>
+        <p>Glavni podaci čuvaju se u EU. Pojedini pružaoci (Google, Apple, Expo, DeepSeek) mogu obrađivati podatke van Srbije i EU, uključujući SAD i Narodnu Republiku Kinu (DeepSeek). U tim slučajevima se oslanjamo na zakonom predviđene mehanizme (npr. standardne ugovorne klauzule ili odluke o adekvatnosti), a u te sisteme šaljemo samo ono što je neophodno za konkretnu funkciju.</p>
+
+        <h2 data-anchor="retention">7. Koliko dugo čuvamo podatke</h2>
+        <ul>
+          <li>Podatke naloga, ljubimaca, e-Kartona i oglasa čuvamo dok imaš nalog ili dok ih sam ne obrišeš.</li>
+          <li>Pet Alert upozorenja ostaju aktivna dok ih ne deaktiviraš ili obrišeš.</li>
+          <li>Brojač AI pitanja se resetuje svaka 24 sata; sadržaj AI razgovora ne čuvamo.</li>
+          <li>Posle brisanja naloga podaci se trajno brišu, osim: poruka koje si poslao drugim korisnicima i analitičkih događaja, koji ostaju <strong>anonimizovani</strong> (više nisu povezani sa tobom). Kopije u sistemskim rezervnim kopijama (backup) nestaju u redovnom ciklusu rotacije.</li>
+        </ul>
+
+        <h2 data-anchor="delete-account">8. Brisanje naloga i podataka</h2>
+        <p>Nalog možeš obrisati u svakom trenutku, direktno u aplikaciji:</p>
+        <ol>
+          <li>Otvori PetLink i idi na <strong>Profil → Privatnost i Bezbednost</strong>.</li>
+          <li>Dodirni <strong>„Obriši moj nalog”</strong> i potvrdi.</li>
+        </ol>
+        <p>Time se trajno brišu nalog, svi ljubimci, e-Karton, dokumenti, fotografije, podsetnici, Love Match profili, Pet Alert upozorenja, oglasi i lista blokiranih korisnika. Brisanje je nepovratno.</p>
+        <p>Ako više nemaš pristup aplikaciji, pošalji zahtev za brisanje sa email adrese naloga na <a href="mailto:kontakt@petlink.app?subject=Brisanje%20naloga">kontakt@petlink.app</a> — obradićemo ga u roku od 30 dana. Pojedinačne podatke (npr. jednog ljubimca, dokument ili oglas) možeš obrisati i bez brisanja naloga.</p>
+
+        <h2 data-anchor="rights">9. Tvoja prava</h2>
+        <p>U skladu sa zakonom imaš pravo na: pristup podacima, ispravku, brisanje, ograničenje obrade, prenosivost podataka, prigovor na obradu zasnovanu na legitimnom interesu i povlačenje pristanka u bilo kom trenutku (bez uticaja na zakonitost ranije obrade). Zahtev pošalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>; odgovorićemo u roku od 30 dana.</p>
+        <p>Imaš i pravo da podneseš pritužbu nadzornom organu: u Srbiji Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (<a href="https://www.poverenik.rs" rel="noopener">poverenik.rs</a>), u Hrvatskoj Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" rel="noopener">azop.hr</a>), u Bosni i Hercegovini Agenciji za zaštitu ličnih/osobnih podataka (<a href="https://azlp.ba" rel="noopener">azlp.ba</a>).</p>
+
+        <h2 data-anchor="permissions">10. Dozvole na telefonu</h2>
+        <ul>
+          <li><strong>Lokacija</strong> — mapa, nestali ljubimci i ljubimci u blizini.</li>
+          <li><strong>Kamera i galerija</strong> — fotografije ljubimaca, profila, oglasa i dokumenata.</li>
+          <li><strong>NFC</strong> — čitanje i upis NFC priveska.</li>
+          <li><strong>Obaveštenja</strong> — podsetnici za vakcine i parazite, Pet Alert, nove poruke.</li>
+          <li><strong>Kalendar</strong> — opciono dodavanje obaveza u kalendar telefona.</li>
+        </ul>
+        <p>Svaku dozvolu možeš uskratiti ili povući u podešavanjima telefona; tada povezana funkcija neće raditi, ali ostatak aplikacije hoće.</p>
+
+        <h2 data-anchor="children">11. Deca</h2>
+        <p>PetLink nije namenjen osobama mlađim od 16 godina i svesno ne prikupljamo njihove podatke. Ako saznaš da nam je dete dalo podatke, javi nam se i obrisaćemo ih.</p>
+
+        <h2 data-anchor="security">12. Bezbednost</h2>
+        <p>Podaci se prenose šifrovano (HTTPS/TLS). Pristup bazi ograničen je pravilima na nivou reda (Row Level Security), tako da korisnik može da vidi i menja samo svoje podatke i ono što je namerno javno. Tajni ključevi drže se na serveru. Nijedan sistem nije 100% siguran, pa te molimo da koristiš jaku lozinku i da nam odmah prijaviš sumnju na zloupotrebu.</p>
+
+        <h2 data-anchor="website">13. Ovaj sajt</h2>
+        <p>Sajt ne koristi kolačiće (cookies) ni analitiku. U pregledaču (localStorage) pamti samo izabrani jezik. Sajt se hostuje na GitHub Pages, a fontovi, stilovi i ikonice učitavaju se sa Google Fonts, Tailwind CDN i unpkg — ti servisi, kao i svaki web server, mogu videti tvoju IP adresu i podatke o pregledaču.</p>
+
+        <h2 data-anchor="changes">14. Izmene ove politike</h2>
+        <p>Politiku možemo povremeno ažurirati. Datum poslednje izmene uvek je naveden na vrhu, a o značajnim izmenama obavestićemo te u aplikaciji ili emailom.</p>
+
+        <h2 data-anchor="contact">15. Kontakt</h2>
+        <p>Pitanja, zahtevi i prijave: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           HRVATSKI
+           ============================================================ -->
+      <article data-lang="hr" lang="hr" data-title="Politika privatnosti — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Politika privatnosti</h1>
+        <p class="updated">Posljednje ažuriranje: 10. listopada 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> podatke prikupljamo samo kako bi aplikacija radila — za e-Karton, podsjetnike, Pet Alert, kartu, udomljavanje, Love Match i AI asistenta. Ne prodajemo tvoje podatke i ne prikazujemo oglase. Račun i sve podatke možeš trajno izbrisati iz same aplikacije.</p>
+        </div>
+
+        <h2 data-anchor="who-we-are">1. Tko smo mi</h2>
+        <p>PetLink je mobilna aplikacija za vlasnike kućnih ljubimaca (u daljnjem tekstu: „PetLink”, „mi”). Voditelj obrade tvojih osobnih podataka je Marko Lošić, razvojni programer aplikacije PetLink. Za sva pitanja o privatnosti piši nam na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+        <p>Ova politika vrijedi za mobilnu aplikaciju PetLink (Android i iOS) i za ovu web stranicu. Primjenjujemo Opću uredbu o zaštiti podataka (GDPR) i Zakon o zaštiti podataka o ličnosti Republike Srbije.</p>
+
+        <h2 data-anchor="data-we-collect">2. Koje podatke prikupljamo</h2>
+        <h3>2.1 Račun i profil</h3>
+        <ul>
+          <li><strong>Email adresa i lozinka</strong> — lozinku nikad ne vidimo u čitljivom obliku; čuva je naš pružatelj autentifikacije u hashiranom obliku.</li>
+          <li><strong>Prijava putem Googlea ili Applea</strong> — dobivamo ime i email adresu koje taj servis podijeli s nama (kod Applea to može biti skrivena „relay” adresa).</li>
+          <li><strong>Profil</strong> — ime i prezime, broj telefona i profilna slika, ako ih uneseš.</li>
+        </ul>
+        <h3>2.2 Ljubimci i e-Karton</h3>
+        <ul>
+          <li>Ime, vrsta, pasmina, spol, datum rođenja, broj mikročipa i fotografije ljubimca.</li>
+          <li>Zdravstveni podaci: cijepljenja (vrsta, datum, sljedeći termin, ime veterinara, bilješke), zaštita od parazita (pripravak, datum, trajanje), medicinski dokumenti i nalazi koje učitaš (PDF ili slike).</li>
+          <li>Podsjetnici i obveze (lijekovi, šišanje, veterinar…) i povijest obavljenih aktivnosti.</li>
+        </ul>
+        <h3>2.3 Lokacija</h3>
+        <ul>
+          <li><strong>Lokacija uređaja</strong> — samo uz tvoje dopuštenje, dok koristiš aplikaciju, kako bismo prikazali kartu, nestale ljubimce i ljubimce u blizini.</li>
+          <li><strong>Lokacija ljubimca za Love Match</strong> — približna lokacija čuva se uz profil ljubimca kako bi se izračunala udaljenost do drugih ljubimaca.</li>
+          <li><strong>Lokacija nestanka i viđenja</strong> — mjesto na kojem je ljubimac posljednji put viđen (Pet Alert) i mjesta na kojima su ga drugi korisnici prijavili.</li>
+        </ul>
+        <h3>2.4 Pet Alert (nestali ljubimci)</h3>
+        <p>Kada prijaviš nestanak, čuvamo ime, pasminu i fotografije ljubimca, tvoje ime, broj telefona, lokaciju i vrijeme nestanka. Kada prijaviš viđenje tuđeg ljubimca, čuvamo lokaciju viđenja i tvoju bilješku.</p>
+        <h3>2.5 Komunikacija</h3>
+        <ul>
+          <li>Poruke u Love Match i četovima za udomljavanje te poruke u grupnom četu uz Pet Alert.</li>
+          <li>Popis korisnika koje si blokirao i prijave neprikladnih oglasa.</li>
+        </ul>
+        <h3>2.6 Oglasi za udomljavanje</h3>
+        <p>Ime, vrsta, opis, fotografije i mjesto (grad) ljubimca kojeg daješ na udomljavanje te status oglasa.</p>
+        <h3>2.7 AI asistent</h3>
+        <p>Kada postaviš pitanje AI asistentu, šaljemo tvoje pitanje, prethodne poruke iz tog razgovora i osnovni profil odabranog ljubimca (ime, vrsta, pasmina, spol, dob, oznake o zdravlju i rodovniku). Razgovor ne čuvamo na našim poslužiteljima — nestaje kada zatvoriš ekran. Na poslužitelju bilježimo samo broj postavljenih pitanja radi dnevnog ograničenja.</p>
+        <h3>2.8 Tehnički podaci i podaci o korištenju</h3>
+        <ul>
+          <li><strong>Token za push obavijesti</strong> — kako bismo ti slali podsjetnike i Pet Alert obavijesti.</li>
+          <li><strong>Osnovna analitika</strong> — nazivi radnji u aplikaciji (npr. „dodan ljubimac”, „prijava putem Googlea”), platforma (Android/iOS) i vrijeme. Ne koristimo oglasne identifikatore ni alate trećih strana za praćenje.</li>
+          <li><strong>Lokalno na uređaju</strong> — odabrani jezik i pomoćni brojači (npr. za AI limit i obavijesti) čuvaju se samo na tvom telefonu.</li>
+        </ul>
+        <h3>2.9 NFC ogrlica</h3>
+        <p>Na NFC privjesak upisujemo samo poveznicu na profil ljubimca (<code>petlink.app/p/…</code>) — bez tvojih osobnih podataka. Imaj na umu da tu poveznicu može očitati svatko tko prisloni telefon na privjesak; upravo je to svrha privjeska, da nalaznik može pomoći.</p>
+
+        <h2 data-anchor="purposes">3. Zašto koristimo podatke i pravna osnova</h2>
+        <ul>
+          <li><strong>Pružanje usluge</strong> (izvršenje ugovora — Uvjeta korištenja): račun, e-Karton, podsjetnici, Pet Alert, karta, udomljavanje, Love Match, četovi, AI asistent, NFC.</li>
+          <li><strong>Privola</strong>: lokacija, kamera, galerija, kalendar i push obavijesti — svako dopuštenje daješ zasebno i možeš ga povući u postavkama telefona.</li>
+          <li><strong>Legitimni interes</strong>: sigurnost i sprječavanje zlouporaba (blokiranje, prijave oglasa, dnevni limit AI-ja), osnovna analitika radi poboljšanja aplikacije.</li>
+          <li><strong>Zakonska obveza</strong>: kada to zahtijeva nadležno tijelo u skladu sa zakonom.</li>
+        </ul>
+        <p>Zdravstveni podaci o ljubimcu nisu posebna kategorija osobnih podataka, ali ih ipak tretiramo kao povjerljive i dostupni su samo tebi.</p>
+
+        <h2 data-anchor="visibility">4. Što vide drugi korisnici</h2>
+        <p>Većina podataka (profil, e-Karton, dokumenti, podsjetnici) vidljiva je <strong>samo tebi</strong>. Neke su funkcije po prirodi javne:</p>
+        <ul>
+          <li><strong>Pet Alert</strong>: svi prijavljeni korisnici vide ime, pasminu i fotografije ljubimca, tvoje ime i broj telefona te lokaciju nestanka — kako bi te mogli nazvati. Isti se podaci nalaze na plakatu koji generiraš i dijeliš. Viđenja i poruke u Pet Alert četu vide svi korisnici. Kada ljubimac bude pronađen, deaktiviraj upozorenje.</li>
+          <li><strong>Udomljavanje</strong>: oglasi su javni (vidljivi i bez prijave), a tvoje ime vidljivo je korisniku koji ti piše.</li>
+          <li><strong>Love Match</strong>: kada aktiviraš profil za parenje, drugi korisnici vide ime, pasminu, spol, fotografiju ljubimca, oznake o rodovniku/zdravlju i približnu udaljenost (ne točnu adresu).</li>
+          <li><strong>Četovi</strong>: poruke vidi korisnik s kojim se dopisuješ.</li>
+        </ul>
+
+        <h2 data-anchor="third-parties">5. S kim dijelimo podatke</h2>
+        <p>Ne prodajemo podatke i ne dijelimo ih u marketinške svrhe. Koristimo sljedeće pružatelje usluga (izvršitelje obrade), samo u mjeri potrebnoj za rad aplikacije:</p>
+        <ul>
+          <li><strong>Supabase</strong> — baza podataka, autentifikacija, pohrana datoteka i poslužiteljske funkcije; poslužitelji u Europskoj uniji (Irska).</li>
+          <li><strong>Google (Maps)</strong> — prikaz karte u aplikaciji.</li>
+          <li><strong>Google i Apple (prijava)</strong> — ako odabereš prijavu putem njihova računa.</li>
+          <li><strong>Expo, Google Firebase Cloud Messaging i Apple Push Notification Service</strong> — dostava push obavijesti i ažuriranja aplikacije.</li>
+          <li><strong>DeepSeek i Google (Gemini)</strong> — obrada pitanja upućenih AI asistentu (vidi točku 2.7). Ne šalji im osobne podatke koji nisu potrebni za pitanje.</li>
+          <li><strong>Nadležna tijela</strong> — samo kada nas na to obvezuje zakon.</li>
+        </ul>
+
+        <h2 data-anchor="transfers">6. Prijenos podataka u inozemstvo</h2>
+        <p>Glavni podaci pohranjuju se u EU. Pojedini pružatelji (Google, Apple, Expo, DeepSeek) mogu obrađivati podatke izvan EU-a, uključujući SAD i Narodnu Republiku Kinu (DeepSeek). U tim se slučajevima oslanjamo na mehanizme predviđene GDPR-om (npr. standardne ugovorne klauzule ili odluke o primjerenosti), a u te sustave šaljemo samo ono što je nužno za konkretnu funkciju.</p>
+
+        <h2 data-anchor="retention">7. Koliko dugo čuvamo podatke</h2>
+        <ul>
+          <li>Podatke računa, ljubimaca, e-Kartona i oglasa čuvamo dok imaš račun ili dok ih sam ne izbrišeš.</li>
+          <li>Pet Alert upozorenja ostaju aktivna dok ih ne deaktiviraš ili izbrišeš.</li>
+          <li>Brojač AI pitanja resetira se svaka 24 sata; sadržaj AI razgovora ne čuvamo.</li>
+          <li>Nakon brisanja računa podaci se trajno brišu, osim poruka koje si poslao drugim korisnicima i analitičkih događaja, koji ostaju <strong>anonimizirani</strong> (više nisu povezani s tobom). Kopije u sigurnosnim kopijama (backup) nestaju u redovnom ciklusu rotacije.</li>
+        </ul>
+
+        <h2 data-anchor="delete-account">8. Brisanje računa i podataka</h2>
+        <p>Račun možeš izbrisati u bilo kojem trenutku, izravno u aplikaciji:</p>
+        <ol>
+          <li>Otvori PetLink i idi na <strong>Profil → Privatnost i Sigurnost</strong>.</li>
+          <li>Dodirni <strong>„Obriši moj nalog”</strong> i potvrdi.</li>
+        </ol>
+        <p>Time se trajno brišu račun, svi ljubimci, e-Karton, dokumenti, fotografije, podsjetnici, Love Match profili, Pet Alert upozorenja, oglasi i popis blokiranih korisnika. Brisanje je nepovratno.</p>
+        <p>Ako više nemaš pristup aplikaciji, pošalji zahtjev za brisanje s email adrese računa na <a href="mailto:kontakt@petlink.app?subject=Brisanje%20ra%C4%8Duna">kontakt@petlink.app</a> — obradit ćemo ga u roku od 30 dana. Pojedinačne podatke (npr. jednog ljubimca, dokument ili oglas) možeš izbrisati i bez brisanja računa.</p>
+
+        <h2 data-anchor="rights">9. Tvoja prava</h2>
+        <p>U skladu s GDPR-om imaš pravo na: pristup podacima, ispravak, brisanje, ograničenje obrade, prenosivost podataka, prigovor na obradu temeljenu na legitimnom interesu i povlačenje privole u bilo kojem trenutku (bez utjecaja na zakonitost ranije obrade). Zahtjev pošalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>; odgovorit ćemo u roku od 30 dana.</p>
+        <p>Imaš i pravo podnijeti pritužbu nadzornom tijelu: u Hrvatskoj Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" rel="noopener">azop.hr</a>), u Srbiji Povjereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (<a href="https://www.poverenik.rs" rel="noopener">poverenik.rs</a>), u Bosni i Hercegovini Agenciji za zaštitu osobnih podataka (<a href="https://azlp.ba" rel="noopener">azlp.ba</a>).</p>
+
+        <h2 data-anchor="permissions">10. Dopuštenja na telefonu</h2>
+        <ul>
+          <li><strong>Lokacija</strong> — karta, nestali ljubimci i ljubimci u blizini.</li>
+          <li><strong>Kamera i galerija</strong> — fotografije ljubimaca, profila, oglasa i dokumenata.</li>
+          <li><strong>NFC</strong> — čitanje i upis NFC privjeska.</li>
+          <li><strong>Obavijesti</strong> — podsjetnici za cjepiva i parazite, Pet Alert, nove poruke.</li>
+          <li><strong>Kalendar</strong> — opcionalno dodavanje obveza u kalendar telefona.</li>
+        </ul>
+        <p>Svako dopuštenje možeš uskratiti ili povući u postavkama telefona; tada povezana funkcija neće raditi, ali ostatak aplikacije hoće.</p>
+
+        <h2 data-anchor="children">11. Djeca</h2>
+        <p>PetLink nije namijenjen osobama mlađim od 16 godina i svjesno ne prikupljamo njihove podatke. Ako saznaš da nam je dijete dalo podatke, javi nam se i izbrisat ćemo ih.</p>
+
+        <h2 data-anchor="security">12. Sigurnost</h2>
+        <p>Podaci se prenose šifrirano (HTTPS/TLS). Pristup bazi ograničen je pravilima na razini retka (Row Level Security), tako da korisnik može vidjeti i mijenjati samo svoje podatke i ono što je namjerno javno. Tajni ključevi drže se na poslužitelju. Nijedan sustav nije 100 % siguran, pa te molimo da koristiš jaku lozinku i da nam odmah prijaviš sumnju na zlouporabu.</p>
+
+        <h2 data-anchor="website">13. Ova web stranica</h2>
+        <p>Stranica ne koristi kolačiće (cookies) ni analitiku. U pregledniku (localStorage) pamti samo odabrani jezik. Stranica se hostira na GitHub Pages, a fontovi, stilovi i ikone učitavaju se s Google Fonts, Tailwind CDN-a i unpkg-a — ti servisi, kao i svaki web poslužitelj, mogu vidjeti tvoju IP adresu i podatke o pregledniku.</p>
+
+        <h2 data-anchor="changes">14. Izmjene ove politike</h2>
+        <p>Politiku možemo povremeno ažurirati. Datum posljednje izmjene uvijek je naveden na vrhu, a o značajnim izmjenama obavijestit ćemo te u aplikaciji ili emailom.</p>
+
+        <h2 data-anchor="contact">15. Kontakt</h2>
+        <p>Pitanja, zahtjevi i prijave: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           BOSANSKI
+           ============================================================ -->
+      <article data-lang="bs" lang="bs" data-title="Politika privatnosti — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Politika privatnosti</h1>
+        <p class="updated">Posljednje ažuriranje: 10. oktobar 2026.</p>
+
+        <div class="summary">
+          <p><strong>Ukratko:</strong> podatke prikupljamo samo da bi aplikacija radila — za e-Karton, podsjetnike, Pet Alert, mapu, udomljavanje, Love Match i AI asistenta. Ne prodajemo tvoje podatke i ne prikazujemo reklame. Račun i sve podatke možeš trajno obrisati iz same aplikacije.</p>
+        </div>
+
+        <h2 data-anchor="who-we-are">1. Ko smo mi</h2>
+        <p>PetLink je mobilna aplikacija za vlasnike kućnih ljubimaca (u daljem tekstu: „PetLink”, „mi”). Kontrolor tvojih ličnih podataka je Marko Lošić, razvojni programer aplikacije PetLink. Za sva pitanja o privatnosti piši nam na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+        <p>Ova politika važi za mobilnu aplikaciju PetLink (Android i iOS) i za ovu web stranicu. Primjenjujemo Zakon o zaštiti ličnih podataka Bosne i Hercegovine, Zakon o zaštiti podataka o ličnosti Republike Srbije i, za korisnike iz Evropske unije, Opću uredbu o zaštiti podataka (GDPR).</p>
+
+        <h2 data-anchor="data-we-collect">2. Koje podatke prikupljamo</h2>
+        <h3>2.1 Račun i profil</h3>
+        <ul>
+          <li><strong>Email adresa i lozinka</strong> — lozinku nikad ne vidimo u čitljivom obliku; čuva je naš pružalac autentifikacije u heširanom obliku.</li>
+          <li><strong>Prijava putem Google-a ili Apple-a</strong> — dobijamo ime i email adresu koje taj servis podijeli s nama (kod Apple-a to može biti skrivena „relay” adresa).</li>
+          <li><strong>Profil</strong> — ime i prezime, broj telefona i profilna slika, ako ih uneseš.</li>
+        </ul>
+        <h3>2.2 Ljubimci i e-Karton</h3>
+        <ul>
+          <li>Ime, vrsta, rasa, spol, datum rođenja, broj mikročipa i fotografije ljubimca.</li>
+          <li>Zdravstveni podaci: vakcinacije (vrsta, datum, sljedeći termin, ime veterinara, bilješke), zaštita od parazita (preparat, datum, trajanje), medicinski dokumenti i nalazi koje postaviš (PDF ili slike).</li>
+          <li>Podsjetnici i obaveze (lijekovi, šišanje, veterinar…) i historija obavljenih aktivnosti.</li>
+        </ul>
+        <h3>2.3 Lokacija</h3>
+        <ul>
+          <li><strong>Lokacija uređaja</strong> — samo uz tvoju dozvolu, dok koristiš aplikaciju, da bismo prikazali mapu, nestale ljubimce i ljubimce u blizini.</li>
+          <li><strong>Lokacija ljubimca za Love Match</strong> — približna lokacija čuva se uz profil ljubimca da bi se izračunala udaljenost do drugih ljubimaca.</li>
+          <li><strong>Lokacija nestanka i viđenja</strong> — mjesto na kojem je ljubimac posljednji put viđen (Pet Alert) i mjesta na kojima su ga drugi korisnici prijavili.</li>
+        </ul>
+        <h3>2.4 Pet Alert (nestali ljubimci)</h3>
+        <p>Kada prijaviš nestanak, čuvamo ime, rasu i fotografije ljubimca, tvoje ime, broj telefona, lokaciju i vrijeme nestanka. Kada prijaviš viđenje tuđeg ljubimca, čuvamo lokaciju viđenja i tvoju bilješku.</p>
+        <h3>2.5 Komunikacija</h3>
+        <ul>
+          <li>Poruke u Love Match i četovima za udomljavanje, kao i poruke u grupnom četu uz Pet Alert.</li>
+          <li>Lista korisnika koje si blokirao i prijave neprikladnih oglasa.</li>
+        </ul>
+        <h3>2.6 Oglasi za udomljavanje</h3>
+        <p>Ime, vrsta, opis, fotografije i mjesto (grad) ljubimca kojeg daješ na udomljavanje, kao i status oglasa.</p>
+        <h3>2.7 AI asistent</h3>
+        <p>Kada postaviš pitanje AI asistentu, šaljemo tvoje pitanje, prethodne poruke iz tog razgovora i osnovni profil odabranog ljubimca (ime, vrsta, rasa, spol, starost, oznake o zdravlju i pedigreu). Razgovor ne čuvamo na našim serverima — nestaje kada zatvoriš ekran. Na serveru bilježimo samo broj postavljenih pitanja radi dnevnog ograničenja.</p>
+        <h3>2.8 Tehnički podaci i podaci o korištenju</h3>
+        <ul>
+          <li><strong>Token za push obavještenja</strong> — da bismo ti slali podsjetnike i Pet Alert obavještenja.</li>
+          <li><strong>Osnovna analitika</strong> — nazivi radnji u aplikaciji (npr. „dodan ljubimac”, „prijava putem Google-a”), platforma (Android/iOS) i vrijeme. Ne koristimo reklamne identifikatore ni alate trećih strana za praćenje.</li>
+          <li><strong>Lokalno na uređaju</strong> — odabrani jezik i pomoćni brojači (npr. za AI limit i obavještenja) čuvaju se samo na tvom telefonu.</li>
+        </ul>
+        <h3>2.9 NFC ogrlica</h3>
+        <p>Na NFC privjesak upisujemo samo link ka profilu ljubimca (<code>petlink.app/p/…</code>) — bez tvojih ličnih podataka. Imaj na umu da taj link može očitati svako ko prisloni telefon na privjesak; upravo je to svrha privjeska, da nalazač može pomoći.</p>
+
+        <h2 data-anchor="purposes">3. Zašto koristimo podatke i pravni osnov</h2>
+        <ul>
+          <li><strong>Pružanje usluge</strong> (izvršenje ugovora — Uslova korištenja): račun, e-Karton, podsjetnici, Pet Alert, mapa, udomljavanje, Love Match, četovi, AI asistent, NFC.</li>
+          <li><strong>Saglasnost</strong>: lokacija, kamera, galerija, kalendar i push obavještenja — svaku dozvolu daješ posebno i možeš je povući u postavkama telefona.</li>
+          <li><strong>Legitimni interes</strong>: sigurnost i sprečavanje zloupotreba (blokiranje, prijave oglasa, dnevni limit AI-ja), osnovna analitika radi poboljšanja aplikacije.</li>
+          <li><strong>Zakonska obaveza</strong>: kada to zahtijeva nadležni organ u skladu sa zakonom.</li>
+        </ul>
+        <p>Zdravstveni podaci o ljubimcu nisu posebna kategorija ličnih podataka, ali ih ipak tretiramo kao povjerljive i dostupni su samo tebi.</p>
+
+        <h2 data-anchor="visibility">4. Šta vide drugi korisnici</h2>
+        <p>Većina podataka (profil, e-Karton, dokumenti, podsjetnici) vidljiva je <strong>samo tebi</strong>. Neke funkcije su po prirodi javne:</p>
+        <ul>
+          <li><strong>Pet Alert</strong>: svi prijavljeni korisnici vide ime, rasu i fotografije ljubimca, tvoje ime i broj telefona te lokaciju nestanka — kako bi te mogli pozvati. Isti podaci nalaze se na plakatu koji generišeš i dijeliš. Viđenja i poruke u Pet Alert četu vide svi korisnici. Kada ljubimac bude pronađen, deaktiviraj upozorenje.</li>
+          <li><strong>Udomljavanje</strong>: oglasi su javni (vidljivi i bez prijave), a tvoje ime vidljivo je korisniku koji ti piše.</li>
+          <li><strong>Love Match</strong>: kada aktiviraš profil za parenje, drugi korisnici vide ime, rasu, spol, fotografiju ljubimca, oznake o pedigreu/zdravlju i približnu udaljenost (ne tačnu adresu).</li>
+          <li><strong>Četovi</strong>: poruke vidi korisnik s kojim se dopisuješ.</li>
+        </ul>
+
+        <h2 data-anchor="third-parties">5. S kim dijelimo podatke</h2>
+        <p>Ne prodajemo podatke i ne dijelimo ih u marketinške svrhe. Koristimo sljedeće pružaoce usluga (obrađivače), samo u mjeri potrebnoj za rad aplikacije:</p>
+        <ul>
+          <li><strong>Supabase</strong> — baza podataka, autentifikacija, pohrana fajlova i serverske funkcije; serveri u Evropskoj uniji (Irska).</li>
+          <li><strong>Google (Maps)</strong> — prikaz mape u aplikaciji.</li>
+          <li><strong>Google i Apple (prijava)</strong> — ako odabereš prijavu putem njihovog računa.</li>
+          <li><strong>Expo, Google Firebase Cloud Messaging i Apple Push Notification Service</strong> — dostava push obavještenja i ažuriranja aplikacije.</li>
+          <li><strong>DeepSeek i Google (Gemini)</strong> — obrada pitanja upućenih AI asistentu (vidi tačku 2.7). Ne šalji im lične podatke koji nisu potrebni za pitanje.</li>
+          <li><strong>Nadležni organi</strong> — samo kada nas na to obavezuje zakon.</li>
+        </ul>
+
+        <h2 data-anchor="transfers">6. Prijenos podataka u inostranstvo</h2>
+        <p>Glavni podaci čuvaju se u EU. Pojedini pružaoci (Google, Apple, Expo, DeepSeek) mogu obrađivati podatke izvan BiH i EU, uključujući SAD i Narodnu Republiku Kinu (DeepSeek). U tim slučajevima oslanjamo se na zakonom predviđene mehanizme (npr. standardne ugovorne klauzule ili odluke o adekvatnosti), a u te sisteme šaljemo samo ono što je neophodno za konkretnu funkciju.</p>
+
+        <h2 data-anchor="retention">7. Koliko dugo čuvamo podatke</h2>
+        <ul>
+          <li>Podatke računa, ljubimaca, e-Kartona i oglasa čuvamo dok imaš račun ili dok ih sam ne obrišeš.</li>
+          <li>Pet Alert upozorenja ostaju aktivna dok ih ne deaktiviraš ili obrišeš.</li>
+          <li>Brojač AI pitanja resetuje se svaka 24 sata; sadržaj AI razgovora ne čuvamo.</li>
+          <li>Nakon brisanja računa podaci se trajno brišu, osim poruka koje si poslao drugim korisnicima i analitičkih događaja, koji ostaju <strong>anonimizovani</strong> (više nisu povezani s tobom). Kopije u sigurnosnim kopijama (backup) nestaju u redovnom ciklusu rotacije.</li>
+        </ul>
+
+        <h2 data-anchor="delete-account">8. Brisanje računa i podataka</h2>
+        <p>Račun možeš obrisati u bilo kojem trenutku, direktno u aplikaciji:</p>
+        <ol>
+          <li>Otvori PetLink i idi na <strong>Profil → Privatnost i Sigurnost</strong>.</li>
+          <li>Dodirni <strong>„Obriši moj nalog”</strong> i potvrdi.</li>
+        </ol>
+        <p>Time se trajno brišu račun, svi ljubimci, e-Karton, dokumenti, fotografije, podsjetnici, Love Match profili, Pet Alert upozorenja, oglasi i lista blokiranih korisnika. Brisanje je nepovratno.</p>
+        <p>Ako više nemaš pristup aplikaciji, pošalji zahtjev za brisanje s email adrese računa na <a href="mailto:kontakt@petlink.app?subject=Brisanje%20ra%C4%8Duna">kontakt@petlink.app</a> — obradit ćemo ga u roku od 30 dana. Pojedinačne podatke (npr. jednog ljubimca, dokument ili oglas) možeš obrisati i bez brisanja računa.</p>
+
+        <h2 data-anchor="rights">9. Tvoja prava</h2>
+        <p>U skladu sa zakonom imaš pravo na: pristup podacima, ispravku, brisanje, ograničenje obrade, prenosivost podataka, prigovor na obradu zasnovanu na legitimnom interesu i povlačenje saglasnosti u bilo kojem trenutku (bez uticaja na zakonitost ranije obrade). Zahtjev pošalji na <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>; odgovorit ćemo u roku od 30 dana.</p>
+        <p>Imaš i pravo podnijeti prigovor nadzornom organu: u Bosni i Hercegovini Agenciji za zaštitu ličnih podataka (<a href="https://azlp.ba" rel="noopener">azlp.ba</a>), u Srbiji Povjereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (<a href="https://www.poverenik.rs" rel="noopener">poverenik.rs</a>), u Hrvatskoj Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" rel="noopener">azop.hr</a>).</p>
+
+        <h2 data-anchor="permissions">10. Dozvole na telefonu</h2>
+        <ul>
+          <li><strong>Lokacija</strong> — mapa, nestali ljubimci i ljubimci u blizini.</li>
+          <li><strong>Kamera i galerija</strong> — fotografije ljubimaca, profila, oglasa i dokumenata.</li>
+          <li><strong>NFC</strong> — čitanje i upis NFC privjeska.</li>
+          <li><strong>Obavještenja</strong> — podsjetnici za vakcine i parazite, Pet Alert, nove poruke.</li>
+          <li><strong>Kalendar</strong> — opcionalno dodavanje obaveza u kalendar telefona.</li>
+        </ul>
+        <p>Svaku dozvolu možeš uskratiti ili povući u postavkama telefona; tada povezana funkcija neće raditi, ali ostatak aplikacije hoće.</p>
+
+        <h2 data-anchor="children">11. Djeca</h2>
+        <p>PetLink nije namijenjen osobama mlađim od 16 godina i svjesno ne prikupljamo njihove podatke. Ako saznaš da nam je dijete dalo podatke, javi nam se i obrisat ćemo ih.</p>
+
+        <h2 data-anchor="security">12. Sigurnost</h2>
+        <p>Podaci se prenose šifrovano (HTTPS/TLS). Pristup bazi ograničen je pravilima na nivou reda (Row Level Security), tako da korisnik može vidjeti i mijenjati samo svoje podatke i ono što je namjerno javno. Tajni ključevi drže se na serveru. Nijedan sistem nije 100% siguran, pa te molimo da koristiš jaku lozinku i da nam odmah prijaviš sumnju na zloupotrebu.</p>
+
+        <h2 data-anchor="website">13. Ova web stranica</h2>
+        <p>Stranica ne koristi kolačiće (cookies) ni analitiku. U pregledniku (localStorage) pamti samo odabrani jezik. Stranica se hostuje na GitHub Pages, a fontovi, stilovi i ikonice učitavaju se s Google Fonts, Tailwind CDN-a i unpkg-a — ti servisi, kao i svaki web server, mogu vidjeti tvoju IP adresu i podatke o pregledniku.</p>
+
+        <h2 data-anchor="changes">14. Izmjene ove politike</h2>
+        <p>Politiku možemo povremeno ažurirati. Datum posljednje izmjene uvijek je naveden na vrhu, a o značajnim izmjenama obavijestit ćemo te u aplikaciji ili emailom.</p>
+
+        <h2 data-anchor="contact">15. Kontakt</h2>
+        <p>Pitanja, zahtjevi i prijave: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+      <!-- ============================================================
+           ENGLISH
+           ============================================================ -->
+      <article data-lang="en" lang="en" data-title="Privacy Policy — PetLink" class="legal" hidden>
+        <p class="eyebrow">PetLink</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: October 10, 2026</p>
+
+        <div class="summary">
+          <p><strong>In short:</strong> we collect data only to make the app work — for the e-Record, reminders, Pet Alert, the map, adoption, Love Match and the AI assistant. We don't sell your data and we don't show ads. You can permanently delete your account and all your data from within the app.</p>
+        </div>
+
+        <h2 data-anchor="who-we-are">1. Who we are</h2>
+        <p>PetLink is a mobile app for pet owners (“PetLink”, “we”, “us”). The controller of your personal data is Marko Lošić, the developer of PetLink. For any privacy question, email us at <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+        <p>This policy covers the PetLink mobile app (Android and iOS) and this website. We comply with the Serbian Law on Personal Data Protection and, for users in the European Union, the General Data Protection Regulation (GDPR).</p>
+
+        <h2 data-anchor="data-we-collect">2. Data we collect</h2>
+        <h3>2.1 Account and profile</h3>
+        <ul>
+          <li><strong>Email address and password</strong> — we never see your password in readable form; our authentication provider stores it hashed.</li>
+          <li><strong>Sign in with Google or Apple</strong> — we receive the name and email address that service shares with us (with Apple this may be a private relay address).</li>
+          <li><strong>Profile</strong> — full name, phone number and profile picture, if you add them.</li>
+        </ul>
+        <h3>2.2 Pets and e-Record</h3>
+        <ul>
+          <li>Your pet's name, species, breed, sex, date of birth, microchip number and photos.</li>
+          <li>Health data: vaccinations (type, date, next due date, vet's name, notes), parasite protection (product, date, duration), and medical documents and test results you upload (PDF or images).</li>
+          <li>Reminders and tasks (medication, grooming, vet visits…) and a history of completed activities.</li>
+        </ul>
+        <h3>2.3 Location</h3>
+        <ul>
+          <li><strong>Device location</strong> — only with your permission, while you use the app, to show the map, lost pets and pets nearby.</li>
+          <li><strong>Pet location for Love Match</strong> — an approximate location is stored with the pet's profile to calculate distance to other pets.</li>
+          <li><strong>Lost and sighting locations</strong> — where your pet was last seen (Pet Alert) and where other users reported seeing it.</li>
+        </ul>
+        <h3>2.4 Pet Alert (lost pets)</h3>
+        <p>When you report a pet as lost, we store the pet's name, breed and photos, your name, phone number, and the place and time it went missing. When you report a sighting of someone else's pet, we store the sighting location and your note.</p>
+        <h3>2.5 Communication</h3>
+        <ul>
+          <li>Messages in Love Match and adoption chats, and messages in the group chat attached to a Pet Alert.</li>
+          <li>The list of users you have blocked and reports of inappropriate listings.</li>
+        </ul>
+        <h3>2.6 Adoption listings</h3>
+        <p>The name, species, description, photos and location (city) of a pet you put up for adoption, and the listing status.</p>
+        <h3>2.7 AI assistant</h3>
+        <p>When you ask the AI assistant a question, we send your question, the earlier messages in that conversation and the selected pet's basic profile (name, species, breed, sex, age, health and pedigree flags). We do not store the conversation on our servers — it disappears when you leave the screen. On the server we only record how many questions you've asked, to enforce the daily limit.</p>
+        <h3>2.8 Technical and usage data</h3>
+        <ul>
+          <li><strong>Push notification token</strong> — to send you reminders and Pet Alert notifications.</li>
+          <li><strong>Basic analytics</strong> — names of in-app actions (e.g. “pet added”, “signed in with Google”), platform (Android/iOS) and time. We do not use advertising identifiers or third-party tracking tools.</li>
+          <li><strong>Stored on your device</strong> — your chosen language and helper counters (e.g. for the AI limit and notifications) are kept only on your phone.</li>
+        </ul>
+        <h3>2.9 NFC tag</h3>
+        <p>We write only a link to your pet's profile (<code>petlink.app/p/…</code>) to the NFC tag — none of your personal data. Keep in mind that anyone who taps a phone on the tag can read that link; that is the point of the tag, so a finder can help.</p>
+
+        <h2 data-anchor="purposes">3. Why we use data and legal basis</h2>
+        <ul>
+          <li><strong>Providing the service</strong> (performance of a contract — the Terms of Use): account, e-Record, reminders, Pet Alert, map, adoption, Love Match, chats, AI assistant, NFC.</li>
+          <li><strong>Consent</strong>: location, camera, photo library, calendar and push notifications — you grant each permission separately and can withdraw it in your phone's settings.</li>
+          <li><strong>Legitimate interest</strong>: security and abuse prevention (blocking, listing reports, the AI daily limit) and basic analytics to improve the app.</li>
+          <li><strong>Legal obligation</strong>: when a competent authority requires it under the law.</li>
+        </ul>
+        <p>Pet health data is not a special category of personal data, but we still treat it as confidential and only you can access it.</p>
+
+        <h2 data-anchor="visibility">4. What other users can see</h2>
+        <p>Most of your data (profile, e-Record, documents, reminders) is visible <strong>only to you</strong>. Some features are public by nature:</p>
+        <ul>
+          <li><strong>Pet Alert</strong>: all signed-in users can see the pet's name, breed and photos, your name and phone number, and where it went missing — so they can call you. The same details appear on the poster you generate and share. Sightings and messages in the Pet Alert chat are visible to all users. Deactivate the alert once your pet is found.</li>
+          <li><strong>Adoption</strong>: listings are public (visible even without signing in), and your name is visible to a user who messages you.</li>
+          <li><strong>Love Match</strong>: once you activate a mating profile, other users see the pet's name, breed, sex, photo, pedigree/health flags and an approximate distance (never your exact address).</li>
+          <li><strong>Chats</strong>: messages are visible to the user you're chatting with.</li>
+        </ul>
+
+        <h2 data-anchor="third-parties">5. Who we share data with</h2>
+        <p>We don't sell data or share it for marketing. We use the following service providers (processors), only to the extent needed to run the app:</p>
+        <ul>
+          <li><strong>Supabase</strong> — database, authentication, file storage and server functions; servers in the European Union (Ireland).</li>
+          <li><strong>Google (Maps)</strong> — displaying the map in the app.</li>
+          <li><strong>Google and Apple (sign-in)</strong> — if you choose to sign in with their account.</li>
+          <li><strong>Expo, Google Firebase Cloud Messaging and Apple Push Notification Service</strong> — delivering push notifications and app updates.</li>
+          <li><strong>DeepSeek and Google (Gemini)</strong> — processing questions sent to the AI assistant (see 2.7). Don't send them personal information the question doesn't need.</li>
+          <li><strong>Authorities</strong> — only when the law requires us to.</li>
+        </ul>
+
+        <h2 data-anchor="transfers">6. International transfers</h2>
+        <p>Core data is stored in the EU. Some providers (Google, Apple, Expo, DeepSeek) may process data outside Serbia and the EU, including in the United States and the People's Republic of China (DeepSeek). In those cases we rely on the mechanisms the law provides (such as standard contractual clauses or adequacy decisions), and we send those systems only what a given feature needs.</p>
+
+        <h2 data-anchor="retention">7. How long we keep data</h2>
+        <ul>
+          <li>Account, pet, e-Record and listing data is kept while you have an account or until you delete it yourself.</li>
+          <li>Pet Alerts stay active until you deactivate or delete them.</li>
+          <li>The AI question counter resets every 24 hours; we don't store AI conversations.</li>
+          <li>After you delete your account, your data is permanently deleted, except messages you sent to other users and analytics events, which remain <strong>anonymised</strong> (no longer linked to you). Copies in system backups expire in the normal rotation cycle.</li>
+        </ul>
+
+        <h2 data-anchor="delete-account">8. Deleting your account and data</h2>
+        <p>You can delete your account at any time, directly in the app:</p>
+        <ol>
+          <li>Open PetLink and go to <strong>Profile → Privacy &amp; Security</strong>.</li>
+          <li>Tap <strong>“Delete My Account”</strong> and confirm.</li>
+        </ol>
+        <p>This permanently deletes your account, all pets, e-Records, documents, photos, reminders, Love Match profiles, Pet Alerts, listings and your blocked-users list. Deletion cannot be undone.</p>
+        <p>If you no longer have access to the app, email a deletion request from your account's email address to <a href="mailto:kontakt@petlink.app?subject=Account%20deletion">kontakt@petlink.app</a> — we will process it within 30 days. You can also delete individual items (e.g. one pet, a document or a listing) without deleting your account.</p>
+
+        <h2 data-anchor="rights">9. Your rights</h2>
+        <p>Under applicable law you have the right to access, rectify and erase your data, to restrict processing, to data portability, to object to processing based on legitimate interest, and to withdraw consent at any time (without affecting the lawfulness of earlier processing). Send requests to <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>; we'll respond within 30 days.</p>
+        <p>You also have the right to lodge a complaint with a supervisory authority — for example the Commissioner for Information of Public Importance and Personal Data Protection in Serbia (<a href="https://www.poverenik.rs" rel="noopener">poverenik.rs</a>), the Croatian Personal Data Protection Agency (<a href="https://azop.hr" rel="noopener">azop.hr</a>), the Personal Data Protection Agency of Bosnia and Herzegovina (<a href="https://azlp.ba" rel="noopener">azlp.ba</a>), or the authority in your EU country of residence.</p>
+
+        <h2 data-anchor="permissions">10. Phone permissions</h2>
+        <ul>
+          <li><strong>Location</strong> — map, lost pets and pets nearby.</li>
+          <li><strong>Camera and photos</strong> — photos of pets, your profile, listings and documents.</li>
+          <li><strong>NFC</strong> — reading and writing the NFC tag.</li>
+          <li><strong>Notifications</strong> — vaccine and parasite reminders, Pet Alerts, new messages.</li>
+          <li><strong>Calendar</strong> — optionally adding tasks to your phone's calendar.</li>
+        </ul>
+        <p>You can deny or revoke any permission in your phone's settings; the related feature will stop working, but the rest of the app will not.</p>
+
+        <h2 data-anchor="children">11. Children</h2>
+        <p>PetLink is not intended for anyone under 16, and we do not knowingly collect their data. If you learn that a child has given us data, contact us and we will delete it.</p>
+
+        <h2 data-anchor="security">12. Security</h2>
+        <p>Data is encrypted in transit (HTTPS/TLS). Database access is restricted by Row Level Security rules, so each user can only see and change their own data and what is intentionally public. Secret keys are kept on the server. No system is 100% secure, so please use a strong password and report any suspected misuse to us right away.</p>
+
+        <h2 data-anchor="website">13. This website</h2>
+        <p>This website uses no cookies and no analytics. It only remembers your chosen language in your browser (localStorage). The site is hosted on GitHub Pages, and fonts, styles and icons load from Google Fonts, the Tailwind CDN and unpkg — those services, like any web server, can see your IP address and browser details.</p>
+
+        <h2 data-anchor="changes">14. Changes to this policy</h2>
+        <p>We may update this policy from time to time. The date of the last change is always shown at the top, and we'll notify you of significant changes in the app or by email.</p>
+
+        <h2 data-anchor="contact">15. Contact</h2>
+        <p>Questions, requests and reports: <a href="mailto:kontakt@petlink.app">kontakt@petlink.app</a>.</p>
+      </article>
+
+    </main>
+  </div>
+
+  <footer class="border-t border-ink/5 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-ink/60 sm:flex-row sm:px-6">
+      <p>© <span id="year">2026</span> PetLink. <span data-ui="rights">Sva prava zadržana.</span></p>
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <li><a href="privacy.html" data-keep-lang data-ui="privacy" aria-current="page" class="font-semibold text-brand-700">Politika privatnosti</a></li>
+        <li><a href="terms.html" data-keep-lang data-ui="terms" class="transition hover:text-brand-600">Uslovi korišćenja</a></li>
+        <li><a href="mailto:kontakt@petlink.app" data-ui="contact" class="transition hover:text-brand-600">Kontakt</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/legal.js"></script>
+</body>
+</html>
