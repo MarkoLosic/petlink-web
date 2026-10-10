@@ -24,3 +24,5 @@ body { -webkit-font-smoothing: antialiased; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.legal .callout { margin-top: 1rem; border-radius: 1rem; background: #FFF7ED; border: 1px solid #FED7AA; padding: 0.9rem 1.1rem; }
