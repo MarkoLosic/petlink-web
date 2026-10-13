@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<!-- GENERISANO iz index.html + src/i18n.mjs (npm run build) — ne menjaj ručno -->
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       SEO + DELJENJE LINKA
+       Blok između SEO:START i SEO:END generiše npm run build
+       (scripts/build-pages.mjs) — tekst menjaš preko ključeva
+       meta.title / meta.desc (srpski ispod u <title> i description,
+       ostali jezici u src/i18n.mjs).
+       ============================================================ -->
+  <!-- SEO:START -->
+  <title>PetLink — Sve za tvog ljubimca na jednom mjestu</title>
+  <meta name="description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s podsjetnicima za cijepljenje, AI asistent za njegu, Pet Alert za nestale ljubimce s kartom i plakatom, NFC privjesak, udomljavanje i Love Match." />
+  <link rel="canonical" href="https://markolosic.github.io/petlink-web/hr/" />
+  
+  <!-- Alternativne jezičke verzije (za Google) -->
+  <link rel="alternate" hreflang="sr" href="https://markolosic.github.io/petlink-web/" />
+  <link rel="alternate" hreflang="hr" href="https://markolosic.github.io/petlink-web/hr/" />
+  <link rel="alternate" hreflang="bs" href="https://markolosic.github.io/petlink-web/bs/" />
+  <link rel="alternate" hreflang="en" href="https://markolosic.github.io/petlink-web/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://markolosic.github.io/petlink-web/" />
+  
+  <!-- Open Graph (deljenje na društvenim mrežama) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PetLink" />
+  <meta property="og:url" content="https://markolosic.github.io/petlink-web/hr/" />
+  <meta property="og:title" content="PetLink — Sve za tvog ljubimca na jednom mjestu" />
+  <meta property="og:description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s podsjetnicima za cijepljenje, AI asistent za njegu, Pet Alert za nestale ljubimce s kartom i plakatom, NFC privjesak, udomljavanje i Love Match." />
+  <meta property="og:image" content="https://markolosic.github.io/petlink-web/assets/og/og-hr.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PetLink — Sve za tvog ljubimca na jednom mjestu" />
+  <meta property="og:locale" content="hr_HR" />
+  <meta property="og:locale:alternate" content="sr_RS" />
+  <meta property="og:locale:alternate" content="bs_BA" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PetLink — Sve za tvog ljubimca na jednom mjestu" />
+  <meta name="twitter:description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s podsjetnicima za cijepljenje, AI asistent za njegu, Pet Alert za nestale ljubimce s kartom i plakatom, NFC privjesak, udomljavanje i Love Match." />
+  <meta name="twitter:image" content="https://markolosic.github.io/petlink-web/assets/og/og-hr.jpg" />
+  
+  <!-- Strukturirani podaci (Google) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"PetLink","url":"https://markolosic.github.io/petlink-web/","inLanguage":"hr"},{"@type":"MobileApplication","name":"PetLink","operatingSystem":"Android","applicationCategory":"LifestyleApplication","description":"PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s podsjetnicima za cijepljenje, AI asistent za njegu, Pet Alert za nestale ljubimce s kartom i plakatom, NFC privjesak, udomljavanje i Love Match.","url":"https://markolosic.github.io/petlink-web/hr/","image":"https://markolosic.github.io/petlink-web/assets/logo.png","installUrl":"https://play.google.com/store/apps/details?id=com.markolosic.petlink","inLanguage":["sr-Latn","hr","bs","en"],"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}]}</script>
+  <!-- SEO:END -->
+  <meta name="theme-color" content="#F97316">
+
+  <!-- Samo na korenskoj (srpskoj) stranici: prvi put preusmeri na jezik
+       iz starog ?lang= linka, ranije izabran jezik ili jezik browsera.
+       Na /hr/, /bs/, /en/ build uklanja ovu skriptu. Botove ne preusmeravamo
+       da bi Google indeksirao i srpsku verziju. -->
+  
+
+  <!-- Favicon (ikonica aplikacije). "?v=3" tera browser da ne koristi staru keširanu ikonicu;
+       kad ponovo promeniš ikonicu, povećaj broj. -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=3">
+  <link rel="shortcut icon" href="../favicon.ico?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
+
+  <!-- ============================================================
+       STILOVI: Tailwind build + fontovi (izvor je src/styles.css)
+       Posle izmene klasa u HTML-u pokreni: npm run css
+       "?v=1" povećaj kad objaviš novu verziju CSS-a (keš browsera).
+       ============================================================ -->
+  <link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="stylesheet" href="../assets/styles.css?v=1">
+</head>
+
+<!--
+  ================================================================
+  PREVODI — KAKO RADE
+  ----------------------------------------------------------------
+  • Ovaj fajl je srpska verzija i izvor za sve jezike.
+  • Hrvatski, bosanski i engleski prevodi su u src/i18n.mjs, a
+    npm run build od njih pravi hr/, bs/ i en/ stranice
+    (te fajlove ne menjaj ručno — pregaziće ih sledeći build).
+  • Svaki element koji se prevodi ima atribut:
+      data-i18n="kljuc"        → menja se tekst elementa
+      data-i18n-aria="kljuc"   → menja se aria-label
+      data-i18n-alt="kljuc"    → menja se alt tekst slike
+  • Kada menjaš tekst: izmeni srpski ovde, a isti ključ u src/i18n.mjs
+    za hr / bs / en, pa pokreni npm run build.
+  ================================================================
+-->
+<body class="bg-cream font-sans text-ink overflow-x-hidden">
+  <!-- ICONS:START (generiše npm run icons — ne menjaj ručno) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></symbol><symbol id="i-bell-ring" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /><path d="M4 2C2.8 3.7 2 5.7 2 8" /><path d="M22 8c0-2.3-.8-4.3-2-6" /></symbol><symbol id="i-bug" viewBox="0 0 24 24"><path d="m8 2 1.88 1.88" /><path d="M14.12 3.88 16 2" /><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1" /><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6" /><path d="M12 20v-9" /><path d="M6.53 9C4.6 8.8 3 7.1 3 5" /><path d="M6 13H2" /><path d="M3 21c0-2.1 1.7-3.9 3.8-4" /><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /><path d="M22 13h-4" /><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4" /></symbol><symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-circle-user" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="10" r="3" /><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" /></symbol><symbol id="i-clipboard-plus" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M9 14h6" /><path d="M12 17v-6" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-handshake" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" /><path d="m18 15-2-2" /><path d="m15 18-2-2" /></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol><symbol id="i-map-pinned" viewBox="0 0 24 24"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0" /><circle cx="12" cy="8" r="2" /><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-message-circle-heart" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /><path d="M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-nfc" viewBox="0 0 24 24"><path d="M6 8.32a7.43 7.43 0 0 1 0 7.36" /><path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58" /><path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8" /><path d="M16.37 2a20.16 20.16 0 0 1 0 20" /></symbol><symbol id="i-paw-print" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2" /><circle cx="18" cy="8" r="2" /><circle cx="20" cy="16" r="2" /><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol><symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" /><rect x="6" y="14" width="12" height="8" rx="1" /></symbol><symbol id="i-scan-line" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 12h10" /></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6" /><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z" /><path d="M21 12h1" /><path d="M18.5 4.5 18 5" /><path d="M2 12h1" /><path d="M12 2v1" /><path d="m4.929 4.929.707.707" /><path d="M12 12v6" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></symbol><symbol id="i-syringe" viewBox="0 0 24 24"><path d="m18 2 4 4" /><path d="m17 7 3-3" /><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5" /><path d="m9 11 4 4" /><path d="m5 19-3 3" /><path d="m14 4 6 6" /></symbol><symbol id="i-twitter" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></symbol><symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><line x1="19" x2="19" y1="8" y2="14" /><line x1="22" x2="16" y1="11" y2="11" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol></svg>
+  <!-- ICONS:END -->
+
+  <!-- Link za preskakanje navigacije (pristupačnost) -->
+  <a href="#main" data-i18n="skip" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-xl focus:bg-ink focus:px-4 focus:py-2 focus:text-white">Preskoči na sadržaj</a>
+
+  <!-- ==============================================================
+       1. NAVBAR
+       ============================================================== -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Glavna navigacija" data-i18n-aria="nav.aria">
+      <!-- Logo -->
+      <a href="#pocetna" class="flex items-center gap-2" aria-label="PetLink — početna" data-i18n-aria="logo.aria">
+        <img src="../assets/logo-80.webp" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover shadow-soft">
+        <span class="font-display text-xl font-bold tracking-tight">Pet<span class="text-brand-500">Link</span></span>
+      </a>
+
+      <!-- Linkovi (desktop) -->
+      <ul class="hidden items-center gap-8 text-sm font-medium text-ink/70 lg:flex">
+        <li><a href="#pocetna" data-i18n="nav.home" class="transition hover:text-brand-600">Početna</a></li>
+        <li><a href="#funkcionalnosti" data-i18n="nav.features" class="transition hover:text-brand-600">Značajke</a></li>
+        <li><a href="#ai-asistent" data-i18n="nav.ai" class="transition hover:text-brand-600">AI asistent</a></li>
+        <li><a href="#kako-radi" data-i18n="nav.how" class="transition hover:text-brand-600">Kako radi</a></li>
+        <li><a href="#galerija" data-i18n="nav.gallery" class="transition hover:text-brand-600">Galerija</a></li>
+        <li><a href="#preuzmi" data-i18n="nav.download" class="transition hover:text-brand-600">Preuzmi</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <!-- Izbor jezika -->
+        <div class="relative" id="lang-switcher">
+          <button id="lang-toggle" type="button" class="flex h-11 items-center gap-1.5 rounded-2xl bg-white px-3 text-sm font-semibold shadow-soft transition hover:text-brand-600" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Odaberi jezik" data-i18n-aria="lang.label">
+            <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-globe" /></svg>
+            <span id="lang-current">HR</span>
+            <svg class="icon h-4 w-4 text-ink/40" aria-hidden="true"><use href="#i-chevron-down" /></svg>
+          </button>
+          <ul id="lang-menu" class="absolute right-0 mt-2 hidden w-44 space-y-1 rounded-2xl bg-white p-2 text-sm shadow-soft">
+            <li><a href="../" hreflang="sr-Latn" data-lang="sr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">SR</span> Srpski</a></li>
+            <li><a aria-current="true" href="../hr/" hreflang="hr" data-lang="hr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50 bg-brand-50 font-semibold text-brand-700"><span class="w-6 font-semibold text-ink/40">HR</span> Hrvatski</a></li>
+            <li><a href="../bs/" hreflang="bs" data-lang="bs" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">BS</span> Bosanski</a></li>
+            <li><a href="../en/" hreflang="en" data-lang="en" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">EN</span> English</a></li>
+          </ul>
+        </div>
+
+        <a href="#preuzmi" class="hidden rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-600 sm:inline-flex items-center gap-2">
+          <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-download" /></svg> <span data-i18n="nav.download">Preuzmi</span>
+        </a>
+        <!-- Dugme za mobilni meni -->
+        <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-2xl bg-white text-ink shadow-soft lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori izbornik" data-label-open="Otvori izbornik" data-label-close="Zatvori izbornik">
+          <svg class="icon h-5 w-5 icon-open" aria-hidden="true"><use href="#i-menu" /></svg>
+          <svg class="icon hidden h-5 w-5 icon-close" aria-hidden="true"><use href="#i-x" /></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobilni meni -->
+    <div id="mobile-menu" class="hidden px-4 pb-4 lg:hidden">
+      <ul class="space-y-1 rounded-3xl bg-white p-3 text-base font-medium shadow-soft">
+        <li><a href="#pocetna" data-i18n="nav.home" class="block rounded-2xl px-4 py-3 hover:bg-brand-50">Početna</a></li>
+        <li><a href="#funkcionalnosti" data-i18n="nav.features" class="block rounded-2xl px-4 py-3 hover:bg-brand-50">Značajke</a></li>
+        <li><a href="#ai-asistent" data-i18n="nav.ai" class="block rounded-2xl px-4 py-3 hover:bg-brand-50">AI asistent</a></li>
+        <li><a href="#kako-radi" data-i18n="nav.how" class="block rounded-2xl px-4 py-3 hover:bg-brand-50">Kako radi</a></li>
+        <li><a href="#galerija" data-i18n="nav.gallery" class="block rounded-2xl px-4 py-3 hover:bg-brand-50">Galerija</a></li>
+        <li><a href="#preuzmi" data-i18n="nav.downloadApp" class="mt-2 block rounded-2xl bg-brand-500 px-4 py-3 text-center font-semibold text-white">Preuzmi aplikaciju</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==============================================================
+         2. HERO SEKCIJA
+         ============================================================== -->
+    <section id="pocetna" class="relative overflow-hidden pt-28 pb-20 sm:pt-36 lg:pb-28">
+      <!-- Dekorativni blobovi i šape -->
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+        <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-200/60 blur-3xl"></div>
+        <div class="absolute top-1/2 -left-32 h-80 w-80 rounded-full bg-accent-100 blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/3 h-64 w-64 rounded-full bg-amber-100 blur-3xl"></div>
+        <svg class="icon absolute left-[8%] top-32 h-10 w-10 rotate-[-20deg] text-brand-300/60" aria-hidden="true"><use href="#i-paw-print" /></svg>
+        <svg class="icon absolute right-[12%] bottom-16 h-14 w-14 rotate-12 text-accent-400/40" aria-hidden="true"><use href="#i-paw-print" /></svg>
+        <svg class="icon absolute left-[45%] bottom-8 h-8 w-8 rotate-[30deg] text-brand-300/50" aria-hidden="true"><use href="#i-paw-print" /></svg>
+      </div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <!-- Tekst -->
+        <div class="reveal text-center lg:text-left">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-brand-700 shadow-soft">
+            <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-sparkles" /></svg> <span data-i18n="hero.badge">Za pse, mačke i njihove ljude</span>
+          </span>
+          <h1 class="mt-6 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <span data-i18n="hero.title1">Sve za tvog ljubimca</span> <span class="relative whitespace-nowrap text-brand-500"><span data-i18n="hero.title2">na jednom mjestu</span><svg aria-hidden="true" viewBox="0 0 300 12" class="absolute -bottom-2 left-0 w-full" preserveAspectRatio="none"><path d="M2 9c60-6 180-8 296-3" stroke="#FDBA74" stroke-width="5" fill="none" stroke-linecap="round" /></svg></span>
+          </h1>
+          <p data-i18n="hero.subtitle" class="mx-auto mt-6 max-w-xl text-lg text-ink/70 lg:mx-0">Digitalni zdravstveni karton, podsjetnici za cijepljenje, AI asistent za njegu, Pet Alert kada se ljubimac izgubi, NFC privjesak, udomljavanje i upoznavanje — PetLink brine o svemu dok ti brineš o njemu.</p>
+
+          <div class="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <!-- Google Play dugme -->
+            <a href="https://play.google.com/store/apps/details?id=com.markolosic.petlink" target="_blank" rel="noopener" class="group inline-flex items-center gap-3 rounded-2xl bg-black px-6 py-3 text-white shadow-phone transition hover:-translate-y-1 hover:bg-neutral-800" aria-label="Preuzmi PetLink s trgovine Google Play" data-i18n-aria="play.aria">
+              <svg class="h-8 w-8" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="3.6,2 13,12 3.6,22" fill="#00D7FE" />
+                <polygon points="3.6,2 16.6,8.6 13,12" fill="#00F076" />
+                <polygon points="3.6,22 13,12 16.6,15.4" fill="#FF3A44" />
+                <polygon points="13,12 16.6,8.6 21,11.1 21,12.9 16.6,15.4" fill="#FFD500" />
+              </svg>
+              <span class="text-left leading-tight">
+                <span data-i18n="play.small" class="block text-[11px] uppercase tracking-wide text-white/70">Preuzmi na</span>
+                <span class="block font-display text-lg font-semibold">Google Play</span>
+              </span>
+            </a>
+            <a href="#funkcionalnosti" class="inline-flex items-center gap-2 rounded-2xl border-2 border-ink/10 bg-white px-6 py-4 font-semibold transition hover:-translate-y-1 hover:border-brand-300">
+              <span data-i18n="hero.more">Saznaj više</span> <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-arrow-down" /></svg>
+            </a>
+          </div>
+
+          <ul class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-ink/60 lg:justify-start">
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check" /></svg> <span data-i18n="hero.free">Besplatno</span></li>
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check" /></svg> <span data-i18n="hero.langs">Dostupno na 4 jezika</span></li>
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check" /></svg> <span data-i18n="hero.google">Prijava putem Google računa</span></li>
+          </ul>
+        </div>
+
+        <!-- Mockup telefona (Početni ekran aplikacije) -->
+        <div class="reveal relative flex justify-center" style="--delay: 150ms">
+          <div class="animate-float">
+            <div class="relative h-[580px] w-[285px] rounded-[3rem] border-[10px] border-ink bg-ink shadow-phone" role="img" aria-label="Prikaz početnog zaslona aplikacije PetLink s ljubimcima Max i Luna" data-i18n-aria="mock.aria">
+              <div class="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-ink"></div>
+              <div class="flex h-full flex-col overflow-hidden rounded-[2.3rem] bg-[#f4f6f8]">
+                <div class="px-5 pt-10">
+                  <p data-i18n="mock.hello" class="text-xs text-ink/50">Bok,</p>
+                  <p class="font-display text-xl font-bold">Marko 👋</p>
+                  <p data-i18n="mock.family" class="mt-5 text-xs font-semibold uppercase tracking-wider text-ink/50">Moja obitelj</p>
+                </div>
+                <div class="mt-3 space-y-3 px-4">
+                  <div class="rounded-2xl bg-white p-3 shadow-sm">
+                    <div class="flex items-center gap-3">
+                      <div class="grid h-12 w-12 place-items-center rounded-xl bg-brand-100 text-2xl">🐶</div>
+                      <div class="flex-1">
+                        <p class="font-semibold">Max</p>
+                        <p data-i18n="mock.breedMax" class="text-xs text-ink/50">Zlatni retriver · 3 god.</p>
+                      </div>
+                    </div>
+                    <div class="mt-3 flex items-center gap-1.5 rounded-lg bg-emerald-50 px-2 py-1.5 text-[11px] font-medium text-emerald-700">
+                      <svg class="icon h-3.5 w-3.5" aria-hidden="true"><use href="#i-shield-check" /></svg> <span data-i18n="mock.vaxOk">Sva cjepiva su ažurna</span>
+                    </div>
+                  </div>
+                  <div class="rounded-2xl bg-white p-3 shadow-sm">
+                    <div class="flex items-center gap-3">
+                      <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent-100 text-2xl">🐱</div>
+                      <div class="flex-1">
+                        <p class="font-semibold">Luna</p>
+                        <p data-i18n="mock.breedLuna" class="text-xs text-ink/50">Britanska kratkodlaka · 2 god.</p>
+                      </div>
+                    </div>
+                    <div class="mt-3 flex items-center gap-1.5 rounded-lg bg-amber-50 px-2 py-1.5 text-[11px] font-medium text-amber-700">
+                      <svg class="icon h-3.5 w-3.5" aria-hidden="true"><use href="#i-bug" /></svg> <span data-i18n="mock.protection">Zaštita istječe za 5 dana</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-center gap-2 rounded-2xl bg-red-500 py-3 text-sm font-semibold text-white">
+                    <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-siren" /></svg> <span data-i18n="mock.report">Prijavi nestanak</span>
+                  </div>
+                </div>
+                <!-- Donja traka sa tabovima -->
+                <div class="mt-auto grid grid-cols-5 border-t border-ink/5 bg-white px-2 py-3 text-ink/40">
+                  <svg class="icon mx-auto h-5 w-5 text-accent-500" aria-hidden="true"><use href="#i-house" /></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-map" /></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-paw-print" /></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-sparkles" /></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-circle-user" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plutajuće "notifikacije" oko telefona -->
+          <div class="animate-float-slow absolute -left-2 top-16 hidden items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-soft sm:flex lg:-left-6">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-brand-100 text-brand-600"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-syringe" /></svg></span>
+            <span class="text-sm leading-tight"><span data-i18n="float.vax" class="block font-semibold">Cijepljenje sutra</span><span data-i18n="float.vaxSub" class="text-ink/50">Max · bjesnoća</span></span>
+          </div>
+          <div class="animate-float-slow absolute -right-2 bottom-24 hidden items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-soft sm:flex lg:-right-4" style="animation-delay: 1.5s">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-accent-100 text-accent-600"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-map-pin" /></svg></span>
+            <span class="text-sm leading-tight"><span data-i18n="float.sight" class="block font-semibold">Nova dojava viđenja</span><span data-i18n="float.sightSub" class="text-ink/50">prije 2 min · 800 m</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         3. SEKCIJA FUNKCIONALNOSTI
+         >>> OVDE SU FUNKCIONALNOSTI APLIKACIJE <<<
+         Svaka kartica = jedan <article>. Da dodaš/izmeniš funkcionalnost,
+         kopiraj jedan <article> blok i promeni:
+           - href="#i-..."      → ime ikone sa https://lucide.dev/icons
+                                  (pa pokreni npm run build)
+           - <h3>               → naziv funkcionalnosti
+           - <p>                → kratak opis
+         Za novu karticu dodaj i nove ključeve (npr. f7.title, f7.desc)
+         u src/i18n.mjs za hr / bs / en.
+         ============================================================== -->
+    <section id="funkcionalnosti" class="relative py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p data-i18n="features.eyebrow" class="font-display text-sm font-semibold uppercase tracking-widest text-brand-600">Značajke</p>
+          <h2 data-i18n="features.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Jedna aplikacija. Sve što ljubimcu treba.</h2>
+          <p data-i18n="features.subtitle" class="mt-4 text-lg text-ink/70">Od prvog cjepiva do potrage za izgubljenim prijateljem — PetLink povezuje vlasnike, ljubimce i zajednicu.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Funkcionalnost 1: e-Karton -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-clipboard-plus" /></svg>
+            </div>
+            <h3 data-i18n="f1.title" class="mt-6 font-display text-xl font-semibold">Digitalni e-Karton</h3>
+            <p data-i18n="f1.desc" class="mt-2 text-ink/70">Profil ljubimca s pasminom, datumom rođenja i brojem mikročipa, cijepljenjima, zaštitom od parazita i poviješću bolesti. Nalazi i dokumenti uvijek su ti pri ruci.</p>
+          </article>
+
+          <!-- Funkcionalnost 2: Podsetnici -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 80ms">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-accent-100 text-accent-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-bell-ring" /></svg>
+            </div>
+            <h3 data-i18n="f2.title" class="mt-6 font-display text-xl font-semibold">Pametni podsjetnici</h3>
+            <p data-i18n="f2.desc" class="mt-2 text-ink/70">Aplikacija sama izračuna kada je sljedeće cijepljenje ili tretman protiv parazita i na vrijeme pošalje obavijest. Termine možeš dodati i u svoj kalendar.</p>
+          </article>
+
+          <!-- Funkcionalnost 3: Pet Alert -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 160ms">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-red-100 text-red-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-siren" /></svg>
+            </div>
+            <h3 data-i18n="f3.title" class="mt-6 font-display text-xl font-semibold">Pet Alert za nestale ljubimce</h3>
+            <p data-i18n="f3.desc" class="mt-2 text-ink/70">Jednim dodirom prijaviš nestanak i svi korisnici u krugu od 10 km dobivaju push obavijest. Plakat s fotografijom i QR kodom izrađuje se automatski.</p>
+          </article>
+
+          <!-- Funkcionalnost 4: Mapa i prijave viđenja -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-amber-100 text-amber-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-map-pinned" /></svg>
+            </div>
+            <h3 data-i18n="f4.title" class="mt-6 font-display text-xl font-semibold">Karta i dojave viđenja</h3>
+            <p data-i18n="f4.desc" class="mt-2 text-ink/70">Interaktivna karta prikazuje aktivne uzbune i mjesta gdje je ljubimac posljednji put viđen. Svatko može postaviti oznaku, nazvati vlasnika ili mu poslati poruku.</p>
+          </article>
+
+          <!-- Funkcionalnost 5: NFC ogrlica -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 80ms">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-violet-100 text-violet-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-nfc" /></svg>
+            </div>
+            <h3 data-i18n="f5.title" class="mt-6 font-display text-xl font-semibold">NFC pametni privjesak</h3>
+            <p data-i18n="f5.desc" class="mt-2 text-ink/70">Upiši profil ljubimca na NFC privjesak. Tko pronađe izgubljenog ljubimca, samo prisloni mobitel na ogrlicu i odmah vidi kome pripada.</p>
+          </article>
+
+          <!-- Funkcionalnost 6: Usvajanje i Love Match -->
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 160ms">
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-pink-100 text-pink-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-heart-handshake" /></svg>
+            </div>
+            <h3 data-i18n="f6.title" class="mt-6 font-display text-xl font-semibold">Udomljavanje i Love Match</h3>
+            <p data-i18n="f6.desc" class="mt-2 text-ink/70">Pregledaj oglase za udomljavanje pasa i mačaka ili objavi svoj. Love Match pronalazi partnera za parenje u blizini, uz razgovor s vlasnikom u stvarnom vremenu.</p>
+          </article>
+        </div>
+
+        <!-- Dodatne sitnice (manje funkcionalnosti kao "čipovi") -->
+        <ul class="reveal mt-12 flex flex-wrap justify-center gap-3 text-sm font-medium" aria-label="Dodatne mogućnosti" data-i18n-aria="chips.aria">
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-bell" /></svg> <span data-i18n="chip.push">Push obavijesti</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-calendar-check" /></svg> <span data-i18n="chip.calendar">Sinkronizacija s kalendarom</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-languages" /></svg> <span data-i18n="chip.langs">Srpski, hrvatski, bosanski i engleski</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-moon" /></svg> <span data-i18n="chip.dark">Tamni način rada</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-shield-check" /></svg> <span data-i18n="chip.privacy">Blokiranje i privatnost</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         3a. AI ASISTENT
+         Dnevni limit (5 pitanja) je isti kao DAILY_LIMIT u aplikaciji —
+         ako ga promeniš u aplikaciji, promeni i ai.b3 / ai.counter ovde i u src/i18n.mjs.
+         ============================================================== -->
+    <section id="ai-asistent" class="relative overflow-hidden bg-accent-50 py-20 sm:py-28">
+      <div aria-hidden="true" class="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-accent-100 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+
+        <!-- Mockup razgovora sa AI asistentom -->
+        <div class="reveal order-2 flex justify-center lg:order-1">
+          <div class="relative h-[560px] w-[280px] rounded-[3rem] border-[10px] border-ink bg-ink shadow-phone" role="img" aria-label="Prikaz razgovora s AI asistentom o aktivnosti psa Maxa" data-i18n-aria="ai.mockAria">
+            <div class="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-ink"></div>
+            <div class="flex h-full flex-col overflow-hidden rounded-[2.3rem] bg-[#f4f6f8]">
+              <div class="flex items-center gap-2 border-b border-ink/5 bg-white px-4 pb-3 pt-9">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-500 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-sparkles" /></svg></span>
+                <div class="min-w-0 flex-1 leading-tight">
+                  <p data-i18n="ai.header" class="truncate text-sm font-semibold">AI Pametna Njega</p>
+                  <p class="text-[11px] text-ink/50">🐶 Max</p>
+                </div>
+                <span data-i18n="ai.counter" class="shrink-0 whitespace-nowrap rounded-full bg-accent-50 px-2 py-1 text-[10px] font-semibold text-accent-700">Danas: 4/5</span>
+              </div>
+              <div class="flex-1 space-y-3 px-3 py-4 text-[13px]">
+                <p data-i18n="ai.q" class="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-accent-500 px-3 py-2 text-white">Koliko tjelesne aktivnosti treba Maxu?</p>
+                <p data-i18n="ai.a" class="max-w-[88%] rounded-2xl rounded-bl-md bg-white px-3 py-2 shadow-sm">Zlatnom retriveru od 3 godine treba 1–2 sata aktivnosti dnevno: dvije dulje šetnje i igra, idealno plivanje ili donošenje loptice. 🐾</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 px-3 pb-2 text-[11px] font-medium">
+                <span data-i18n="ai.s1" class="rounded-full border border-accent-400/40 bg-white px-2.5 py-1 text-accent-700">Koja cjepiva su na redu?</span>
+                <span data-i18n="ai.s2" class="rounded-full border border-accent-400/40 bg-white px-2.5 py-1 text-accent-700">Hrani li se Max pravilno?</span>
+              </div>
+              <div class="flex items-center gap-2 bg-white px-3 py-3">
+                <span data-i18n="ai.input" class="flex-1 rounded-full bg-[#f4f6f8] px-3 py-2 text-xs text-ink/40">Pitaj o Maxu...</span>
+                <span class="grid h-8 w-8 place-items-center rounded-full bg-accent-500 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-send" /></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tekst -->
+        <div class="reveal order-1 lg:order-2" style="--delay: 120ms">
+          <p class="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-widest text-accent-700">
+            <span data-i18n="ai.badge" class="rounded-full bg-brand-500 px-2.5 py-0.5 text-[11px] tracking-wide text-white">Novo</span>
+            <span data-i18n="ai.eyebrow">AI asistent</span>
+          </p>
+          <h2 data-i18n="ai.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Pitaj AI asistenta sve o svom ljubimcu</h2>
+          <p data-i18n="ai.desc" class="mt-4 text-lg text-ink/70">AI asistent zna pasminu i dob tvog ljubimca te daje praktične savjete o prehrani, cijepljenju, aktivnosti i ponašanju — na tvom jeziku.</p>
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-paw-print" /></svg></span><span data-i18n="ai.b1" class="pt-1.5">Savjeti prilagođeni pasmini i dobi ljubimca</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-message-circle-heart" /></svg></span><span data-i18n="ai.b2" class="pt-1.5">Prehrana, cijepljenje, aktivnost, ponašanje i prva pomoć</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-brand-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-gift" /></svg></span><span data-i18n="ai.b3" class="pt-1.5 font-semibold">5 besplatnih pitanja svaki dan</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-languages" /></svg></span><span data-i18n="ai.b4" class="pt-1.5">Odgovara na srpskom, hrvatskom, bosanskom ili engleskom</span></li>
+          </ul>
+          <p class="mt-8 flex items-center gap-2 text-sm text-ink/50"><svg class="icon h-4 w-4 shrink-0" aria-hidden="true"><use href="#i-stethoscope" /></svg> <span data-i18n="ai.note">AI savjet ne zamjenjuje pregled kod veterinara.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         3b. SPOTLIGHT: KAKO RADI PET ALERT (glavna funkcionalnost)
+         ============================================================== -->
+    <section class="relative overflow-hidden bg-ink py-20 text-white sm:py-28" aria-labelledby="alert-naslov">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-20 top-10 h-96 w-96 rounded-full bg-brand-500/20 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div class="reveal">
+          <p data-i18n="alert.eyebrow" class="font-display text-sm font-semibold uppercase tracking-widest text-brand-300">Kada svaka minuta znači</p>
+          <h2 id="alert-naslov" data-i18n="alert.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Ljubimac je nestao? Cijela zajednica kreće u potragu.</h2>
+          <ol class="mt-10 space-y-6">
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-red-500 font-display font-bold">1</span>
+              <div><p data-i18n="alert.s1t" class="font-semibold">Prijavi nestanak</p><p data-i18n="alert.s1d" class="mt-1 text-white/60">Na profilu ljubimca dodirni „Prijavi nestanak” i potvrdi lokaciju.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-500 font-display font-bold">2</span>
+              <div><p data-i18n="alert.s2t" class="font-semibold">Susjedi dobivaju obavijest</p><p data-i18n="alert.s2d" class="mt-1 text-white/60">Pet Alert stiže svim korisnicima PetLinka u krugu od 10 km.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent-500 font-display font-bold">3</span>
+              <div><p data-i18n="alert.s3t" class="font-semibold">Dojave viđenja stižu na kartu</p><p data-i18n="alert.s3d" class="mt-1 text-white/60">Tko vidi ljubimca, označi mjesto na karti ili ti odmah pošalje poruku.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/15 font-display font-bold">4</span>
+              <div><p data-i18n="alert.s4t" class="font-semibold">Ispiši plakat</p><p data-i18n="alert.s4d" class="mt-1 text-white/60">Plakat s fotografijom, opisom i QR kodom spreman je za dijeljenje i ispis.</p></div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Ilustracija mape sa Pet Alert radijusom -->
+        <div class="reveal relative mx-auto w-full max-w-md" style="--delay: 150ms" role="img" aria-label="Ilustracija karte s aktivnim Pet Alertom i dojavama viđenja" data-i18n-aria="alert.mapAria">
+          <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-[#E8EEE6] shadow-phone">
+            <!-- "Ulice" -->
+            <svg class="absolute inset-0 h-full w-full" viewBox="0 0 400 400" aria-hidden="true">
+              <path d="M0 120 H400 M0 270 H400 M110 0 V400 M290 0 V400 M0 380 L380 0" stroke="#fff" stroke-width="14" fill="none" />
+              <path d="M0 200 H400 M200 0 V400" stroke="#fff" stroke-width="6" fill="none" />
+              <rect x="20" y="20" width="70" height="80" rx="10" fill="#D5E3D0" />
+              <rect x="310" y="290" width="70" height="90" rx="10" fill="#D5E3D0" />
+              <rect x="130" y="290" width="55" height="60" rx="10" fill="#CFE1EC" />
+            </svg>
+            <!-- Radijus alarma -->
+            <div class="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-red-400/60 bg-red-400/10"></div>
+            <div class="animate-ping-soft absolute left-1/2 top-1/2 -ml-16 -mt-16 h-32 w-32 rounded-full bg-red-400/40"></div>
+            <!-- Ljubimac -->
+            <div class="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-brand-100 text-2xl shadow-lg">🐶</div>
+            <!-- Prijave viđenja -->
+            <div class="absolute left-[24%] top-[30%] text-accent-600"><svg class="icon h-8 w-8 fill-white" aria-hidden="true"><use href="#i-map-pin" /></svg></div>
+            <div class="absolute left-[68%] top-[62%] text-accent-600"><svg class="icon h-8 w-8 fill-white" aria-hidden="true"><use href="#i-map-pin" /></svg></div>
+            <!-- Kartica alarma -->
+            <div class="absolute inset-x-4 bottom-4 rounded-2xl bg-white p-4 text-ink shadow-lg">
+              <p data-i18n="alert.active" class="text-xs font-bold tracking-wider text-red-600">PET ALERT AKTIVAN</p>
+              <p data-i18n="alert.pet" class="mt-1 font-semibold">Max · Zlatni retriver</p>
+              <p data-i18n="alert.lost" class="text-sm text-ink/60">Izgubljen prije 2 h na ovom području</p>
+              <div class="mt-3 grid grid-cols-2 gap-2 text-sm font-semibold">
+                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-accent-500 py-2 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-phone" /></svg> <span data-i18n="alert.call">Nazovi</span></span>
+                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-ink/5 py-2"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-printer" /></svg> <span data-i18n="alert.poster">Plakat</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         4. KAKO RADI (3 koraka)
+         ============================================================== -->
+    <section id="kako-radi" class="py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p data-i18n="how.eyebrow" class="font-display text-sm font-semibold uppercase tracking-widest text-brand-600">Kako radi</p>
+          <h2 data-i18n="how.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Spremno za nekoliko minuta</h2>
+        </div>
+
+        <ol class="relative mt-16 grid gap-10 md:grid-cols-3 md:gap-6">
+          <!-- Isprekidana linija između koraka (desktop) -->
+          <div aria-hidden="true" class="absolute left-[16%] right-[16%] top-10 hidden border-t-2 border-dashed border-brand-200 md:block"></div>
+
+          <li class="reveal relative text-center">
+            <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-brand-500 text-white shadow-soft">
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-download" /></svg>
+              <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">1</span>
+            </div>
+            <h3 data-i18n="how.s1t" class="mt-6 font-display text-xl font-semibold">Preuzmi</h3>
+            <p data-i18n="how.s1d" class="mx-auto mt-2 max-w-xs text-ink/70">Instaliraj PetLink besplatno s trgovine Google Play.</p>
+          </li>
+          <li class="reveal relative text-center" style="--delay: 120ms">
+            <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-accent-500 text-white shadow-soft">
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-user-plus" /></svg>
+              <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">2</span>
+            </div>
+            <h3 data-i18n="how.s2t" class="mt-6 font-display text-xl font-semibold">Registriraj se i dodaj ljubimca</h3>
+            <p data-i18n="how.s2d" class="mx-auto mt-2 max-w-xs text-ink/70">Izradi račun e-mailom ili Google računom, pa unesi ime, pasminu, fotografije i mikročip.</p>
+          </li>
+          <li class="reveal relative text-center" style="--delay: 240ms">
+            <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-pink-500 text-white shadow-soft">
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-heart" /></svg>
+              <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">3</span>
+            </div>
+            <h3 data-i18n="how.s3t" class="mt-6 font-display text-xl font-semibold">Uživaj</h3>
+            <p data-i18n="how.s3d" class="mx-auto mt-2 max-w-xs text-ink/70">Podsjetnici rade za tebe, a zajednica je tu kad zatreba.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         5. GALERIJA / SCREENSHOTS
+         Ekrani su napravljeni u HTML-u. Kada budeš imao prave screenshot-ove,
+         zameni sadržaj unutar <div class="screen ..."> sa:
+           <img src="assets/screen-1.png" alt="Opis ekrana" class="h-full w-full object-cover" />
+         ============================================================== -->
+    <section id="galerija" class="relative overflow-hidden bg-brand-50/70 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p data-i18n="gallery.eyebrow" class="font-display text-sm font-semibold uppercase tracking-widest text-brand-600">Galerija</p>
+          <h2 data-i18n="gallery.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Pogledaj kako izgleda</h2>
+          <p data-i18n="gallery.subtitle" class="mt-4 text-lg text-ink/70">Jednostavan dizajn, tamni način rada i sve na dva dodira od početnog zaslona.</p>
+        </div>
+      </div>
+
+      <div class="no-scrollbar mt-14 flex snap-x snap-mandatory gap-8 overflow-x-auto px-4 pb-8 sm:px-6 lg:justify-center lg:px-8" tabindex="0" aria-label="Snimke zaslona aplikacije, pomiči vodoravno" data-i18n-aria="gallery.aria">
+
+        <!-- Ekran 1: e-Karton -->
+        <figure class="reveal shrink-0 snap-center">
+          <div class="h-[460px] w-[230px] rounded-[2.5rem] border-[8px] border-ink bg-ink shadow-phone transition duration-300 hover:-translate-y-2">
+            <div class="screen flex h-full flex-col overflow-hidden rounded-[2rem] bg-[#f4f6f8]">
+              <div class="bg-brand-100 px-4 pb-6 pt-8 text-center">
+                <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-white text-3xl shadow">🐶</div>
+                <p class="mt-2 font-display font-bold">Max</p>
+                <p class="text-[11px] text-ink/50"><span data-i18n="g.chip">Mikročip:</span> 688 0981 2345 6789</p>
+              </div>
+              <div class="-mt-3 space-y-2 px-3 text-xs">
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-syringe" /></svg><span data-i18n="g.vax" class="flex-1 font-medium">Cijepljenja</span><span class="text-emerald-600">✓</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-amber-500" aria-hidden="true"><use href="#i-bug" /></svg><span data-i18n="g.parasites" class="flex-1 font-medium">Zaštita od parazita</span><span class="text-amber-600">5 d</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-brand-500" aria-hidden="true"><use href="#i-file-text" /></svg><span data-i18n="g.history" class="flex-1 font-medium">Povijest bolesti</span><span class="text-ink/40">3</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-violet-500" aria-hidden="true"><use href="#i-nfc" /></svg><span data-i18n="g.nfc" class="flex-1 font-medium">NFC privjesak</span><span class="text-ink/40">›</span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption data-i18n="g1.cap" class="mt-4 text-center font-medium">e-Karton</figcaption>
+        </figure>
+
+        <!-- Ekran 2: Mapa nestalih -->
+        <figure class="reveal shrink-0 snap-center" style="--delay: 100ms">
+          <div class="h-[460px] w-[230px] rounded-[2.5rem] border-[8px] border-ink bg-ink shadow-phone transition duration-300 hover:-translate-y-2">
+            <div class="screen relative h-full overflow-hidden rounded-[2rem] bg-[#E8EEE6]">
+              <svg class="absolute inset-0 h-full w-full" viewBox="0 0 230 460" aria-hidden="true">
+                <path d="M0 140 H230 M0 300 H230 M70 0 V460 M170 0 V460" stroke="#fff" stroke-width="10" fill="none" />
+              </svg>
+              <div class="absolute left-[38%] top-[34%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-400/20 border-2 border-red-400/60"></div>
+              <div class="absolute left-[38%] top-[34%] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[3px] border-white bg-brand-100 text-lg">🐶</div>
+              <div class="absolute left-[70%] top-[50%] text-accent-600"><svg class="icon h-6 w-6 fill-white" aria-hidden="true"><use href="#i-map-pin" /></svg></div>
+              <div class="absolute left-[18%] top-[56%] grid h-9 w-9 place-items-center rounded-full border-[3px] border-white bg-accent-100 text-base">🐱</div>
+              <div data-i18n="g.nearby" class="absolute inset-x-3 top-8 rounded-xl bg-white/95 px-3 py-2 text-[11px] font-semibold shadow">Nestali ljubimci u blizini · 2</div>
+              <div class="absolute inset-x-3 bottom-3 rounded-2xl bg-white p-3 text-xs shadow-lg">
+                <p data-i18n="alert.active" class="text-[10px] font-bold tracking-wider text-red-600">PET ALERT AKTIVAN</p>
+                <p class="mt-1 font-semibold">Max</p>
+                <p data-i18n="g.lastSeen" class="text-ink/50">Posljednji put viđen ovdje</p>
+                <div data-i18n="g.saw" class="mt-2 rounded-lg bg-accent-500 py-1.5 text-center font-semibold text-white">Vidio sam ga</div>
+              </div>
+            </div>
+          </div>
+          <figcaption data-i18n="g2.cap" class="mt-4 text-center font-medium">Karta nestalih</figcaption>
+        </figure>
+
+        <!-- Ekran 3: Usvajanje -->
+        <figure class="reveal shrink-0 snap-center" style="--delay: 200ms">
+          <div class="h-[460px] w-[230px] rounded-[2.5rem] border-[8px] border-ink bg-ink shadow-phone transition duration-300 hover:-translate-y-2">
+            <div class="screen flex h-full flex-col overflow-hidden rounded-[2rem] bg-[#f4f6f8] px-3 pt-8">
+              <p data-i18n="g.adopt" class="font-display text-lg font-bold">Udomi</p>
+              <div class="mt-2 flex gap-1.5 text-[11px] font-medium">
+                <span data-i18n="g.all" class="rounded-full bg-accent-500 px-3 py-1 text-white">Svi</span>
+                <span data-i18n="g.dogs" class="rounded-full bg-white px-3 py-1">Psi</span>
+                <span data-i18n="g.cats" class="rounded-full bg-white px-3 py-1">Mačke</span>
+              </div>
+              <div class="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+                <div class="overflow-hidden rounded-xl bg-white shadow-sm"><div class="grid h-20 place-items-center bg-amber-100 text-3xl">🐕</div><p class="px-2 pt-1.5 font-semibold">Bela</p><p data-i18n="g.p1" class="px-2 pb-2 text-ink/50">Mješanac · 1 g.</p></div>
+                <div class="overflow-hidden rounded-xl bg-white shadow-sm"><div class="grid h-20 place-items-center bg-accent-100 text-3xl">🐈</div><p class="px-2 pt-1.5 font-semibold">Mica</p><p data-i18n="g.p2" class="px-2 pb-2 text-ink/50">Mačka · 6 mj.</p></div>
+                <div class="overflow-hidden rounded-xl bg-white shadow-sm"><div class="grid h-20 place-items-center bg-pink-100 text-3xl">🐩</div><p class="px-2 pt-1.5 font-semibold">Žuća</p><p data-i18n="g.p3" class="px-2 pb-2 text-ink/50">Pudlica · 4 g.</p></div>
+                <div class="overflow-hidden rounded-xl bg-white shadow-sm"><div class="grid h-20 place-items-center bg-brand-100 text-3xl">🐈‍⬛</div><p class="px-2 pt-1.5 font-semibold">Noćko</p><p data-i18n="g.p4" class="px-2 pb-2 text-ink/50">Mačak · 2 g.</p></div>
+              </div>
+              <div data-i18n="g.post" class="mt-auto mb-3 rounded-xl bg-brand-500 py-2 text-center text-xs font-semibold text-white">+ Objavi oglas</div>
+            </div>
+          </div>
+          <figcaption data-i18n="g3.cap" class="mt-4 text-center font-medium">Udomljavanje</figcaption>
+        </figure>
+
+        <!-- Ekran 4: Love Match -->
+        <figure class="reveal shrink-0 snap-center" style="--delay: 300ms">
+          <div class="h-[460px] w-[230px] rounded-[2.5rem] border-[8px] border-ink bg-ink shadow-phone transition duration-300 hover:-translate-y-2">
+            <div class="screen flex h-full flex-col overflow-hidden rounded-[2rem] bg-[#f4f6f8] px-3 pt-8">
+              <p data-i18n="g.discover" class="font-display text-lg font-bold">Otkrij 💕</p>
+              <div class="mt-3 flex-1 overflow-hidden rounded-2xl bg-white shadow">
+                <div class="grid h-44 place-items-center bg-gradient-to-br from-pink-100 to-brand-100 text-6xl">🐕</div>
+                <div class="p-3 text-xs">
+                  <p class="font-display text-base font-bold">Rex, 4</p>
+                  <p data-i18n="g.rex" class="text-ink/50">Zlatni retriver · Mužjak · 3 km</p>
+                  <div class="mt-2 flex flex-wrap gap-1">
+                    <span data-i18n="g.health" class="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-700">Zdravstveno čist</span>
+                    <span data-i18n="g.pedigree" class="rounded-full bg-violet-50 px-2 py-0.5 text-violet-700">Rodovnik</span>
+                  </div>
+                </div>
+              </div>
+              <div class="my-4 flex justify-center gap-5">
+                <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-ink/40 shadow"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-x" /></svg></span>
+                <span class="grid h-12 w-12 place-items-center rounded-full bg-pink-500 text-white shadow"><svg class="icon h-6 w-6 fill-white" aria-hidden="true"><use href="#i-heart" /></svg></span>
+              </div>
+            </div>
+          </div>
+          <figcaption data-i18n="g4.cap" class="mt-4 text-center font-medium">Love Match</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         6. TESTIMONIJALI
+         PLACEHOLDER — zameni pravim recenzijama korisnika (ime, tekst, broj zvezdica)
+         pre objavljivanja sajta.
+         ============================================================== -->
+    <section class="py-20 sm:py-28" aria-labelledby="testimonijali-naslov">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p data-i18n="t.eyebrow" class="font-display text-sm font-semibold uppercase tracking-widest text-brand-600">Dojmovi</p>
+          <h2 id="testimonijali-naslov" data-i18n="t.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Što kažu vlasnici</h2>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1">
+            <div class="flex gap-1 text-amber-400" role="img" aria-label="5 od 5 zvjezdica" data-i18n-aria="t.stars5">
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg>
+            </div>
+            <blockquote data-i18n="t1.quote" class="mt-4 text-ink/80">„Konačno ne zaboravljam cijepljenja. Obavijest stigne nekoliko dana ranije i samo se naručim kod veterinara.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-brand-100 font-semibold text-brand-700">J</span>
+              <span><span class="block font-semibold">Jelena</span><span data-i18n="t1.role" class="text-sm text-ink/50">vlasnica mačke</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1" style="--delay: 100ms">
+            <div class="flex gap-1 text-amber-400" role="img" aria-label="5 od 5 zvjezdica" data-i18n-aria="t.stars5">
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg>
+            </div>
+            <blockquote data-i18n="t2.quote" class="mt-4 text-ink/80">„Pas mi je pobjegao tijekom vatrometa. Za sat vremena netko je označio na karti gdje ga je vidio.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-accent-100 font-semibold text-accent-700">S</span>
+              <span><span class="block font-semibold">Stefan</span><span data-i18n="t2.role" class="text-sm text-ink/50">vlasnik psa</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1" style="--delay: 200ms">
+            <div class="flex gap-1 text-amber-400" role="img" aria-label="4 od 5 zvjezdica" data-i18n-aria="t.stars4">
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star" /></svg><svg class="icon h-5 w-5 text-ink/20" aria-hidden="true"><use href="#i-star" /></svg>
+            </div>
+            <blockquote data-i18n="t3.quote" class="mt-4 text-ink/80">„Cijeli karton mog psa je u mobitelu. Kod veterinara samo otvorim aplikaciju.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-pink-100 font-semibold text-pink-700">A</span>
+              <span><span class="block font-semibold">Ana</span><span data-i18n="t3.role" class="text-sm text-ink/50">vlasnica psa</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         7. CTA SEKCIJA
+         ============================================================== -->
+    <section id="preuzmi" class="px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
+      <div class="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand-500 via-brand-500 to-amber-500 px-6 py-14 text-white shadow-phone sm:px-12 lg:py-20">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+          <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10"></div>
+          <div class="absolute -bottom-16 left-1/3 h-56 w-56 rounded-full bg-white/10"></div>
+          <svg class="icon absolute right-[38%] top-8 h-12 w-12 rotate-12 text-white/15" aria-hidden="true"><use href="#i-paw-print" /></svg>
+        </div>
+
+        <div class="relative grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+          <div class="text-center lg:text-left">
+            <h2 data-i18n="cta.title" class="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Tvoj ljubimac zaslužuje PetLink.</h2>
+            <p data-i18n="cta.subtitle" class="mx-auto mt-4 max-w-xl text-lg text-white/85 lg:mx-0">Preuzmi besplatno i dodaj prvog ljubimca za manje od dvije minute.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.markolosic.petlink" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 rounded-2xl bg-black px-6 py-3 text-white shadow-phone transition hover:-translate-y-1 hover:bg-neutral-800" aria-label="Preuzmi PetLink s trgovine Google Play" data-i18n-aria="play.aria">
+              <svg class="h-8 w-8" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="3.6,2 13,12 3.6,22" fill="#00D7FE" />
+                <polygon points="3.6,2 16.6,8.6 13,12" fill="#00F076" />
+                <polygon points="3.6,22 13,12 16.6,15.4" fill="#FF3A44" />
+                <polygon points="13,12 16.6,8.6 21,11.1 21,12.9 16.6,15.4" fill="#FFD500" />
+              </svg>
+              <span class="text-left leading-tight">
+                <span data-i18n="play.small" class="block text-[11px] uppercase tracking-wide text-white/70">Preuzmi na</span>
+                <span class="block font-display text-lg font-semibold">Google Play</span>
+              </span>
+            </a>
+          </div>
+
+          <!-- QR kod: vodi na Google Play stranicu aplikacije -->
+          <div class="mx-auto rounded-3xl bg-white p-4 text-center text-ink shadow-soft">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=0&data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.markolosic.petlink" alt="QR kod za preuzimanje aplikacije PetLink s trgovine Google Play" data-i18n-alt="cta.qrAlt" width="160" height="160" class="h-40 w-40 rounded-xl bg-brand-50" loading="lazy">
+            <p class="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-ink/70"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-scan-line" /></svg> <span data-i18n="cta.scan">Skeniraj mobitelom</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==============================================================
+       8. FOOTER
+       ============================================================== -->
+  <footer class="border-t border-ink/5 bg-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
+      <div>
+        <a href="#pocetna" class="flex items-center gap-2" aria-label="PetLink — početna" data-i18n-aria="logo.aria">
+          <img src="../assets/logo-80.webp" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover" loading="lazy">
+          <span class="font-display text-xl font-bold">Pet<span class="text-brand-500">Link</span></span>
+        </a>
+        <p data-i18n="footer.desc" class="mt-4 max-w-xs text-sm text-ink/60">Zdravlje, sigurnost i društvo za tvog ljubimca — sve u jednoj aplikaciji.</p>
+      </div>
+
+      <nav aria-label="Pravne informacije" data-i18n-aria="footer.legalAria">
+        <p data-i18n="footer.info" class="font-display font-semibold">Informacije</p>
+        <ul class="mt-4 space-y-2 text-sm text-ink/60">
+          <li><a href="../privacy.html?lang=hr" data-legal-link="" data-i18n="footer.privacy" class="transition hover:text-brand-600">Pravila privatnosti</a></li>
+          <li><a href="../terms.html?lang=hr" data-legal-link="" data-i18n="footer.terms" class="transition hover:text-brand-600">Uvjeti korištenja</a></li>
+          <li><a href="mailto:markolosic1993@gmail.com" data-i18n="footer.contact" class="transition hover:text-brand-600">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p data-i18n="footer.follow" class="font-display font-semibold">Prati nas</p>
+        <!-- Zameni "#" linkovima ka profilima -->
+        <div class="mt-4 flex gap-3">
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Instagramu" data-i18n-aria="social.ig"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-instagram" /></svg></a>
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Facebooku" data-i18n-aria="social.fb"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-facebook" /></svg></a>
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na X-u (Twitter)" data-i18n-aria="social.x"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-twitter" /></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-ink/5 py-6 text-center text-sm text-ink/50">
+      © <span id="year">2026</span> PetLink. <span data-i18n="footer.rights">Sva prava pridržana.</span>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       VANILLA JS
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ---------------------------------------------------------
+      // 1) Izbor jezika
+      //    Svaki jezik je posebna stranica (/, /hr/, /bs/, /en/) koju pravi
+      //    npm run build. Ovde samo pamtimo izbor i otvaramo/zatvaramo meni.
+      // ---------------------------------------------------------
+      const langToggle = document.getElementById('lang-toggle');
+      const langMenu = document.getElementById('lang-menu');
+
+      const setLangMenu = (open) => {
+        langMenu.classList.toggle('hidden', !open);
+        langToggle.setAttribute('aria-expanded', String(open));
+      };
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setLangMenu(langMenu.classList.contains('hidden'));
+      });
+      langMenu.querySelectorAll('.lang-option').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          try { localStorage.setItem('petlink-lang', link.dataset.lang); } catch { /* privatni režim */ }
+          // Zadrži sekciju na kojoj je korisnik bio (npr. #galerija)
+          location.href = link.getAttribute('href') + location.hash;
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!document.getElementById('lang-switcher').contains(e.target)) setLangMenu(false);
+      });
+
+      // ---------------------------------------------------------
+      // 2) Navbar: blur + senka nakon skrolovanja
+      // ---------------------------------------------------------
+      const navbar = document.getElementById('navbar');
+      const onScroll = () => navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // ---------------------------------------------------------
+      // 3) Mobilni meni (otvori/zatvori)
+      // ---------------------------------------------------------
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      function updateMenuLabel() {
+        const open = !menu.classList.contains('hidden');
+        toggle.setAttribute('aria-label', open ? toggle.dataset.labelClose : toggle.dataset.labelOpen);
+      }
+      const setMenu = (open) => {
+        menu.classList.toggle('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.querySelector('.icon-open').classList.toggle('hidden', open);
+        toggle.querySelector('.icon-close').classList.toggle('hidden', !open);
+        updateMenuLabel();
+        if (open) navbar.classList.add('is-scrolled'); else onScroll();
+      };
+      toggle.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+      menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        setMenu(false);
+        setLangMenu(false);
+      });
+
+
+      // ---------------------------------------------------------
+      // 4) Smooth scroll sa korekcijom za visinu fiksnog navbara
+      // ---------------------------------------------------------
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const id = link.getAttribute('href');
+          if (id.length < 2) return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight + 1;
+          window.scrollTo({ top, behavior: 'smooth' });
+          history.replaceState(null, '', location.search + id);
+        });
+      });
+
+      // ---------------------------------------------------------
+      // 5) Scroll animacije (fade-in + slide-up) preko Intersection Observer-a
+      // ---------------------------------------------------------
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // 6) Tekuća godina u footeru
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Šablon za sliku pri deljenju linka (1200×630). {{...}} popunjava scripts/build-og.mjs -->
+<html lang="{{lang}}">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face { font-family: 'Inter'; font-weight: 500; src: url(../assets/fonts/inter-latin-500-normal.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 500; src: url(../assets/fonts/inter-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02BA; }
+  @font-face { font-family: 'Poppins'; font-weight: 700; src: url(../assets/fonts/poppins-latin-700-normal.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 700; src: url(../assets/fonts/poppins-latin-ext-700-normal.woff2) format('woff2'); unicode-range: U+0100-02BA; }
+  @font-face { font-family: 'Poppins'; font-weight: 800; src: url(../assets/fonts/poppins-latin-800-normal.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 800; src: url(../assets/fonts/poppins-latin-ext-800-normal.woff2) format('woff2'); unicode-range: U+0100-02BA; }
+
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #FFFBF5;
+    color: #1F1A17;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(70px); }
+  .b1 { width: 520px; height: 520px; right: -120px; top: -160px; background: rgba(254, 215, 170, 0.75); }
+  .b2 { width: 420px; height: 420px; left: -160px; bottom: -180px; background: #D3EEF0; }
+  .b3 { width: 300px; height: 300px; right: 260px; bottom: -160px; background: #FEF3C7; }
+
+  .wrap { position: relative; display: flex; align-items: center; height: 100%; padding: 0 80px; gap: 56px; }
+  .text { flex: 1; }
+  .brand { display: flex; align-items: center; gap: 14px; font-family: 'Poppins'; font-weight: 700; font-size: 34px; letter-spacing: -0.02em; }
+  .brand img { width: 56px; height: 56px; border-radius: 16px; background: #1F1A17; }
+  .brand span { color: #F97316; }
+  h1 { margin-top: 36px; font-family: 'Poppins'; font-weight: 800; font-size: 68px; line-height: 1.08; letter-spacing: -0.03em; }
+  h1 .accent { color: #F97316; position: relative; white-space: nowrap; }
+  h1 .accent svg { position: absolute; left: 0; bottom: -10px; width: 100%; height: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 44px; }
+  .chip { padding: 10px 20px; border-radius: 999px; background: #fff; font-size: 22px; font-weight: 500; color: rgba(31, 26, 23, 0.75); box-shadow: 0 10px 30px -12px rgba(124, 58, 16, 0.25); }
+
+  .icon { flex-shrink: 0; position: relative; width: 340px; height: 340px; }
+  .icon img { width: 100%; height: 100%; border-radius: 76px; transform: rotate(4deg); box-shadow: 0 40px 80px -20px rgba(31, 26, 23, 0.45); }
+  .play { position: absolute; left: -36px; bottom: -22px; display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-radius: 18px; background: #000; color: #fff; box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.5); }
+  .play svg { width: 34px; height: 34px; }
+  .play small { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.7; }
+  .play b { display: block; font-family: 'Poppins'; font-weight: 700; font-size: 22px; line-height: 1.1; }
+</style>
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <div class="text">
+      <div class="brand"><img src="../assets/logo.png" alt="" /><div>Pet<span>Link</span></div></div>
+      <h1>{{title1}} <span class="accent">{{title2}}<svg viewBox="0 0 300 12" preserveAspectRatio="none"><path d="M2 9c60-6 180-8 296-3" stroke="#FDBA74" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
+      <div class="chips">{{chips}}</div>
+    </div>
+    <div class="icon">
+      <img src="og-icon.jpg" alt="" />
+      <div class="play">
+        <svg viewBox="0 0 24 24"><polygon points="3.6,2 13,12 3.6,22" fill="#00D7FE"/><polygon points="3.6,2 16.6,8.6 13,12" fill="#00F076"/><polygon points="3.6,22 13,12 16.6,15.4" fill="#FF3A44"/><polygon points="13,12 16.6,8.6 21,11.1 21,12.9 16.6,15.4" fill="#FFD500"/></svg>
+        <span><small>{{playSmall}}</small><b>Google Play</b></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

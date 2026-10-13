@@ -5,150 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ============================================================
-       SEO META TAGOVI
-       (srpska verzija; JS ih menja kada korisnik izabere drugi jezik)
+       SEO + DELJENJE LINKA
+       Blok između SEO:START i SEO:END generiše npm run build
+       (scripts/build-pages.mjs) — tekst menjaš preko ključeva
+       meta.title / meta.desc (srpski ispod u <title> i description,
+       ostali jezici u src/i18n.mjs).
        ============================================================ -->
+  <!-- SEO:START -->
   <title>PetLink — Sve za tvog ljubimca na jednom mestu</title>
   <meta name="description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton sa vakcinama i podsetnicima, AI asistent za negu, Pet Alert za nestale ljubimce sa mapom i plakatom, NFC ogrlica, usvajanje i Love Match." />
-  <meta name="keywords" content="PetLink, ljubimci, pas, mačka, e-Karton, vakcine, nestali ljubimac, Pet Alert, NFC ogrlica, usvajanje" />
-  <meta name="theme-color" content="#F97316" />
-
+  <link rel="canonical" href="https://markolosic.github.io/petlink-web/" />
+  
   <!-- Alternativne jezičke verzije (za Google) -->
-  <link rel="alternate" hreflang="sr" href="https://markolosic.github.io/petlink-web/?lang=sr" />
-  <link rel="alternate" hreflang="hr" href="https://markolosic.github.io/petlink-web/?lang=hr" />
-  <link rel="alternate" hreflang="bs" href="https://markolosic.github.io/petlink-web/?lang=bs" />
-  <link rel="alternate" hreflang="en" href="https://markolosic.github.io/petlink-web/?lang=en" />
+  <link rel="alternate" hreflang="sr" href="https://markolosic.github.io/petlink-web/" />
+  <link rel="alternate" hreflang="hr" href="https://markolosic.github.io/petlink-web/hr/" />
+  <link rel="alternate" hreflang="bs" href="https://markolosic.github.io/petlink-web/bs/" />
+  <link rel="alternate" hreflang="en" href="https://markolosic.github.io/petlink-web/en/" />
   <link rel="alternate" hreflang="x-default" href="https://markolosic.github.io/petlink-web/" />
-
+  
   <!-- Open Graph (deljenje na društvenim mrežama) -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PetLink" />
+  <meta property="og:url" content="https://markolosic.github.io/petlink-web/" />
   <meta property="og:title" content="PetLink — Sve za tvog ljubimca na jednom mestu" />
-  <meta property="og:description" content="Zdravstveni karton, podsetnici, AI asistent, Pet Alert za nestale ljubimce, NFC ogrlica, usvajanje i Love Match — u jednoj aplikaciji." />
-  <meta property="og:image" content="https://markolosic.github.io/petlink-web/assets/logo.png" />
+  <meta property="og:description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton sa vakcinama i podsetnicima, AI asistent za negu, Pet Alert za nestale ljubimce sa mapom i plakatom, NFC ogrlica, usvajanje i Love Match." />
+  <meta property="og:image" content="https://markolosic.github.io/petlink-web/assets/og/og-sr.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PetLink — Sve za tvog ljubimca na jednom mestu" />
   <meta property="og:locale" content="sr_RS" />
+  <meta property="og:locale:alternate" content="hr_HR" />
+  <meta property="og:locale:alternate" content="bs_BA" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PetLink — Sve za tvog ljubimca na jednom mestu" />
+  <meta name="twitter:description" content="PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton sa vakcinama i podsetnicima, AI asistent za negu, Pet Alert za nestale ljubimce sa mapom i plakatom, NFC ogrlica, usvajanje i Love Match." />
+  <meta name="twitter:image" content="https://markolosic.github.io/petlink-web/assets/og/og-sr.jpg" />
+  
+  <!-- Strukturirani podaci (Google) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"PetLink","url":"https://markolosic.github.io/petlink-web/","inLanguage":"sr-Latn"},{"@type":"MobileApplication","name":"PetLink","operatingSystem":"Android","applicationCategory":"LifestyleApplication","description":"PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton sa vakcinama i podsetnicima, AI asistent za negu, Pet Alert za nestale ljubimce sa mapom i plakatom, NFC ogrlica, usvajanje i Love Match.","url":"https://markolosic.github.io/petlink-web/","image":"https://markolosic.github.io/petlink-web/assets/logo.png","installUrl":"https://play.google.com/store/apps/details?id=com.markolosic.petlink","inLanguage":["sr-Latn","hr","bs","en"],"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}]}</script>
+  <!-- SEO:END -->
+  <meta name="theme-color" content="#F97316" />
 
-  <!-- Favicon (ikonica aplikacije). "?v=2" tera browser da ne koristi staru keširanu ikonicu;
-       kad ponovo promeniš ikonicu, povećaj broj. -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2" />
-  <link rel="shortcut icon" href="favicon.ico?v=2" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2" />
-
-  <!-- ============================================================
-       FONTOVI (Poppins za naslove, Inter za tekst)
-       ============================================================ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- ============================================================
-       TAILWIND (CDN) + KONFIGURACIJA BOJA
-       ============================================================ -->
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Poppins', 'Inter', 'sans-serif'],
-          },
-          colors: {
-            // Primarna: topla narandžasta / jantarna
-            brand: {
-              50: '#FFF7ED', 100: '#FFEDD5', 200: '#FED7AA', 300: '#FDBA74',
-              400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C',
-            },
-            // Akcent: teal (ista nijansa kao primarna boja u samoj aplikaciji)
-            accent: {
-              50: '#EEF8F9', 100: '#D3EEF0', 400: '#6BB8BF', 500: '#4DA1A9', 600: '#3B8389', 700: '#2F676C',
-            },
-            cream: '#FFFBF5',
-            ink: '#1F1A17',
-          },
-          boxShadow: {
-            soft: '0 10px 40px -12px rgba(124, 58, 16, 0.18)',
-            phone: '0 40px 80px -20px rgba(31, 26, 23, 0.35)',
-          },
-        },
-      },
-    };
+  <!-- Samo na korenskoj (srpskoj) stranici: prvi put preusmeri na jezik
+       iz starog ?lang= linka, ranije izabran jezik ili jezik browsera.
+       Na /hr/, /bs/, /en/ build uklanja ovu skriptu. Botove ne preusmeravamo
+       da bi Google indeksirao i srpsku verziju. -->
+  <script id="lang-redirect">
+    (function () {
+      var target = new URLSearchParams(location.search).get('lang');
+      if (!target) { try { target = localStorage.getItem('petlink-lang'); } catch (e) {} }
+      if (!target && !/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent)) {
+        var langs = navigator.languages || [navigator.language];
+        for (var i = 0; i < langs.length && !target; i++) {
+          var code = (langs[i] || '').toLowerCase().split('-')[0];
+          if (code === 'hr' || code === 'bs' || code === 'en') target = code;
+          else if (['sr', 'sh', 'cnr', 'me'].indexOf(code) !== -1) target = 'sr';
+        }
+        target = target || 'en';
+      }
+      if (target === 'hr' || target === 'bs' || target === 'en') location.replace(target + '/' + location.hash);
+    })();
   </script>
 
+  <!-- Favicon (ikonica aplikacije). "?v=3" tera browser da ne koristi staru keširanu ikonicu;
+       kad ponovo promeniš ikonicu, povećaj broj. -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3" />
+  <link rel="shortcut icon" href="favicon.ico?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=3" />
+
   <!-- ============================================================
-       DODATNI CSS (animacije koje Tailwind nema "iz kutije")
+       STILOVI: Tailwind build + fontovi (izvor je src/styles.css)
+       Posle izmene klasa u HTML-u pokreni: npm run css
+       "?v=1" povećaj kad objaviš novu verziju CSS-a (keš browsera).
        ============================================================ -->
-  <style>
-    html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; }
-
-    /* "Floating" animacija za mockup telefona */
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50%      { transform: translateY(-14px) rotate(-2deg); }
-    }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-
-    @keyframes float-slow {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-10px); }
-    }
-    .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
-
-    /* Pulsiranje za Pet Alert radijus na mapi */
-    @keyframes ping-soft {
-      0%   { transform: scale(0.6); opacity: 0.7; }
-      100% { transform: scale(1.8); opacity: 0; }
-    }
-    .animate-ping-soft { animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite; }
-
-    /* Scroll animacije (aktivira ih Intersection Observer u JS-u) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: var(--delay, 0ms);
-    }
-    .reveal.is-visible { opacity: 1; transform: none; }
-
-    /* Galerija: sakrij scrollbar, zadrži scroll */
-    .no-scrollbar { scrollbar-width: none; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-
-    /* Navbar stanje nakon skrolovanja */
-    #navbar.is-scrolled {
-      background-color: rgba(255, 251, 245, 0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 6px 24px -12px rgba(31, 26, 23, 0.18);
-    }
-
-    /* Poštuj korisnike koji su isključili animacije */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .animate-float, .animate-float-slow, .animate-ping-soft { animation: none; }
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-  </style>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css?v=1" />
 </head>
 
 <!--
   ================================================================
   PREVODI — KAKO RADE
   ----------------------------------------------------------------
-  • Srpski tekst je napisan direktno u HTML-u ispod.
-  • Hrvatski, bosanski i engleski su u objektu TRANSLATIONS na dnu
-    fajla (u <script> delu).
+  • Ovaj fajl je srpska verzija i izvor za sve jezike.
+  • Hrvatski, bosanski i engleski prevodi su u src/i18n.mjs, a
+    npm run build od njih pravi hr/, bs/ i en/ stranice
+    (te fajlove ne menjaj ručno — pregaziće ih sledeći build).
   • Svaki element koji se prevodi ima atribut:
       data-i18n="kljuc"        → menja se tekst elementa
       data-i18n-aria="kljuc"   → menja se aria-label
       data-i18n-alt="kljuc"    → menja se alt tekst slike
-  • Kada menjaš tekst: izmeni srpski ovde, a isti ključ u TRANSLATIONS
-    za hr / bs / en.
+  • Kada menjaš tekst: izmeni srpski ovde, a isti ključ u src/i18n.mjs
+    za hr / bs / en, pa pokreni npm run build.
   ================================================================
 -->
 <body class="bg-cream font-sans text-ink overflow-x-hidden">
+  <!-- ICONS:START (generiše npm run icons — ne menjaj ručno) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-bell-ring" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/><path d="M22 8c0-2.3-.8-4.3-2-6"/></symbol><symbol id="i-bug" viewBox="0 0 24 24"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></symbol><symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-circle-user" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol><symbol id="i-clipboard-plus" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14h6"/><path d="M12 17v-6"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol><symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol><symbol id="i-heart-handshake" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-map-pinned" viewBox="0 0 24 24"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol><symbol id="i-message-circle-heart" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-nfc" viewBox="0 0 24 24"><path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"/><path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"/><path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"/><path d="M16.37 2a20.16 20.16 0 0 1 0 20"/></symbol><symbol id="i-paw-print" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol><symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></symbol><symbol id="i-scan-line" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol><symbol id="i-syringe" viewBox="0 0 24 24"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></symbol><symbol id="i-twitter" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></symbol><symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol></svg>
+  <!-- ICONS:END -->
 
   <!-- Link za preskakanje navigacije (pristupačnost) -->
   <a href="#main" data-i18n="skip" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-xl focus:bg-ink focus:px-4 focus:py-2 focus:text-white">Preskoči na sadržaj</a>
@@ -160,7 +116,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Glavna navigacija" data-i18n-aria="nav.aria">
       <!-- Logo -->
       <a href="#pocetna" class="flex items-center gap-2" aria-label="PetLink — početna" data-i18n-aria="logo.aria">
-        <img src="assets/logo.png" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover shadow-soft" />
+        <img src="assets/logo-80.webp" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover shadow-soft" />
         <span class="font-display text-xl font-bold tracking-tight">Pet<span class="text-brand-500">Link</span></span>
       </a>
 
@@ -178,25 +134,25 @@
         <!-- Izbor jezika -->
         <div class="relative" id="lang-switcher">
           <button id="lang-toggle" type="button" class="flex h-11 items-center gap-1.5 rounded-2xl bg-white px-3 text-sm font-semibold shadow-soft transition hover:text-brand-600" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Izaberi jezik" data-i18n-aria="lang.label">
-            <i data-lucide="globe" class="h-4 w-4" aria-hidden="true"></i>
+            <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-globe"/></svg>
             <span id="lang-current">SR</span>
-            <i data-lucide="chevron-down" class="h-4 w-4 text-ink/40" aria-hidden="true"></i>
+            <svg class="icon h-4 w-4 text-ink/40" aria-hidden="true"><use href="#i-chevron-down"/></svg>
           </button>
           <ul id="lang-menu" class="absolute right-0 mt-2 hidden w-44 space-y-1 rounded-2xl bg-white p-2 text-sm shadow-soft">
-            <li><button type="button" data-lang="sr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">SR</span> Srpski</button></li>
-            <li><button type="button" data-lang="hr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">HR</span> Hrvatski</button></li>
-            <li><button type="button" data-lang="bs" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">BS</span> Bosanski</button></li>
-            <li><button type="button" data-lang="en" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">EN</span> English</button></li>
+            <li><a href="./" hreflang="sr-Latn" data-lang="sr" aria-current="true" class="lang-option bg-brand-50 font-semibold text-brand-700 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">SR</span> Srpski</a></li>
+            <li><a href="hr/" hreflang="hr" data-lang="hr" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">HR</span> Hrvatski</a></li>
+            <li><a href="bs/" hreflang="bs" data-lang="bs" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">BS</span> Bosanski</a></li>
+            <li><a href="en/" hreflang="en" data-lang="en" class="lang-option flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-brand-50"><span class="w-6 font-semibold text-ink/40">EN</span> English</a></li>
           </ul>
         </div>
 
         <a href="#preuzmi" class="hidden rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-600 sm:inline-flex items-center gap-2">
-          <i data-lucide="download" class="h-4 w-4" aria-hidden="true"></i> <span data-i18n="nav.download">Preuzmi</span>
+          <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-download"/></svg> <span data-i18n="nav.download">Preuzmi</span>
         </a>
         <!-- Dugme za mobilni meni -->
-        <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-2xl bg-white text-ink shadow-soft lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori meni">
-          <i data-lucide="menu" class="h-5 w-5 icon-open" aria-hidden="true"></i>
-          <i data-lucide="x" class="hidden h-5 w-5 icon-close" aria-hidden="true"></i>
+        <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-2xl bg-white text-ink shadow-soft lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori meni" data-label-open="Otvori meni" data-label-close="Zatvori meni">
+          <svg class="icon h-5 w-5 icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon hidden h-5 w-5 icon-close" aria-hidden="true"><use href="#i-x"/></svg>
         </button>
       </div>
     </nav>
@@ -225,16 +181,16 @@
         <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-200/60 blur-3xl"></div>
         <div class="absolute top-1/2 -left-32 h-80 w-80 rounded-full bg-accent-100 blur-3xl"></div>
         <div class="absolute bottom-0 right-1/3 h-64 w-64 rounded-full bg-amber-100 blur-3xl"></div>
-        <i data-lucide="paw-print" class="absolute left-[8%] top-32 h-10 w-10 rotate-[-20deg] text-brand-300/60"></i>
-        <i data-lucide="paw-print" class="absolute right-[12%] bottom-16 h-14 w-14 rotate-12 text-accent-400/40"></i>
-        <i data-lucide="paw-print" class="absolute left-[45%] bottom-8 h-8 w-8 rotate-[30deg] text-brand-300/50"></i>
+        <svg class="icon absolute left-[8%] top-32 h-10 w-10 rotate-[-20deg] text-brand-300/60" aria-hidden="true"><use href="#i-paw-print"/></svg>
+        <svg class="icon absolute right-[12%] bottom-16 h-14 w-14 rotate-12 text-accent-400/40" aria-hidden="true"><use href="#i-paw-print"/></svg>
+        <svg class="icon absolute left-[45%] bottom-8 h-8 w-8 rotate-[30deg] text-brand-300/50" aria-hidden="true"><use href="#i-paw-print"/></svg>
       </div>
 
       <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <!-- Tekst -->
         <div class="reveal text-center lg:text-left">
           <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-brand-700 shadow-soft">
-            <i data-lucide="sparkles" class="h-4 w-4" aria-hidden="true"></i> <span data-i18n="hero.badge">Za pse, mačke i njihove ljude</span>
+            <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-sparkles"/></svg> <span data-i18n="hero.badge">Za pse, mačke i njihove ljude</span>
           </span>
           <h1 class="mt-6 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             <span data-i18n="hero.title1">Sve za tvog ljubimca</span> <span class="relative whitespace-nowrap text-brand-500"><span data-i18n="hero.title2">na jednom mestu</span><svg aria-hidden="true" viewBox="0 0 300 12" class="absolute -bottom-2 left-0 w-full" preserveAspectRatio="none"><path d="M2 9c60-6 180-8 296-3" stroke="#FDBA74" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>
@@ -258,14 +214,14 @@
               </span>
             </a>
             <a href="#funkcionalnosti" class="inline-flex items-center gap-2 rounded-2xl border-2 border-ink/10 bg-white px-6 py-4 font-semibold transition hover:-translate-y-1 hover:border-brand-300">
-              <span data-i18n="hero.more">Saznaj više</span> <i data-lucide="arrow-down" class="h-4 w-4" aria-hidden="true"></i>
+              <span data-i18n="hero.more">Saznaj više</span> <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-arrow-down"/></svg>
             </a>
           </div>
 
           <ul class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-ink/60 lg:justify-start">
-            <li class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="hero.free">Besplatno</span></li>
-            <li class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="hero.langs">Dostupno na 4 jezika</span></li>
-            <li class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="hero.google">Prijava preko Google naloga</span></li>
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check"/></svg> <span data-i18n="hero.free">Besplatno</span></li>
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check"/></svg> <span data-i18n="hero.langs">Dostupno na 4 jezika</span></li>
+            <li class="flex items-center gap-1.5"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-circle-check"/></svg> <span data-i18n="hero.google">Prijava preko Google naloga</span></li>
           </ul>
         </div>
 
@@ -290,7 +246,7 @@
                       </div>
                     </div>
                     <div class="mt-3 flex items-center gap-1.5 rounded-lg bg-emerald-50 px-2 py-1.5 text-[11px] font-medium text-emerald-700">
-                      <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> <span data-i18n="mock.vaxOk">Sve vakcine su ažurne</span>
+                      <svg class="icon h-3.5 w-3.5" aria-hidden="true"><use href="#i-shield-check"/></svg> <span data-i18n="mock.vaxOk">Sve vakcine su ažurne</span>
                     </div>
                   </div>
                   <div class="rounded-2xl bg-white p-3 shadow-sm">
@@ -302,20 +258,20 @@
                       </div>
                     </div>
                     <div class="mt-3 flex items-center gap-1.5 rounded-lg bg-amber-50 px-2 py-1.5 text-[11px] font-medium text-amber-700">
-                      <i data-lucide="bug" class="h-3.5 w-3.5"></i> <span data-i18n="mock.protection">Ističe zaštita za 5 dana</span>
+                      <svg class="icon h-3.5 w-3.5" aria-hidden="true"><use href="#i-bug"/></svg> <span data-i18n="mock.protection">Ističe zaštita za 5 dana</span>
                     </div>
                   </div>
                   <div class="flex items-center justify-center gap-2 rounded-2xl bg-red-500 py-3 text-sm font-semibold text-white">
-                    <i data-lucide="siren" class="h-4 w-4"></i> <span data-i18n="mock.report">Prijavi nestanak</span>
+                    <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-siren"/></svg> <span data-i18n="mock.report">Prijavi nestanak</span>
                   </div>
                 </div>
                 <!-- Donja traka sa tabovima -->
                 <div class="mt-auto grid grid-cols-5 border-t border-ink/5 bg-white px-2 py-3 text-ink/40">
-                  <i data-lucide="house" class="mx-auto h-5 w-5 text-accent-500"></i>
-                  <i data-lucide="map" class="mx-auto h-5 w-5"></i>
-                  <i data-lucide="paw-print" class="mx-auto h-5 w-5"></i>
-                  <i data-lucide="sparkles" class="mx-auto h-5 w-5"></i>
-                  <i data-lucide="circle-user" class="mx-auto h-5 w-5"></i>
+                  <svg class="icon mx-auto h-5 w-5 text-accent-500" aria-hidden="true"><use href="#i-house"/></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-map"/></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-paw-print"/></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-sparkles"/></svg>
+                  <svg class="icon mx-auto h-5 w-5" aria-hidden="true"><use href="#i-circle-user"/></svg>
                 </div>
               </div>
             </div>
@@ -323,11 +279,11 @@
 
           <!-- Plutajuće "notifikacije" oko telefona -->
           <div class="animate-float-slow absolute -left-2 top-16 hidden items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-soft sm:flex lg:-left-6">
-            <span class="grid h-10 w-10 place-items-center rounded-xl bg-brand-100 text-brand-600"><i data-lucide="syringe" class="h-5 w-5" aria-hidden="true"></i></span>
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-brand-100 text-brand-600"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-syringe"/></svg></span>
             <span class="text-sm leading-tight"><span data-i18n="float.vax" class="block font-semibold">Vakcina sutra</span><span data-i18n="float.vaxSub" class="text-ink/50">Max · besnilo</span></span>
           </div>
           <div class="animate-float-slow absolute -right-2 bottom-24 hidden items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-soft sm:flex lg:-right-4" style="animation-delay: 1.5s">
-            <span class="grid h-10 w-10 place-items-center rounded-xl bg-accent-100 text-accent-600"><i data-lucide="map-pin" class="h-5 w-5" aria-hidden="true"></i></span>
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-accent-100 text-accent-600"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-map-pin"/></svg></span>
             <span class="text-sm leading-tight"><span data-i18n="float.sight" class="block font-semibold">Nova prijava viđenja</span><span data-i18n="float.sightSub" class="text-ink/50">pre 2 min · 800 m</span></span>
           </div>
         </div>
@@ -339,11 +295,12 @@
          >>> OVDE SU FUNKCIONALNOSTI APLIKACIJE <<<
          Svaka kartica = jedan <article>. Da dodaš/izmeniš funkcionalnost,
          kopiraj jedan <article> blok i promeni:
-           - data-lucide="..."  → ime ikone sa https://lucide.dev/icons
+           - href="#i-..."      → ime ikone sa https://lucide.dev/icons
+                                  (pa pokreni npm run build)
            - <h3>               → naziv funkcionalnosti
            - <p>                → kratak opis
          Za novu karticu dodaj i nove ključeve (npr. f7.title, f7.desc)
-         u TRANSLATIONS za hr / bs / en.
+         u src/i18n.mjs za hr / bs / en.
          ============================================================== -->
     <section id="funkcionalnosti" class="relative py-20 sm:py-28">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -358,7 +315,7 @@
           <!-- Funkcionalnost 1: e-Karton -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="clipboard-plus" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-clipboard-plus"/></svg>
             </div>
             <h3 data-i18n="f1.title" class="mt-6 font-display text-xl font-semibold">Digitalni e-Karton</h3>
             <p data-i18n="f1.desc" class="mt-2 text-ink/70">Profil ljubimca sa rasom, datumom rođenja i brojem mikročipa, vakcinama, zaštitom od parazita i istorijom bolesti. Nalazi i dokumenta uvek su ti pri ruci.</p>
@@ -367,7 +324,7 @@
           <!-- Funkcionalnost 2: Podsetnici -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 80ms">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-accent-100 text-accent-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="bell-ring" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-bell-ring"/></svg>
             </div>
             <h3 data-i18n="f2.title" class="mt-6 font-display text-xl font-semibold">Pametni podsetnici</h3>
             <p data-i18n="f2.desc" class="mt-2 text-ink/70">Aplikacija sama računa kada je sledeća vakcina ili tretman protiv parazita i šalje obaveštenje na vreme. Termine možeš dodati i u svoj kalendar.</p>
@@ -376,7 +333,7 @@
           <!-- Funkcionalnost 3: Pet Alert -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 160ms">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-red-100 text-red-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="siren" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-siren"/></svg>
             </div>
             <h3 data-i18n="f3.title" class="mt-6 font-display text-xl font-semibold">Pet Alert za nestale ljubimce</h3>
             <p data-i18n="f3.desc" class="mt-2 text-ink/70">Jednim dodirom prijaviš nestanak i svi korisnici u radijusu od 10 km dobijaju push obaveštenje. Plakat sa fotografijom i QR kodom generiše se automatski.</p>
@@ -385,7 +342,7 @@
           <!-- Funkcionalnost 4: Mapa i prijave viđenja -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-amber-100 text-amber-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="map-pinned" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-map-pinned"/></svg>
             </div>
             <h3 data-i18n="f4.title" class="mt-6 font-display text-xl font-semibold">Mapa i prijave viđenja</h3>
             <p data-i18n="f4.desc" class="mt-2 text-ink/70">Interaktivna mapa prikazuje aktivne alarme i mesta gde je ljubimac poslednji put viđen. Svako može da postavi oznaku, pozove vlasnika ili mu pošalje poruku.</p>
@@ -394,7 +351,7 @@
           <!-- Funkcionalnost 5: NFC ogrlica -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 80ms">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-violet-100 text-violet-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="nfc" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-nfc"/></svg>
             </div>
             <h3 data-i18n="f5.title" class="mt-6 font-display text-xl font-semibold">NFC pametna ogrlica</h3>
             <p data-i18n="f5.desc" class="mt-2 text-ink/70">Upiši profil ljubimca na NFC privezak. Ko pronađe izgubljenog ljubimca, samo prisloni telefon na ogrlicu i odmah vidi kome pripada.</p>
@@ -403,7 +360,7 @@
           <!-- Funkcionalnost 6: Usvajanje i Love Match -->
           <article class="reveal group rounded-3xl bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-phone" style="--delay: 160ms">
             <div class="grid h-14 w-14 place-items-center rounded-2xl bg-pink-100 text-pink-600 transition group-hover:scale-110 group-hover:rotate-[-6deg]">
-              <i data-lucide="heart-handshake" class="h-7 w-7" aria-hidden="true"></i>
+              <svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-heart-handshake"/></svg>
             </div>
             <h3 data-i18n="f6.title" class="mt-6 font-display text-xl font-semibold">Usvajanje i Love Match</h3>
             <p data-i18n="f6.desc" class="mt-2 text-ink/70">Pregledaj oglase za usvajanje pasa i mačaka ili objavi svoj. Love Match pronalazi partnera za parenje u blizini, uz chat u realnom vremenu sa vlasnikom.</p>
@@ -412,11 +369,11 @@
 
         <!-- Dodatne sitnice (manje funkcionalnosti kao "čipovi") -->
         <ul class="reveal mt-12 flex flex-wrap justify-center gap-3 text-sm font-medium" aria-label="Dodatne mogućnosti" data-i18n-aria="chips.aria">
-          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><i data-lucide="bell" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="chip.push">Push obaveštenja</span></li>
-          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><i data-lucide="calendar-check" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="chip.calendar">Sinhronizacija sa kalendarom</span></li>
-          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><i data-lucide="languages" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="chip.langs">Srpski, hrvatski, bosanski i engleski</span></li>
-          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><i data-lucide="moon" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="chip.dark">Tamni režim</span></li>
-          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><i data-lucide="shield-check" class="h-4 w-4 text-accent-500" aria-hidden="true"></i> <span data-i18n="chip.privacy">Blokiranje i privatnost</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-bell"/></svg> <span data-i18n="chip.push">Push obaveštenja</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-calendar-check"/></svg> <span data-i18n="chip.calendar">Sinhronizacija sa kalendarom</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-languages"/></svg> <span data-i18n="chip.langs">Srpski, hrvatski, bosanski i engleski</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-moon"/></svg> <span data-i18n="chip.dark">Tamni režim</span></li>
+          <li class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-shield-check"/></svg> <span data-i18n="chip.privacy">Blokiranje i privatnost</span></li>
         </ul>
       </div>
     </section>
@@ -424,7 +381,7 @@
     <!-- ==============================================================
          3a. AI ASISTENT
          Dnevni limit (5 pitanja) je isti kao DAILY_LIMIT u aplikaciji —
-         ako ga promeniš u aplikaciji, promeni i ai.b3 / ai.counter ovde i u TRANSLATIONS.
+         ako ga promeniš u aplikaciji, promeni i ai.b3 / ai.counter ovde i u src/i18n.mjs.
          ============================================================== -->
     <section id="ai-asistent" class="relative overflow-hidden bg-accent-50 py-20 sm:py-28">
       <div aria-hidden="true" class="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-accent-100 blur-3xl"></div>
@@ -436,7 +393,7 @@
             <div class="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-ink"></div>
             <div class="flex h-full flex-col overflow-hidden rounded-[2.3rem] bg-[#f4f6f8]">
               <div class="flex items-center gap-2 border-b border-ink/5 bg-white px-4 pb-3 pt-9">
-                <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-500 text-white"><i data-lucide="sparkles" class="h-4 w-4"></i></span>
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-500 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
                 <div class="min-w-0 flex-1 leading-tight">
                   <p data-i18n="ai.header" class="truncate text-sm font-semibold">AI Pametna Nega</p>
                   <p class="text-[11px] text-ink/50">🐶 Max</p>
@@ -453,7 +410,7 @@
               </div>
               <div class="flex items-center gap-2 bg-white px-3 py-3">
                 <span data-i18n="ai.input" class="flex-1 rounded-full bg-[#f4f6f8] px-3 py-2 text-xs text-ink/40">Pitaj o Maxu...</span>
-                <span class="grid h-8 w-8 place-items-center rounded-full bg-accent-500 text-white"><i data-lucide="send" class="h-4 w-4"></i></span>
+                <span class="grid h-8 w-8 place-items-center rounded-full bg-accent-500 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-send"/></svg></span>
               </div>
             </div>
           </div>
@@ -468,12 +425,12 @@
           <h2 data-i18n="ai.title" class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Pitaj AI asistenta sve o svom ljubimcu</h2>
           <p data-i18n="ai.desc" class="mt-4 text-lg text-ink/70">AI asistent zna rasu i starost tvog ljubimca i daje praktične savete o ishrani, vakcinama, aktivnosti i ponašanju — na tvom jeziku.</p>
           <ul class="mt-8 space-y-4">
-            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><i data-lucide="paw-print" class="h-4 w-4" aria-hidden="true"></i></span><span data-i18n="ai.b1" class="pt-1.5">Saveti prilagođeni rasi i starosti ljubimca</span></li>
-            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><i data-lucide="message-circle-heart" class="h-4 w-4" aria-hidden="true"></i></span><span data-i18n="ai.b2" class="pt-1.5">Ishrana, vakcine, aktivnost, ponašanje i prva pomoć</span></li>
-            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-brand-600 shadow-soft"><i data-lucide="gift" class="h-4 w-4" aria-hidden="true"></i></span><span data-i18n="ai.b3" class="pt-1.5 font-semibold">5 besplatnih pitanja svakog dana</span></li>
-            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><i data-lucide="languages" class="h-4 w-4" aria-hidden="true"></i></span><span data-i18n="ai.b4" class="pt-1.5">Odgovara na srpskom, hrvatskom, bosanskom ili engleskom</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-paw-print"/></svg></span><span data-i18n="ai.b1" class="pt-1.5">Saveti prilagođeni rasi i starosti ljubimca</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-message-circle-heart"/></svg></span><span data-i18n="ai.b2" class="pt-1.5">Ishrana, vakcine, aktivnost, ponašanje i prva pomoć</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-brand-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-gift"/></svg></span><span data-i18n="ai.b3" class="pt-1.5 font-semibold">5 besplatnih pitanja svakog dana</span></li>
+            <li class="flex items-start gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-accent-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-languages"/></svg></span><span data-i18n="ai.b4" class="pt-1.5">Odgovara na srpskom, hrvatskom, bosanskom ili engleskom</span></li>
           </ul>
-          <p class="mt-8 flex items-center gap-2 text-sm text-ink/50"><i data-lucide="stethoscope" class="h-4 w-4 shrink-0" aria-hidden="true"></i> <span data-i18n="ai.note">AI savet ne zamenjuje pregled kod veterinara.</span></p>
+          <p class="mt-8 flex items-center gap-2 text-sm text-ink/50"><svg class="icon h-4 w-4 shrink-0" aria-hidden="true"><use href="#i-stethoscope"/></svg> <span data-i18n="ai.note">AI savet ne zamenjuje pregled kod veterinara.</span></p>
         </div>
       </div>
     </section>
@@ -524,16 +481,16 @@
             <!-- Ljubimac -->
             <div class="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-brand-100 text-2xl shadow-lg">🐶</div>
             <!-- Prijave viđenja -->
-            <div class="absolute left-[24%] top-[30%] text-accent-600"><i data-lucide="map-pin" class="h-8 w-8 fill-white"></i></div>
-            <div class="absolute left-[68%] top-[62%] text-accent-600"><i data-lucide="map-pin" class="h-8 w-8 fill-white"></i></div>
+            <div class="absolute left-[24%] top-[30%] text-accent-600"><svg class="icon h-8 w-8 fill-white" aria-hidden="true"><use href="#i-map-pin"/></svg></div>
+            <div class="absolute left-[68%] top-[62%] text-accent-600"><svg class="icon h-8 w-8 fill-white" aria-hidden="true"><use href="#i-map-pin"/></svg></div>
             <!-- Kartica alarma -->
             <div class="absolute inset-x-4 bottom-4 rounded-2xl bg-white p-4 text-ink shadow-lg">
               <p data-i18n="alert.active" class="text-xs font-bold tracking-wider text-red-600">PET ALERT AKTIVAN</p>
               <p data-i18n="alert.pet" class="mt-1 font-semibold">Max · Zlatni retriver</p>
               <p data-i18n="alert.lost" class="text-sm text-ink/60">Izgubljen pre 2 h u ovoj oblasti</p>
               <div class="mt-3 grid grid-cols-2 gap-2 text-sm font-semibold">
-                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-accent-500 py-2 text-white"><i data-lucide="phone" class="h-4 w-4"></i> <span data-i18n="alert.call">Pozovi</span></span>
-                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-ink/5 py-2"><i data-lucide="printer" class="h-4 w-4"></i> <span data-i18n="alert.poster">Plakat</span></span>
+                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-accent-500 py-2 text-white"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-phone"/></svg> <span data-i18n="alert.call">Pozovi</span></span>
+                <span class="flex items-center justify-center gap-1.5 rounded-xl bg-ink/5 py-2"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-printer"/></svg> <span data-i18n="alert.poster">Plakat</span></span>
               </div>
             </div>
           </div>
@@ -557,7 +514,7 @@
 
           <li class="reveal relative text-center">
             <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-brand-500 text-white shadow-soft">
-              <i data-lucide="download" class="h-9 w-9" aria-hidden="true"></i>
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-download"/></svg>
               <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">1</span>
             </div>
             <h3 data-i18n="how.s1t" class="mt-6 font-display text-xl font-semibold">Preuzmi</h3>
@@ -565,7 +522,7 @@
           </li>
           <li class="reveal relative text-center" style="--delay: 120ms">
             <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-accent-500 text-white shadow-soft">
-              <i data-lucide="user-plus" class="h-9 w-9" aria-hidden="true"></i>
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-user-plus"/></svg>
               <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">2</span>
             </div>
             <h3 data-i18n="how.s2t" class="mt-6 font-display text-xl font-semibold">Registruj se i dodaj ljubimca</h3>
@@ -573,7 +530,7 @@
           </li>
           <li class="reveal relative text-center" style="--delay: 240ms">
             <div class="relative mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-pink-500 text-white shadow-soft">
-              <i data-lucide="heart" class="h-9 w-9" aria-hidden="true"></i>
+              <svg class="icon h-9 w-9" aria-hidden="true"><use href="#i-heart"/></svg>
               <span class="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-ink font-display text-sm font-bold">3</span>
             </div>
             <h3 data-i18n="how.s3t" class="mt-6 font-display text-xl font-semibold">Uživaj</h3>
@@ -610,10 +567,10 @@
                 <p class="text-[11px] text-ink/50"><span data-i18n="g.chip">Mikročip:</span> 688 0981 2345 6789</p>
               </div>
               <div class="-mt-3 space-y-2 px-3 text-xs">
-                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><i data-lucide="syringe" class="h-4 w-4 text-accent-500"></i><span data-i18n="g.vax" class="flex-1 font-medium">Vakcinacije</span><span class="text-emerald-600">✓</span></div>
-                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><i data-lucide="bug" class="h-4 w-4 text-amber-500"></i><span data-i18n="g.parasites" class="flex-1 font-medium">Zaštita od parazita</span><span class="text-amber-600">5 d</span></div>
-                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><i data-lucide="file-text" class="h-4 w-4 text-brand-500"></i><span data-i18n="g.history" class="flex-1 font-medium">Istorija bolesti</span><span class="text-ink/40">3</span></div>
-                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><i data-lucide="nfc" class="h-4 w-4 text-violet-500"></i><span data-i18n="g.nfc" class="flex-1 font-medium">NFC ogrlica</span><span class="text-ink/40">›</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-accent-500" aria-hidden="true"><use href="#i-syringe"/></svg><span data-i18n="g.vax" class="flex-1 font-medium">Vakcinacije</span><span class="text-emerald-600">✓</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-amber-500" aria-hidden="true"><use href="#i-bug"/></svg><span data-i18n="g.parasites" class="flex-1 font-medium">Zaštita od parazita</span><span class="text-amber-600">5 d</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-brand-500" aria-hidden="true"><use href="#i-file-text"/></svg><span data-i18n="g.history" class="flex-1 font-medium">Istorija bolesti</span><span class="text-ink/40">3</span></div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm"><svg class="icon h-4 w-4 text-violet-500" aria-hidden="true"><use href="#i-nfc"/></svg><span data-i18n="g.nfc" class="flex-1 font-medium">NFC ogrlica</span><span class="text-ink/40">›</span></div>
               </div>
             </div>
           </div>
@@ -629,7 +586,7 @@
               </svg>
               <div class="absolute left-[38%] top-[34%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-400/20 border-2 border-red-400/60"></div>
               <div class="absolute left-[38%] top-[34%] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[3px] border-white bg-brand-100 text-lg">🐶</div>
-              <div class="absolute left-[70%] top-[50%] text-accent-600"><i data-lucide="map-pin" class="h-6 w-6 fill-white"></i></div>
+              <div class="absolute left-[70%] top-[50%] text-accent-600"><svg class="icon h-6 w-6 fill-white" aria-hidden="true"><use href="#i-map-pin"/></svg></div>
               <div class="absolute left-[18%] top-[56%] grid h-9 w-9 place-items-center rounded-full border-[3px] border-white bg-accent-100 text-base">🐱</div>
               <div data-i18n="g.nearby" class="absolute inset-x-3 top-8 rounded-xl bg-white/95 px-3 py-2 text-[11px] font-semibold shadow">Nestali ljubimci u blizini · 2</div>
               <div class="absolute inset-x-3 bottom-3 rounded-2xl bg-white p-3 text-xs shadow-lg">
@@ -682,8 +639,8 @@
                 </div>
               </div>
               <div class="my-4 flex justify-center gap-5">
-                <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-ink/40 shadow"><i data-lucide="x" class="h-6 w-6"></i></span>
-                <span class="grid h-12 w-12 place-items-center rounded-full bg-pink-500 text-white shadow"><i data-lucide="heart" class="h-6 w-6 fill-white"></i></span>
+                <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-ink/40 shadow"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-x"/></svg></span>
+                <span class="grid h-12 w-12 place-items-center rounded-full bg-pink-500 text-white shadow"><svg class="icon h-6 w-6 fill-white" aria-hidden="true"><use href="#i-heart"/></svg></span>
               </div>
             </div>
           </div>
@@ -707,7 +664,7 @@
         <div class="mt-14 grid gap-6 md:grid-cols-3">
           <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1">
             <div class="flex gap-1 text-amber-400" role="img" aria-label="5 od 5 zvezdica" data-i18n-aria="t.stars5">
-              <i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg>
             </div>
             <blockquote data-i18n="t1.quote" class="mt-4 text-ink/80">„Konačno ne zaboravljam vakcine. Obaveštenje stigne nekoliko dana ranije i samo zakažem veterinara.”</blockquote>
             <figcaption class="mt-6 flex items-center gap-3">
@@ -718,7 +675,7 @@
 
           <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1" style="--delay: 100ms">
             <div class="flex gap-1 text-amber-400" role="img" aria-label="5 od 5 zvezdica" data-i18n-aria="t.stars5">
-              <i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg>
             </div>
             <blockquote data-i18n="t2.quote" class="mt-4 text-ink/80">„Pas mi je pobegao tokom vatrometa. Za sat vremena neko je označio na mapi gde ga je video.”</blockquote>
             <figcaption class="mt-6 flex items-center gap-3">
@@ -729,7 +686,7 @@
 
           <figure class="reveal rounded-3xl bg-white p-7 shadow-soft transition hover:-translate-y-1" style="--delay: 200ms">
             <div class="flex gap-1 text-amber-400" role="img" aria-label="4 od 5 zvezdica" data-i18n-aria="t.stars4">
-              <i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 text-ink/20"></i>
+              <svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 fill-current" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon h-5 w-5 text-ink/20" aria-hidden="true"><use href="#i-star"/></svg>
             </div>
             <blockquote data-i18n="t3.quote" class="mt-4 text-ink/80">„Ceo karton mog psa je u telefonu. Kod veterinara samo otvorim aplikaciju.”</blockquote>
             <figcaption class="mt-6 flex items-center gap-3">
@@ -749,7 +706,7 @@
         <div aria-hidden="true" class="pointer-events-none absolute inset-0">
           <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10"></div>
           <div class="absolute -bottom-16 left-1/3 h-56 w-56 rounded-full bg-white/10"></div>
-          <i data-lucide="paw-print" class="absolute right-[38%] top-8 h-12 w-12 rotate-12 text-white/15"></i>
+          <svg class="icon absolute right-[38%] top-8 h-12 w-12 rotate-12 text-white/15" aria-hidden="true"><use href="#i-paw-print"/></svg>
         </div>
 
         <div class="relative grid items-center gap-10 lg:grid-cols-[1fr_auto]">
@@ -773,7 +730,7 @@
           <!-- QR kod: vodi na Google Play stranicu aplikacije -->
           <div class="mx-auto rounded-3xl bg-white p-4 text-center text-ink shadow-soft">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=0&data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.markolosic.petlink" alt="QR kod za preuzimanje aplikacije PetLink sa Google Play prodavnice" data-i18n-alt="cta.qrAlt" width="160" height="160" class="h-40 w-40 rounded-xl bg-brand-50" loading="lazy" />
-            <p class="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-ink/70"><i data-lucide="scan-line" class="h-4 w-4" aria-hidden="true"></i> <span data-i18n="cta.scan">Skeniraj telefonom</span></p>
+            <p class="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-ink/70"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-scan-line"/></svg> <span data-i18n="cta.scan">Skeniraj telefonom</span></p>
           </div>
         </div>
       </div>
@@ -787,7 +744,7 @@
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
       <div>
         <a href="#pocetna" class="flex items-center gap-2" aria-label="PetLink — početna" data-i18n-aria="logo.aria">
-          <img src="assets/logo.png" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover" loading="lazy" />
+          <img src="assets/logo-80.webp" alt="" width="40" height="40" class="h-10 w-10 rounded-xl bg-ink object-cover" loading="lazy" />
           <span class="font-display text-xl font-bold">Pet<span class="text-brand-500">Link</span></span>
         </a>
         <p data-i18n="footer.desc" class="mt-4 max-w-xs text-sm text-ink/60">Zdravlje, sigurnost i društvo za tvog ljubimca — sve u jednoj aplikaciji.</p>
@@ -796,8 +753,8 @@
       <nav aria-label="Pravne informacije" data-i18n-aria="footer.legalAria">
         <p data-i18n="footer.info" class="font-display font-semibold">Informacije</p>
         <ul class="mt-4 space-y-2 text-sm text-ink/60">
-          <li><a href="privacy.html" data-legal-link data-i18n="footer.privacy" class="transition hover:text-brand-600">Politika privatnosti</a></li>
-          <li><a href="terms.html" data-legal-link data-i18n="footer.terms" class="transition hover:text-brand-600">Uslovi korišćenja</a></li>
+          <li><a href="privacy.html?lang=sr" data-legal-link data-i18n="footer.privacy" class="transition hover:text-brand-600">Politika privatnosti</a></li>
+          <li><a href="terms.html?lang=sr" data-legal-link data-i18n="footer.terms" class="transition hover:text-brand-600">Uslovi korišćenja</a></li>
           <li><a href="mailto:markolosic1993@gmail.com" data-i18n="footer.contact" class="transition hover:text-brand-600">Kontakt</a></li>
         </ul>
       </nav>
@@ -806,9 +763,9 @@
         <p data-i18n="footer.follow" class="font-display font-semibold">Prati nas</p>
         <!-- Zameni "#" linkovima ka profilima -->
         <div class="mt-4 flex gap-3">
-          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Instagramu" data-i18n-aria="social.ig"><i data-lucide="instagram" class="h-5 w-5" aria-hidden="true"></i></a>
-          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Facebooku" data-i18n-aria="social.fb"><i data-lucide="facebook" class="h-5 w-5" aria-hidden="true"></i></a>
-          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na X (Twitter)" data-i18n-aria="social.x"><i data-lucide="twitter" class="h-5 w-5" aria-hidden="true"></i></a>
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Instagramu" data-i18n-aria="social.ig"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na Facebooku" data-i18n-aria="social.fb"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="#" class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition hover:-translate-y-1 hover:bg-brand-500 hover:text-white" aria-label="PetLink na X (Twitter)" data-i18n-aria="social.x"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-twitter"/></svg></a>
         </div>
       </div>
     </div>
@@ -818,613 +775,17 @@
   </footer>
 
   <!-- ============================================================
-       IKONE (Lucide)
-       ============================================================ -->
-  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-
-  <!-- ============================================================
-       PREVODI (hr / bs / en)
-       Srpski (sr) se automatski čita iz HTML-a gore, ne treba ga ovde pisati.
-       Ključ koji nedostaje u nekom jeziku prikazuje se na srpskom.
-       ============================================================ -->
-  <script>
-    const TRANSLATIONS = {
-      /* ---------------------------- HRVATSKI ---------------------------- */
-      hr: {
-        'meta.title': 'PetLink — Sve za tvog ljubimca na jednom mjestu',
-        'meta.desc': 'PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s podsjetnicima za cijepljenje, AI asistent za njegu, Pet Alert za nestale ljubimce s kartom i plakatom, NFC privjesak, udomljavanje i Love Match.',
-        'skip': 'Preskoči na sadržaj',
-        'nav.aria': 'Glavna navigacija',
-        'logo.aria': 'PetLink — početna',
-        'nav.home': 'Početna',
-        'nav.features': 'Značajke',
-        'nav.ai': 'AI asistent',
-        'nav.how': 'Kako radi',
-        'nav.gallery': 'Galerija',
-        'nav.download': 'Preuzmi',
-        'nav.downloadApp': 'Preuzmi aplikaciju',
-        'menu.open': 'Otvori izbornik',
-        'menu.close': 'Zatvori izbornik',
-        'lang.label': 'Odaberi jezik',
-
-        'hero.badge': 'Za pse, mačke i njihove ljude',
-        'hero.title1': 'Sve za tvog ljubimca',
-        'hero.title2': 'na jednom mjestu',
-        'hero.subtitle': 'Digitalni zdravstveni karton, podsjetnici za cijepljenje, AI asistent za njegu, Pet Alert kada se ljubimac izgubi, NFC privjesak, udomljavanje i upoznavanje — PetLink brine o svemu dok ti brineš o njemu.',
-        'play.aria': 'Preuzmi PetLink s trgovine Google Play',
-        'play.small': 'Preuzmi na',
-        'hero.more': 'Saznaj više',
-        'hero.free': 'Besplatno',
-        'hero.langs': 'Dostupno na 4 jezika',
-        'hero.google': 'Prijava putem Google računa',
-
-        'mock.aria': 'Prikaz početnog zaslona aplikacije PetLink s ljubimcima Max i Luna',
-        'mock.hello': 'Bok,',
-        'mock.family': 'Moja obitelj',
-        'mock.breedMax': 'Zlatni retriver · 3 god.',
-        'mock.breedLuna': 'Britanska kratkodlaka · 2 god.',
-        'mock.vaxOk': 'Sva cjepiva su ažurna',
-        'mock.protection': 'Zaštita istječe za 5 dana',
-        'mock.report': 'Prijavi nestanak',
-        'float.vax': 'Cijepljenje sutra',
-        'float.vaxSub': 'Max · bjesnoća',
-        'float.sight': 'Nova dojava viđenja',
-        'float.sightSub': 'prije 2 min · 800 m',
-
-        'features.eyebrow': 'Značajke',
-        'features.title': 'Jedna aplikacija. Sve što ljubimcu treba.',
-        'features.subtitle': 'Od prvog cjepiva do potrage za izgubljenim prijateljem — PetLink povezuje vlasnike, ljubimce i zajednicu.',
-        'f1.title': 'Digitalni e-Karton',
-        'f1.desc': 'Profil ljubimca s pasminom, datumom rođenja i brojem mikročipa, cijepljenjima, zaštitom od parazita i poviješću bolesti. Nalazi i dokumenti uvijek su ti pri ruci.',
-        'f2.title': 'Pametni podsjetnici',
-        'f2.desc': 'Aplikacija sama izračuna kada je sljedeće cijepljenje ili tretman protiv parazita i na vrijeme pošalje obavijest. Termine možeš dodati i u svoj kalendar.',
-        'f3.title': 'Pet Alert za nestale ljubimce',
-        'f3.desc': 'Jednim dodirom prijaviš nestanak i svi korisnici u krugu od 10 km dobivaju push obavijest. Plakat s fotografijom i QR kodom izrađuje se automatski.',
-        'f4.title': 'Karta i dojave viđenja',
-        'f4.desc': 'Interaktivna karta prikazuje aktivne uzbune i mjesta gdje je ljubimac posljednji put viđen. Svatko može postaviti oznaku, nazvati vlasnika ili mu poslati poruku.',
-        'f5.title': 'NFC pametni privjesak',
-        'f5.desc': 'Upiši profil ljubimca na NFC privjesak. Tko pronađe izgubljenog ljubimca, samo prisloni mobitel na ogrlicu i odmah vidi kome pripada.',
-        'f6.title': 'Udomljavanje i Love Match',
-        'f6.desc': 'Pregledaj oglase za udomljavanje pasa i mačaka ili objavi svoj. Love Match pronalazi partnera za parenje u blizini, uz razgovor s vlasnikom u stvarnom vremenu.',
-        'chips.aria': 'Dodatne mogućnosti',
-        'chip.push': 'Push obavijesti',
-        'chip.calendar': 'Sinkronizacija s kalendarom',
-        'chip.langs': 'Srpski, hrvatski, bosanski i engleski',
-        'chip.dark': 'Tamni način rada',
-        'chip.privacy': 'Blokiranje i privatnost',
-
-        'ai.badge': 'Novo',
-        'ai.eyebrow': 'AI asistent',
-        'ai.title': 'Pitaj AI asistenta sve o svom ljubimcu',
-        'ai.desc': 'AI asistent zna pasminu i dob tvog ljubimca te daje praktične savjete o prehrani, cijepljenju, aktivnosti i ponašanju — na tvom jeziku.',
-        'ai.b1': 'Savjeti prilagođeni pasmini i dobi ljubimca',
-        'ai.b2': 'Prehrana, cijepljenje, aktivnost, ponašanje i prva pomoć',
-        'ai.b3': '5 besplatnih pitanja svaki dan',
-        'ai.b4': 'Odgovara na srpskom, hrvatskom, bosanskom ili engleskom',
-        'ai.note': 'AI savjet ne zamjenjuje pregled kod veterinara.',
-        'ai.mockAria': 'Prikaz razgovora s AI asistentom o aktivnosti psa Maxa',
-        'ai.header': 'AI Pametna Njega',
-        'ai.counter': 'Danas: 4/5',
-        'ai.q': 'Koliko tjelesne aktivnosti treba Maxu?',
-        'ai.a': 'Zlatnom retriveru od 3 godine treba 1–2 sata aktivnosti dnevno: dvije dulje šetnje i igra, idealno plivanje ili donošenje loptice. 🐾',
-        'ai.s1': 'Koja cjepiva su na redu?',
-        'ai.s2': 'Hrani li se Max pravilno?',
-        'ai.input': 'Pitaj o Maxu...',
-
-        'alert.eyebrow': 'Kada svaka minuta znači',
-        'alert.title': 'Ljubimac je nestao? Cijela zajednica kreće u potragu.',
-        'alert.s1t': 'Prijavi nestanak',
-        'alert.s1d': 'Na profilu ljubimca dodirni „Prijavi nestanak” i potvrdi lokaciju.',
-        'alert.s2t': 'Susjedi dobivaju obavijest',
-        'alert.s2d': 'Pet Alert stiže svim korisnicima PetLinka u krugu od 10 km.',
-        'alert.s3t': 'Dojave viđenja stižu na kartu',
-        'alert.s3d': 'Tko vidi ljubimca, označi mjesto na karti ili ti odmah pošalje poruku.',
-        'alert.s4t': 'Ispiši plakat',
-        'alert.s4d': 'Plakat s fotografijom, opisom i QR kodom spreman je za dijeljenje i ispis.',
-        'alert.mapAria': 'Ilustracija karte s aktivnim Pet Alertom i dojavama viđenja',
-        'alert.active': 'PET ALERT AKTIVAN',
-        'alert.pet': 'Max · Zlatni retriver',
-        'alert.lost': 'Izgubljen prije 2 h na ovom području',
-        'alert.call': 'Nazovi',
-        'alert.poster': 'Plakat',
-
-        'how.eyebrow': 'Kako radi',
-        'how.title': 'Spremno za nekoliko minuta',
-        'how.s1t': 'Preuzmi',
-        'how.s1d': 'Instaliraj PetLink besplatno s trgovine Google Play.',
-        'how.s2t': 'Registriraj se i dodaj ljubimca',
-        'how.s2d': 'Izradi račun e-mailom ili Google računom, pa unesi ime, pasminu, fotografije i mikročip.',
-        'how.s3t': 'Uživaj',
-        'how.s3d': 'Podsjetnici rade za tebe, a zajednica je tu kad zatreba.',
-
-        'gallery.eyebrow': 'Galerija',
-        'gallery.title': 'Pogledaj kako izgleda',
-        'gallery.subtitle': 'Jednostavan dizajn, tamni način rada i sve na dva dodira od početnog zaslona.',
-        'gallery.aria': 'Snimke zaslona aplikacije, pomiči vodoravno',
-        'g.chip': 'Mikročip:',
-        'g.vax': 'Cijepljenja',
-        'g.parasites': 'Zaštita od parazita',
-        'g.history': 'Povijest bolesti',
-        'g.nfc': 'NFC privjesak',
-        'g1.cap': 'e-Karton',
-        'g.nearby': 'Nestali ljubimci u blizini · 2',
-        'g.lastSeen': 'Posljednji put viđen ovdje',
-        'g.saw': 'Vidio sam ga',
-        'g2.cap': 'Karta nestalih',
-        'g.adopt': 'Udomi',
-        'g.all': 'Svi',
-        'g.dogs': 'Psi',
-        'g.cats': 'Mačke',
-        'g.p1': 'Mješanac · 1 g.',
-        'g.p2': 'Mačka · 6 mj.',
-        'g.p3': 'Pudlica · 4 g.',
-        'g.p4': 'Mačak · 2 g.',
-        'g.post': '+ Objavi oglas',
-        'g3.cap': 'Udomljavanje',
-        'g.discover': 'Otkrij 💕',
-        'g.rex': 'Zlatni retriver · Mužjak · 3 km',
-        'g.health': 'Zdravstveno čist',
-        'g.pedigree': 'Rodovnik',
-        'g4.cap': 'Love Match',
-
-        't.eyebrow': 'Dojmovi',
-        't.title': 'Što kažu vlasnici',
-        't.stars5': '5 od 5 zvjezdica',
-        't.stars4': '4 od 5 zvjezdica',
-        't1.quote': '„Konačno ne zaboravljam cijepljenja. Obavijest stigne nekoliko dana ranije i samo se naručim kod veterinara.”',
-        't1.role': 'vlasnica mačke',
-        't2.quote': '„Pas mi je pobjegao tijekom vatrometa. Za sat vremena netko je označio na karti gdje ga je vidio.”',
-        't2.role': 'vlasnik psa',
-        't3.quote': '„Cijeli karton mog psa je u mobitelu. Kod veterinara samo otvorim aplikaciju.”',
-        't3.role': 'vlasnica psa',
-
-        'cta.title': 'Tvoj ljubimac zaslužuje PetLink.',
-        'cta.subtitle': 'Preuzmi besplatno i dodaj prvog ljubimca za manje od dvije minute.',
-        'cta.qrAlt': 'QR kod za preuzimanje aplikacije PetLink s trgovine Google Play',
-        'cta.scan': 'Skeniraj mobitelom',
-
-        'footer.desc': 'Zdravlje, sigurnost i društvo za tvog ljubimca — sve u jednoj aplikaciji.',
-        'footer.info': 'Informacije',
-        'footer.legalAria': 'Pravne informacije',
-        'footer.privacy': 'Pravila privatnosti',
-        'footer.terms': 'Uvjeti korištenja',
-        'footer.contact': 'Kontakt',
-        'footer.follow': 'Prati nas',
-        'social.ig': 'PetLink na Instagramu',
-        'social.fb': 'PetLink na Facebooku',
-        'social.x': 'PetLink na X-u (Twitter)',
-        'footer.rights': 'Sva prava pridržana.',
-      },
-
-      /* ---------------------------- BOSANSKI ---------------------------- */
-      bs: {
-        'meta.title': 'PetLink — Sve za tvog ljubimca na jednom mjestu',
-        'meta.desc': 'PetLink je Android aplikacija za vlasnike ljubimaca: digitalni e-Karton s vakcinama i podsjetnicima, AI asistent za njegu, Pet Alert za nestale ljubimce s mapom i plakatom, NFC ogrlica, usvajanje i Love Match.',
-        'skip': 'Preskoči na sadržaj',
-        'nav.aria': 'Glavna navigacija',
-        'logo.aria': 'PetLink — početna',
-        'nav.home': 'Početna',
-        'nav.features': 'Funkcionalnosti',
-        'nav.ai': 'AI asistent',
-        'nav.how': 'Kako radi',
-        'nav.gallery': 'Galerija',
-        'nav.download': 'Preuzmi',
-        'nav.downloadApp': 'Preuzmi aplikaciju',
-        'menu.open': 'Otvori meni',
-        'menu.close': 'Zatvori meni',
-        'lang.label': 'Odaberi jezik',
-
-        'hero.badge': 'Za pse, mačke i njihove ljude',
-        'hero.title1': 'Sve za tvog ljubimca',
-        'hero.title2': 'na jednom mjestu',
-        'hero.subtitle': 'Digitalni zdravstveni karton, podsjetnici za vakcine, AI asistent za njegu, Pet Alert kada se ljubimac izgubi, NFC ogrlica, usvajanje i upoznavanje — PetLink brine o svemu dok ti brineš o njemu.',
-        'play.aria': 'Preuzmi PetLink na Google Play trgovini',
-        'play.small': 'Preuzmi na',
-        'hero.more': 'Saznaj više',
-        'hero.free': 'Besplatno',
-        'hero.langs': 'Dostupno na 4 jezika',
-        'hero.google': 'Prijava putem Google računa',
-
-        'mock.aria': 'Prikaz početnog ekrana aplikacije PetLink s ljubimcima Max i Luna',
-        'mock.hello': 'Zdravo,',
-        'mock.family': 'Moja porodica',
-        'mock.breedMax': 'Zlatni retriver · 3 god.',
-        'mock.breedLuna': 'Britanska kratkodlaka · 2 god.',
-        'mock.vaxOk': 'Sve vakcine su ažurne',
-        'mock.protection': 'Zaštita ističe za 5 dana',
-        'mock.report': 'Prijavi nestanak',
-        'float.vax': 'Vakcina sutra',
-        'float.vaxSub': 'Max · bjesnilo',
-        'float.sight': 'Nova prijava viđenja',
-        'float.sightSub': 'prije 2 min · 800 m',
-
-        'features.eyebrow': 'Funkcionalnosti',
-        'features.title': 'Jedna aplikacija. Sve što ljubimcu treba.',
-        'features.subtitle': 'Od prve vakcine do potrage za izgubljenim drugarom — PetLink povezuje vlasnike, ljubimce i zajednicu.',
-        'f1.title': 'Digitalni e-Karton',
-        'f1.desc': 'Profil ljubimca s rasom, datumom rođenja i brojem mikročipa, vakcinama, zaštitom od parazita i historijom bolesti. Nalazi i dokumenti uvijek su ti pri ruci.',
-        'f2.title': 'Pametni podsjetnici',
-        'f2.desc': 'Aplikacija sama izračuna kada je sljedeća vakcina ili tretman protiv parazita i na vrijeme pošalje obavještenje. Termine možeš dodati i u svoj kalendar.',
-        'f3.title': 'Pet Alert za nestale ljubimce',
-        'f3.desc': 'Jednim dodirom prijaviš nestanak i svi korisnici u krugu od 10 km dobiju push obavještenje. Plakat s fotografijom i QR kodom pravi se automatski.',
-        'f4.title': 'Mapa i prijave viđenja',
-        'f4.desc': 'Interaktivna mapa prikazuje aktivne uzbune i mjesta gdje je ljubimac posljednji put viđen. Svako može postaviti oznaku, pozvati vlasnika ili mu poslati poruku.',
-        'f5.title': 'NFC pametna ogrlica',
-        'f5.desc': 'Upiši profil ljubimca na NFC privjesak. Ko pronađe izgubljenog ljubimca, samo prisloni telefon na ogrlicu i odmah vidi kome pripada.',
-        'f6.title': 'Usvajanje i Love Match',
-        'f6.desc': 'Pregledaj oglase za usvajanje pasa i mačaka ili objavi svoj. Love Match pronalazi partnera za parenje u blizini, uz chat s vlasnikom u stvarnom vremenu.',
-        'chips.aria': 'Dodatne mogućnosti',
-        'chip.push': 'Push obavještenja',
-        'chip.calendar': 'Sinhronizacija s kalendarom',
-        'chip.langs': 'Srpski, hrvatski, bosanski i engleski',
-        'chip.dark': 'Tamni režim',
-        'chip.privacy': 'Blokiranje i privatnost',
-
-        'ai.badge': 'Novo',
-        'ai.eyebrow': 'AI asistent',
-        'ai.title': 'Pitaj AI asistenta sve o svom ljubimcu',
-        'ai.desc': 'AI asistent zna rasu i starost tvog ljubimca i daje praktične savjete o ishrani, vakcinama, aktivnosti i ponašanju — na tvom jeziku.',
-        'ai.b1': 'Savjeti prilagođeni rasi i starosti ljubimca',
-        'ai.b2': 'Ishrana, vakcine, aktivnost, ponašanje i prva pomoć',
-        'ai.b3': '5 besplatnih pitanja svaki dan',
-        'ai.b4': 'Odgovara na srpskom, hrvatskom, bosanskom ili engleskom',
-        'ai.note': 'AI savjet ne zamjenjuje pregled kod veterinara.',
-        'ai.mockAria': 'Prikaz razgovora s AI asistentom o aktivnosti psa Maxa',
-        'ai.header': 'AI Pametna Njega',
-        'ai.counter': 'Danas: 4/5',
-        'ai.q': 'Koliko fizičke aktivnosti treba Maxu?',
-        'ai.a': 'Zlatnom retriveru od 3 godine treba 1–2 sata aktivnosti dnevno: dvije duže šetnje i igra, idealno plivanje ili donošenje loptice. 🐾',
-        'ai.s1': 'Koje vakcine su na redu?',
-        'ai.s2': 'Da li se Max pravilno hrani?',
-        'ai.input': 'Pitaj o Maxu...',
-
-        'alert.eyebrow': 'Kada svaka minuta znači',
-        'alert.title': 'Ljubimac je nestao? Cijela zajednica kreće u potragu.',
-        'alert.s1t': 'Prijavi nestanak',
-        'alert.s1d': 'Na profilu ljubimca dodirni „Prijavi nestanak” i potvrdi lokaciju.',
-        'alert.s2t': 'Komšije dobiju obavještenje',
-        'alert.s2d': 'Pet Alert stiže svim korisnicima PetLinka u krugu od 10 km.',
-        'alert.s3t': 'Prijave viđenja stižu na mapu',
-        'alert.s3d': 'Ko vidi ljubimca, označi mjesto na mapi ili ti odmah pošalje poruku.',
-        'alert.s4t': 'Odštampaj plakat',
-        'alert.s4d': 'Plakat s fotografijom, opisom i QR kodom spreman je za dijeljenje i štampu.',
-        'alert.mapAria': 'Ilustracija mape s aktivnim Pet Alertom i prijavama viđenja',
-        'alert.active': 'PET ALERT AKTIVAN',
-        'alert.pet': 'Max · Zlatni retriver',
-        'alert.lost': 'Izgubljen prije 2 h na ovom području',
-        'alert.call': 'Pozovi',
-        'alert.poster': 'Plakat',
-
-        'how.eyebrow': 'Kako radi',
-        'how.title': 'Spremno za nekoliko minuta',
-        'how.s1t': 'Preuzmi',
-        'how.s1d': 'Instaliraj PetLink besplatno s Google Play trgovine.',
-        'how.s2t': 'Registruj se i dodaj ljubimca',
-        'how.s2d': 'Napravi račun e-mailom ili Google računom, pa unesi ime, rasu, fotografije i mikročip.',
-        'how.s3t': 'Uživaj',
-        'how.s3d': 'Podsjetnici rade za tebe, a zajednica je tu kad zatreba.',
-
-        'gallery.eyebrow': 'Galerija',
-        'gallery.title': 'Pogledaj kako izgleda',
-        'gallery.subtitle': 'Jednostavan dizajn, tamni režim i sve na dva dodira od početnog ekrana.',
-        'gallery.aria': 'Snimci ekrana aplikacije, skroluj horizontalno',
-        'g.chip': 'Mikročip:',
-        'g.vax': 'Vakcinacije',
-        'g.parasites': 'Zaštita od parazita',
-        'g.history': 'Historija bolesti',
-        'g.nfc': 'NFC ogrlica',
-        'g1.cap': 'e-Karton',
-        'g.nearby': 'Nestali ljubimci u blizini · 2',
-        'g.lastSeen': 'Posljednji put viđen ovdje',
-        'g.saw': 'Vidio sam ga',
-        'g2.cap': 'Mapa nestalih',
-        'g.adopt': 'Usvoji',
-        'g.all': 'Svi',
-        'g.dogs': 'Psi',
-        'g.cats': 'Mačke',
-        'g.p1': 'Mješanac · 1 g.',
-        'g.p2': 'Mačka · 6 mj.',
-        'g.p3': 'Pudla · 4 g.',
-        'g.p4': 'Mačak · 2 g.',
-        'g.post': '+ Objavi oglas',
-        'g3.cap': 'Usvajanje',
-        'g.discover': 'Otkrij 💕',
-        'g.rex': 'Zlatni retriver · Mužjak · 3 km',
-        'g.health': 'Zdravstveno čist',
-        'g.pedigree': 'Pedigre',
-        'g4.cap': 'Love Match',
-
-        't.eyebrow': 'Utisci',
-        't.title': 'Šta kažu vlasnici',
-        't.stars5': '5 od 5 zvjezdica',
-        't.stars4': '4 od 5 zvjezdica',
-        't1.quote': '„Konačno ne zaboravljam vakcine. Obavještenje stigne nekoliko dana ranije i samo zakažem veterinara.”',
-        't1.role': 'vlasnica mačke',
-        't2.quote': '„Pas mi je pobjegao tokom vatrometa. Za sat vremena neko je označio na mapi gdje ga je vidio.”',
-        't2.role': 'vlasnik psa',
-        't3.quote': '„Cijeli karton mog psa je u telefonu. Kod veterinara samo otvorim aplikaciju.”',
-        't3.role': 'vlasnica psa',
-
-        'cta.title': 'Tvoj ljubimac zaslužuje PetLink.',
-        'cta.subtitle': 'Preuzmi besplatno i dodaj prvog ljubimca za manje od dvije minute.',
-        'cta.qrAlt': 'QR kod za preuzimanje aplikacije PetLink s Google Play trgovine',
-        'cta.scan': 'Skeniraj telefonom',
-
-        'footer.desc': 'Zdravlje, sigurnost i društvo za tvog ljubimca — sve u jednoj aplikaciji.',
-        'footer.info': 'Informacije',
-        'footer.legalAria': 'Pravne informacije',
-        'footer.privacy': 'Politika privatnosti',
-        'footer.terms': 'Uslovi korištenja',
-        'footer.contact': 'Kontakt',
-        'footer.follow': 'Prati nas',
-        'social.ig': 'PetLink na Instagramu',
-        'social.fb': 'PetLink na Facebooku',
-        'social.x': 'PetLink na X-u (Twitter)',
-        'footer.rights': 'Sva prava zadržana.',
-      },
-
-      /* ---------------------------- ENGLISH ----------------------------- */
-      en: {
-        'meta.title': 'PetLink — Everything for your pet in one place',
-        'meta.desc': 'PetLink is an Android app for pet owners: a digital health record with vaccine reminders, an AI care assistant, Pet Alert for lost pets with a map and poster, NFC tags, adoption and Love Match.',
-        'skip': 'Skip to content',
-        'nav.aria': 'Main navigation',
-        'logo.aria': 'PetLink — home',
-        'nav.home': 'Home',
-        'nav.features': 'Features',
-        'nav.ai': 'AI assistant',
-        'nav.how': 'How it works',
-        'nav.gallery': 'Gallery',
-        'nav.download': 'Download',
-        'nav.downloadApp': 'Download the app',
-        'menu.open': 'Open menu',
-        'menu.close': 'Close menu',
-        'lang.label': 'Choose language',
-
-        'hero.badge': 'For dogs, cats and their people',
-        'hero.title1': 'Everything for your pet',
-        'hero.title2': 'in one place',
-        'hero.subtitle': 'A digital health record, vaccine reminders, an AI care assistant, Pet Alert when your pet goes missing, NFC tags, adoption and matchmaking — PetLink takes care of it all while you take care of them.',
-        'play.aria': 'Get PetLink on Google Play',
-        'play.small': 'Get it on',
-        'hero.more': 'Learn more',
-        'hero.free': 'Free',
-        'hero.langs': 'Available in 4 languages',
-        'hero.google': 'Sign in with Google',
-
-        'mock.aria': 'PetLink home screen showing pets Max and Luna',
-        'mock.hello': 'Hello,',
-        'mock.family': 'My family',
-        'mock.breedMax': 'Golden Retriever · 3 yrs',
-        'mock.breedLuna': 'British Shorthair · 2 yrs',
-        'mock.vaxOk': 'All vaccines up to date',
-        'mock.protection': 'Protection expires in 5 days',
-        'mock.report': 'Report missing',
-        'float.vax': 'Vaccine tomorrow',
-        'float.vaxSub': 'Max · rabies',
-        'float.sight': 'New sighting reported',
-        'float.sightSub': '2 min ago · 800 m',
-
-        'features.eyebrow': 'Features',
-        'features.title': 'One app. Everything your pet needs.',
-        'features.subtitle': 'From the first vaccine to searching for a lost friend — PetLink connects owners, pets and the community.',
-        'f1.title': 'Digital health record',
-        'f1.desc': 'A pet profile with breed, date of birth and microchip number, plus vaccinations, parasite protection and medical history. Test results and documents are always at hand.',
-        'f2.title': 'Smart reminders',
-        'f2.desc': 'The app works out when the next vaccine or parasite treatment is due and notifies you in time. You can also add appointments to your calendar.',
-        'f3.title': 'Pet Alert for lost pets',
-        'f3.desc': 'Report a missing pet with one tap and every user within 10 km gets a push notification. A poster with a photo and QR code is generated automatically.',
-        'f4.title': 'Map and sightings',
-        'f4.desc': 'An interactive map shows active alerts and the places where a pet was last seen. Anyone can drop a pin, call the owner or send them a message.',
-        'f5.title': 'NFC smart tag',
-        'f5.desc': 'Write your pet’s profile to an NFC tag. Whoever finds a lost pet just holds their phone to the collar and instantly sees who it belongs to.',
-        'f6.title': 'Adoption and Love Match',
-        'f6.desc': 'Browse dogs and cats up for adoption or post your own listing. Love Match finds a breeding partner nearby, with real-time chat with the owner.',
-        'chips.aria': 'More features',
-        'chip.push': 'Push notifications',
-        'chip.calendar': 'Calendar sync',
-        'chip.langs': 'Serbian, Croatian, Bosnian and English',
-        'chip.dark': 'Dark mode',
-        'chip.privacy': 'Blocking and privacy',
-
-        'ai.badge': 'New',
-        'ai.eyebrow': 'AI assistant',
-        'ai.title': 'Ask the AI assistant anything about your pet',
-        'ai.desc': 'The AI assistant knows your pet’s breed and age and gives practical advice on diet, vaccines, exercise and behaviour — in your language.',
-        'ai.b1': 'Advice tailored to your pet’s breed and age',
-        'ai.b2': 'Diet, vaccines, exercise, behaviour and first aid',
-        'ai.b3': '5 free questions every day',
-        'ai.b4': 'Answers in Serbian, Croatian, Bosnian or English',
-        'ai.note': 'AI advice doesn’t replace a visit to the vet.',
-        'ai.mockAria': 'Chat with the AI assistant about how much exercise Max needs',
-        'ai.header': 'AI Smart Care',
-        'ai.counter': 'Today: 4/5',
-        'ai.q': 'How much exercise does Max need?',
-        'ai.a': 'A 3-year-old Golden Retriever needs 1–2 hours of activity a day: two longer walks plus play — swimming or fetch are ideal. 🐾',
-        'ai.s1': 'Which vaccines are due?',
-        'ai.s2': 'Is Max eating properly?',
-        'ai.input': 'Ask about Max...',
-
-        'alert.eyebrow': 'When every minute counts',
-        'alert.title': 'Pet gone missing? The whole community joins the search.',
-        'alert.s1t': 'Report it missing',
-        'alert.s1d': 'On your pet’s profile, tap “Report missing” and confirm the location.',
-        'alert.s2t': 'Neighbours get notified',
-        'alert.s2d': 'The Pet Alert reaches every PetLink user within 10 km.',
-        'alert.s3t': 'Sightings show up on the map',
-        'alert.s3d': 'Anyone who spots your pet can pin the location or message you straight away.',
-        'alert.s4t': 'Print a poster',
-        'alert.s4d': 'A poster with a photo, description and QR code is ready to share and print.',
-        'alert.mapAria': 'Illustration of a map with an active Pet Alert and sightings',
-        'alert.active': 'PET ALERT ACTIVE',
-        'alert.pet': 'Max · Golden Retriever',
-        'alert.lost': 'Lost 2 h ago in this area',
-        'alert.call': 'Call',
-        'alert.poster': 'Poster',
-
-        'how.eyebrow': 'How it works',
-        'how.title': 'Ready in a few minutes',
-        'how.s1t': 'Download',
-        'how.s1d': 'Install PetLink for free from Google Play.',
-        'how.s2t': 'Sign up and add your pet',
-        'how.s2d': 'Create an account with email or Google, then add a name, breed, photos and microchip number.',
-        'how.s3t': 'Enjoy',
-        'how.s3d': 'Reminders do the work for you, and the community is there when you need it.',
-
-        'gallery.eyebrow': 'Gallery',
-        'gallery.title': 'See what it looks like',
-        'gallery.subtitle': 'A simple design, dark mode and everything two taps from the home screen.',
-        'gallery.aria': 'App screenshots, scroll horizontally',
-        'g.chip': 'Microchip:',
-        'g.vax': 'Vaccinations',
-        'g.parasites': 'Parasite protection',
-        'g.history': 'Medical history',
-        'g.nfc': 'NFC tag',
-        'g1.cap': 'Health record',
-        'g.nearby': 'Missing pets nearby · 2',
-        'g.lastSeen': 'Last seen here',
-        'g.saw': 'I saw them',
-        'g2.cap': 'Missing pets map',
-        'g.adopt': 'Adopt',
-        'g.all': 'All',
-        'g.dogs': 'Dogs',
-        'g.cats': 'Cats',
-        'g.p1': 'Mixed breed · 1 yr',
-        'g.p2': 'Cat · 6 mo',
-        'g.p3': 'Poodle · 4 yrs',
-        'g.p4': 'Tomcat · 2 yrs',
-        'g.post': '+ Post a listing',
-        'g3.cap': 'Adoption',
-        'g.discover': 'Discover 💕',
-        'g.rex': 'Golden Retriever · Male · 3 km',
-        'g.health': 'Health cleared',
-        'g.pedigree': 'Pedigree',
-        'g4.cap': 'Love Match',
-
-        't.eyebrow': 'Reviews',
-        't.title': 'What owners say',
-        't.stars5': '5 out of 5 stars',
-        't.stars4': '4 out of 5 stars',
-        't1.quote': '“I finally don’t forget vaccines. The notification comes a few days early and I just book the vet.”',
-        't1.role': 'cat owner',
-        't2.quote': '“My dog ran off during fireworks. Within an hour, someone pinned on the map where they’d seen him.”',
-        't2.role': 'dog owner',
-        't3.quote': '“My dog’s whole record is on my phone. At the vet I just open the app.”',
-        't3.role': 'dog owner',
-
-        'cta.title': 'Your pet deserves PetLink.',
-        'cta.subtitle': 'Download it for free and add your first pet in under two minutes.',
-        'cta.qrAlt': 'QR code to download PetLink from Google Play',
-        'cta.scan': 'Scan with your phone',
-
-        'footer.desc': 'Health, safety and company for your pet — all in one app.',
-        'footer.info': 'Information',
-        'footer.legalAria': 'Legal information',
-        'footer.privacy': 'Privacy policy',
-        'footer.terms': 'Terms of use',
-        'footer.contact': 'Contact',
-        'footer.follow': 'Follow us',
-        'social.ig': 'PetLink on Instagram',
-        'social.fb': 'PetLink on Facebook',
-        'social.x': 'PetLink on X (Twitter)',
-        'footer.rights': 'All rights reserved.',
-      },
-    };
-
-    // Podaci o jezicima: oznaka u navbaru, <html lang>, og:locale
-    const LANGUAGES = {
-      sr: { label: 'SR', htmlLang: 'sr-Latn', ogLocale: 'sr_RS' },
-      hr: { label: 'HR', htmlLang: 'hr',      ogLocale: 'hr_HR' },
-      bs: { label: 'BS', htmlLang: 'bs',      ogLocale: 'bs_BA' },
-      en: { label: 'EN', htmlLang: 'en',      ogLocale: 'en_US' },
-    };
-  </script>
-
-  <!-- ============================================================
        VANILLA JS
        ============================================================ -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) Zameni <i data-lucide="..."> SVG ikonama
-      if (window.lucide) lucide.createIcons();
-
       // ---------------------------------------------------------
-      // 2) PREVODI
+      // 1) Izbor jezika
+      //    Svaki jezik je posebna stranica (/, /hr/, /bs/, /en/) koju pravi
+      //    npm run build. Ovde samo pamtimo izbor i otvaramo/zatvaramo meni.
       // ---------------------------------------------------------
-      const STORAGE_KEY = 'petlink-lang';
-      const metaDesc = document.querySelector('meta[name="description"]');
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      const ogLocale = document.querySelector('meta[property="og:locale"]');
-
-      // Srpski tekst se čita iz HTML-a, pa ga ne treba duplirati u TRANSLATIONS
-      const sr = {
-        'meta.title': document.title,
-        'meta.desc': metaDesc.content,
-        'menu.open': 'Otvori meni',
-        'menu.close': 'Zatvori meni',
-      };
-      document.querySelectorAll('[data-i18n]').forEach((el) => { sr[el.dataset.i18n] ??= el.innerHTML.trim(); });
-      document.querySelectorAll('[data-i18n-aria]').forEach((el) => { sr[el.dataset.i18nAria] ??= el.getAttribute('aria-label'); });
-      document.querySelectorAll('[data-i18n-alt]').forEach((el) => { sr[el.dataset.i18nAlt] ??= el.getAttribute('alt'); });
-      TRANSLATIONS.sr = sr;
-
-      let currentLang = 'sr';
-      const t = (key) => TRANSLATIONS[currentLang]?.[key] ?? sr[key] ?? key;
-
-      const safeStorage = {
-        get() { try { return localStorage.getItem(STORAGE_KEY); } catch { return null; } },
-        set(v) { try { localStorage.setItem(STORAGE_KEY, v); } catch { /* privatni režim */ } },
-      };
-
-      // Redosled: ?lang= u linku → ranije izabran jezik → jezik browsera → engleski
-      function detectLang() {
-        const fromUrl = new URLSearchParams(location.search).get('lang');
-        if (LANGUAGES[fromUrl]) return fromUrl;
-        const saved = safeStorage.get();
-        if (LANGUAGES[saved]) return saved;
-        for (const l of navigator.languages || [navigator.language]) {
-          const code = (l || '').toLowerCase().split('-')[0];
-          if (code === 'hr') return 'hr';
-          if (code === 'bs') return 'bs';
-          if (['sr', 'sh', 'cnr', 'me'].includes(code)) return 'sr';
-          if (code === 'en') return 'en';
-        }
-        return 'en';
-      }
-
       const langToggle = document.getElementById('lang-toggle');
       const langMenu = document.getElementById('lang-menu');
-      const langCurrent = document.getElementById('lang-current');
-
-      function applyLang(lang) {
-        currentLang = LANGUAGES[lang] ? lang : 'sr';
-        const info = LANGUAGES[currentLang];
-
-        document.documentElement.lang = info.htmlLang;
-        document.title = t('meta.title');
-        metaDesc.content = t('meta.desc');
-        ogTitle.content = t('meta.title');
-        ogDesc.content = t('meta.desc');
-        ogLocale.content = info.ogLocale;
-
-        document.querySelectorAll('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n); });
-        document.querySelectorAll('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
-        document.querySelectorAll('[data-i18n-alt]').forEach((el) => el.setAttribute('alt', t(el.dataset.i18nAlt)));
-
-        langCurrent.textContent = info.label;
-        document.querySelectorAll('a[data-legal-link]').forEach((a) => {
-          a.href = a.getAttribute('href').split('?')[0] + '?lang=' + currentLang;
-        });
-        langMenu.querySelectorAll('.lang-option').forEach((btn) => {
-          const active = btn.dataset.lang === currentLang;
-          btn.setAttribute('aria-current', active ? 'true' : 'false');
-          btn.classList.toggle('bg-brand-50', active);
-          btn.classList.toggle('text-brand-700', active);
-          btn.classList.toggle('font-semibold', active);
-        });
-        updateMenuLabel();
-      }
 
       const setLangMenu = (open) => {
         langMenu.classList.toggle('hidden', !open);
@@ -1434,16 +795,12 @@
         e.stopPropagation();
         setLangMenu(langMenu.classList.contains('hidden'));
       });
-      langMenu.querySelectorAll('.lang-option').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          applyLang(btn.dataset.lang);
-          safeStorage.set(currentLang);
-          // Upiši jezik u adresu da se link može podeliti na tom jeziku
-          const url = new URL(location.href);
-          url.searchParams.set('lang', currentLang);
-          history.replaceState(null, '', url);
-          setLangMenu(false);
-          langToggle.focus();
+      langMenu.querySelectorAll('.lang-option').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          try { localStorage.setItem('petlink-lang', link.dataset.lang); } catch { /* privatni režim */ }
+          // Zadrži sekciju na kojoj je korisnik bio (npr. #galerija)
+          location.href = link.getAttribute('href') + location.hash;
         });
       });
       document.addEventListener('click', (e) => {
@@ -1451,7 +808,7 @@
       });
 
       // ---------------------------------------------------------
-      // 3) Navbar: blur + senka nakon skrolovanja
+      // 2) Navbar: blur + senka nakon skrolovanja
       // ---------------------------------------------------------
       const navbar = document.getElementById('navbar');
       const onScroll = () => navbar.classList.toggle('is-scrolled', window.scrollY > 10);
@@ -1459,13 +816,13 @@
       window.addEventListener('scroll', onScroll, { passive: true });
 
       // ---------------------------------------------------------
-      // 4) Mobilni meni (otvori/zatvori)
+      // 3) Mobilni meni (otvori/zatvori)
       // ---------------------------------------------------------
       const toggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('mobile-menu');
       function updateMenuLabel() {
         const open = !menu.classList.contains('hidden');
-        toggle.setAttribute('aria-label', t(open ? 'menu.close' : 'menu.open'));
+        toggle.setAttribute('aria-label', open ? toggle.dataset.labelClose : toggle.dataset.labelOpen);
       }
       const setMenu = (open) => {
         menu.classList.toggle('hidden', !open);
@@ -1483,11 +840,9 @@
         setLangMenu(false);
       });
 
-      // Primeni jezik tek kad su sve funkcije spremne
-      applyLang(detectLang());
 
       // ---------------------------------------------------------
-      // 5) Smooth scroll sa korekcijom za visinu fiksnog navbara
+      // 4) Smooth scroll sa korekcijom za visinu fiksnog navbara
       // ---------------------------------------------------------
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener('click', (e) => {
@@ -1503,7 +858,7 @@
       });
 
       // ---------------------------------------------------------
-      // 6) Scroll animacije (fade-in + slide-up) preko Intersection Observer-a
+      // 5) Scroll animacije (fade-in + slide-up) preko Intersection Observer-a
       // ---------------------------------------------------------
       const revealEls = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
@@ -1520,7 +875,7 @@
         revealEls.forEach((el) => el.classList.add('is-visible'));
       }
 
-      // 7) Tekuća godina u footeru
+      // 6) Tekuća godina u footeru
       document.getElementById('year').textContent = new Date().getFullYear();
     });
   </script>

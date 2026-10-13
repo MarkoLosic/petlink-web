@@ -1,0 +1,21 @@
+{
+  "name": "petlink-web",
+  "private": true,
+  "scripts": {
+    "build": "npm run icons && npm run pages && npm run fonts && npm run css",
+    "icons": "node scripts/build-icons.mjs",
+    "pages": "node scripts/build-pages.mjs",
+    "fonts": "node scripts/copy-fonts.mjs",
+    "css": "tailwindcss -i src/styles.css -o assets/styles.css --minify",
+    "css:watch": "tailwindcss -i src/styles.css -o assets/styles.css --watch",
+    "og": "node scripts/build-og.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "linkedom": "^0.18.13",
+    "lucide-static": "^0.460.0",
+    "tailwindcss": "^3.4.16"
+  }
+}
