@@ -21,10 +21,10 @@
 
   // Kratki tekstovi u zaglavlju/podnožju (sve ostalo je u <article>)
   const UI = {
-    sr: { back: 'Nazad na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uslovi korišćenja', contact: 'Kontakt', rights: 'Sva prava zadržana.', langLabel: 'Izaberi jezik' },
-    hr: { back: 'Natrag na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uvjeti korištenja', contact: 'Kontakt', rights: 'Sva prava pridržana.', langLabel: 'Odaberi jezik' },
-    bs: { back: 'Nazad na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uslovi korištenja', contact: 'Kontakt', rights: 'Sva prava zadržana.', langLabel: 'Izaberi jezik' },
-    en: { back: 'Back to home', toc: 'Contents', privacy: 'Privacy Policy', terms: 'Terms of Use', contact: 'Contact', rights: 'All rights reserved.', langLabel: 'Choose language' },
+    sr: { back: 'Nazad na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uslovi korišćenja', contact: 'Kontakt', rights: 'Sva prava zadržana.', icons: 'Ikonice', langLabel: 'Izaberi jezik' },
+    hr: { back: 'Natrag na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uvjeti korištenja', contact: 'Kontakt', rights: 'Sva prava pridržana.', icons: 'Ikone', langLabel: 'Odaberi jezik' },
+    bs: { back: 'Nazad na početnu', toc: 'Sadržaj', privacy: 'Politika privatnosti', terms: 'Uslovi korištenja', contact: 'Kontakt', rights: 'Sva prava zadržana.', icons: 'Ikonice', langLabel: 'Izaberi jezik' },
+    en: { back: 'Back to home', toc: 'Contents', privacy: 'Privacy Policy', terms: 'Terms of Use', contact: 'Contact', rights: 'All rights reserved.', icons: 'Icons', langLabel: 'Choose language' },
   };
 
   const safeStorage = {
@@ -49,7 +49,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.lucide) lucide.createIcons();
 
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();

@@ -30,17 +30,12 @@
 }
 
 @layer components {
-  /* Lucide ikone iz sprite-a (<svg class="icon"><use href="#i-ime"/></svg>).
-     U components sloju da bi ih fill-white / fill-current mogli pregaziti. */
+  /* Phosphor ikone iz sprite-a (<svg class="icon"><use href="#i-ime"/></svg>).
+     Pune (fill) ikone — boja dolazi iz text-* klase preko currentColor. */
   .icon {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    fill: currentColor;
     flex-shrink: 0;
-  }
-}
+  }}
 
 /* "Floating" animacija za mockup telefona */
 @keyframes float {

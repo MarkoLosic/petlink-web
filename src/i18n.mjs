@@ -185,6 +185,7 @@ export const TRANSLATIONS = {
     'social.fb': 'PetLink na Facebooku',
     'social.x': 'PetLink na X-u (Twitter)',
     'footer.rights': 'Sva prava pridržana.',
+    'footer.icons': 'Ikone',
   },
 
   /* ---------------------------- BOSANSKI ---------------------------- */
@@ -352,6 +353,7 @@ export const TRANSLATIONS = {
     'social.fb': 'PetLink na Facebooku',
     'social.x': 'PetLink na X-u (Twitter)',
     'footer.rights': 'Sva prava zadržana.',
+    'footer.icons': 'Ikonice',
   },
 
   /* ---------------------------- ENGLISH ----------------------------- */
@@ -519,5 +521,6 @@ export const TRANSLATIONS = {
     'social.fb': 'PetLink on Facebook',
     'social.x': 'PetLink on X (Twitter)',
     'footer.rights': 'All rights reserved.',
+    'footer.icons': 'Icons',
   },
 };

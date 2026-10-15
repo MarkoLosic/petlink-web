@@ -4,6 +4,9 @@
 html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 body { -webkit-font-smoothing: antialiased; }
 
+/* Phosphor ikone iz sprite-a (<svg class="icon"><use href="#i-ime"/></svg>) */
+.icon { fill: currentColor; flex-shrink: 0; }
+
 .legal { max-width: 46rem; line-height: 1.75; color: rgba(31, 26, 23, 0.82); overflow-wrap: anywhere; }
 .legal .eyebrow { font-family: Poppins, Inter, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #EA580C; }
 .legal h1 { margin-top: 0.5rem; font-family: Poppins, Inter, sans-serif; font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: #1F1A17; }
